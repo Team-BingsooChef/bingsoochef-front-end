@@ -1,0 +1,29 @@
+.prelogin_form {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
+    background-size: cover;
+    background-position: center;
+    }
+
+    .prelogin_form button{
+     
+        margin-top:10px;
+        width: 329px;
+        height: 60px;
+        left: 32px;
+        top: 372px;
+
+        background-color: antiquewhite;
+        text-align: center;
+        border-radius: 16px;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 20px;
+    
+        letter-spacing: 3px;
+    }
