@@ -1,0 +1,31 @@
+.start_form {
+    font-family: 'Do Hyeon';
+    position: relative;
+    width: 393px;
+    height: 852px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background_vivid.png'); 
+    background-size: cover;
+    background-position: center
+    }
+
+.start_form button{
+    font-family: 'Do Hyeon';
+    margin-top: 180px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 329px;
+    height: 60px;
+    left: 32px;
+    top: 372px;
+    background-color: antiquewhite;
+    border-radius: 16px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+
+}

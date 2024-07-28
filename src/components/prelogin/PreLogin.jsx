@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 
 const PreLogin = () => {
@@ -10,8 +9,8 @@ const PreLogin = () => {
 
   return (
     <div>
-      <h1>Pre-Login Page</h1>
-      <button onClick={goToLogin}>Go to Login</button>
+      <h1>Pre-Login Page하십시옹</h1>
+      <button onClick={goToLogin}>Go to Login해요잉</button>
     </div>
   );
 };
