@@ -1,0 +1,22 @@
+.main_form {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    
+    }
+.main_form h1{
+    position: absolute;
+    top: 15%; /* Vertical center */
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    font-size: 60px;
+    color: #03526B;
+}

@@ -1,48 +1,28 @@
-.start_form {
+.emailcheck_form {
     position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
+    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\Email_check_background.png');
     background-size: cover;
     background-position: center;
-    text-align: center;
     
     }
-.start_form h1{
-    position: absolute;
-    top: 15%; /* Vertical center */
-    left: 50%;
-    transform: translate(-50%);
-    text-align: center;
-    font-size: 60px;
-    color: #03526B;
-}
 
-.start_form img{
-    position: absolute;
-    top: 25%; /* Vertical center */
-    left: 50%;
-    transform: translate(-50%);
-   
-   
-}
-
-
-.start_form button{
+.emailcheck_form button{
     position: absolute;
     top: 50%; /* Vertical center */
     left: 50%; /* Horizontal center */
     transform: translate(-50%, -50%); /* Adjust for button size */
     box-sizing: border-box;
-    width: 500px;
+    width: 300px;
     height: 60px;
-    background-color: #FDF0CC;
+    background-color: #2589FF;
     border-radius: 16px;
     border: none;
-    color: #03526B;
+    color:#FFFFFF;
     font-weight: 400;
     font-size: 2rem;
     line-height: 20px;

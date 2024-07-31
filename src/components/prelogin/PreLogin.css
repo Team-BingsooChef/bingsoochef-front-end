@@ -1,29 +1,62 @@
 .prelogin_form {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   justify-content: center;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
+   
+    
     background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
     background-size: cover;
     background-position: center;
+    gap:30px;
     }
 
     .prelogin_form button{
-     
-        margin-top:10px;
-        width: 329px;
-        height: 60px;
-        left: 32px;
-        top: 372px;
+        width: 80%;
+        max-width: 360px;
+        height: 65px;
 
-        background-color: antiquewhite;
-        text-align: center;
+        margin:10px 0;
+        padding:15px;
+
+        border: none;
         border-radius: 16px;
+        
+        text-align: center;
         font-weight: 400;
         font-size: 32px;
         line-height: 20px;
-    
         letter-spacing: 3px;
+        cursor: pointer;
+        box-sizing: border-box;
+        
     }
+
+    .prelogin_form button:nth-child(1) {
+        background-color: #ffeb3b; /* 노란색 배경 */
+        color: black;
+        
+      }
+      
+      .prelogin_form button:nth-child(2) {
+        background-color: #00c853; /* 초록색 배경 */
+        color: white;
+      }
+      
+      .prelogin_form button:nth-child(3) {
+        background-color: #000000; /* 검은색 배경 */
+        color: white;
+      }
+      
+      .prelogin_form button:nth-child(4) {
+        background-color: #ffe0b2; /* 연한 주황색 배경 */
+        color: black;
+      }
+      
+      .prelogin_form button:nth-child(5) {
+        background-color: #0288d1; /* 파란색 배경 */
+        color: white;
+      }
