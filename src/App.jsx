@@ -6,7 +6,7 @@ import CreateAccount from "./components/createaccount/CreateAccount";
 import EmailCheck from "./components/emailcheck/EmailCheck";
 import SetPassword from "./components/setpassword/SetPassword";
 import AfterSignup from "./components/aftersignup/AfterSignup";
-import Main from "./components/main/main";
+import Main from "./components/main/Main";
 import './App.css'
 
 function App() {
