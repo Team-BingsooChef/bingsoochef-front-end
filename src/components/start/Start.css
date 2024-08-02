@@ -5,46 +5,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
+    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background_sun.png');
     background-size: cover;
     background-position: center;
     text-align: center;
     
     }
+
 .start_form h1{
     position: absolute;
     top: 15%; /* Vertical center */
     left: 50%;
     transform: translate(-50%);
     text-align: center;
-    font-size: 60px;
+    white-space : nowrap;
+    font-size: 130px;
     color: #03526B;
-}
-
-.start_form img{
-    position: absolute;
-    top: 25%; /* Vertical center */
-    left: 50%;
-    transform: translate(-50%);
-   
-   
 }
 
 
 .start_form button{
     position: absolute;
-    top: 50%; /* Vertical center */
-    left: 50%; /* Horizontal center */
-    transform: translate(-50%, -50%); /* Adjust for button size */
+    top: 57%; /* Vertical center */
+    left: 50%;
+    transform: translate(-50%);
     box-sizing: border-box;
-    width: 500px;
-    height: 60px;
+    width: 600px;
+    height: 120px;
     background-color: #FDF0CC;
-    border-radius: 16px;
+    border-radius: 25px;
     border: none;
     color: #03526B;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 4rem;
     line-height: 20px;
     text-align: center;
     letter-spacing: 3px;

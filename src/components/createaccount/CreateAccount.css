@@ -11,16 +11,96 @@
     
     }
 
-.createaccount_form button{
+.title {
     position: absolute;
-    top: 50%; /* Vertical center */
-    left: 50%; /* Horizontal center */
-    transform: translate(-50%, -50%); /* Adjust for button size */
+    top: 5%; /* Vertical center */
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    white-space : nowrap;
+    font-size: 50px;
+    color: #03526B;
+}
+
+
+
+.input label{
+    position: absolute;
+    top:22%; /* Vertical center */
+    left:23%;
+    transform: translate( -50%); /* Adjust for button size */
+    padding:10px;
+    font-size: 25px;
     box-sizing: border-box;
-    width: 300px;
-    height: 60px;
+    margin-bottom: 5px; /* label 요소에만 적용 */
+    
+}
+
+.input input{
+    position: absolute;
+    top: 27%; /* Vertical center */
+    left: 50%; /* Horizontal center */
+    transform: translate(-65%, -50%); /* Adjust for button size */
+    padding:10px;
+    box-sizing: border-box;
+
+    width: 450px;
+    height: 120px;
+
+    border-radius: 25px;
+    border: none;
+
+    color: #03526B;
+    background-color: #FDF0CC ;
+
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.input button{
+    position: absolute;
+    top: 7%; /* Vertical center */
+    left: 50%; /* Horizontal center */
+    transform: translate(-65%, -50%); /* Adjust for button size */
+    padding:10px;
+    box-sizing: border-box;
+
+    width:8880px;
+    height: 120px;
+
+    border-radius: 25px;
+    border: none;
+
+    color: #03526B;
+    background-color: #FDF0CC ;
+
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+
+.createaccount_form button{
+    
+    position: absolute;
+    transform: translate(-50%);
+
+    
+    width: 600px;
+    height: 120px;
+  
+    top: 40%; /* Vertical center */
+    left: 50%; /* Horizontal center */
+
+    box-sizing: border-box;
+
     color: #FDF0CC;
-    border-radius: 16px;
+    border-radius: 10px;
     border: none;
     background-color: #03526B;
     font-weight: 400;

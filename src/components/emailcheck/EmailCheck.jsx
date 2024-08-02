@@ -16,3 +16,4 @@ const EmailCheck = () => {
 };
 
 export default EmailCheck;
+

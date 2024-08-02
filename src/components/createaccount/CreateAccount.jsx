@@ -10,8 +10,15 @@ const CreateAcccount = () => {
 
   return (
     <form className='createaccount_form'>
-      <button  onClick={goToEmailCheck}>인증하기</button>
+      <div className='title'><label>가입하기</label></div>
+      <div className='input'>
+          <label>이메일</label>
+          <input type ="email" placeholder='이메일을 입력하세요'></input>
+      </div>
+      
+      <button className='check' onClick={goToEmailCheck}>인증하기</button>
     </form>
+   
   );
 };
 
