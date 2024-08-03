@@ -1,8 +1,12 @@
+import React,{useState} from 'react'; // eslint-disable-line no-unused-vars
 import './CreateAccount.css'
 import { useNavigate } from 'react-router-dom';
 
 const CreateAcccount = () => {
+
   const navigate = useNavigate(); // useNavigate 훅을 사용하여 프로그래밍적 내비게이션을 구현합니다.
+
+  const [certification,certificationsent] = useState(false); // eslint-disable-line no-unused-vars
 
   const goToEmailCheck = () => {
     navigate('emailcheck'); // 로그인 페이지로 이동
@@ -10,7 +14,7 @@ const CreateAcccount = () => {
 
   return (
     <form className='createaccount_form'>
-      <div className='title'><label>가입하기</label></div>
+      <div className='title'><label>가입하기</label></div> 
       <div className='input'>
           <label>이메일</label>
           <input type ="email" placeholder='이메일을 입력하세요'></input>

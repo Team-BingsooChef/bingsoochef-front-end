@@ -23,88 +23,72 @@
 }
 
 
-
 .input label{
     position: absolute;
-    top:22%; /* Vertical center */
-    left:23%;
+    top:24%; /* Vertical center */
+    left:18%;
     transform: translate( -50%); /* Adjust for button size */
     padding:10px;
     font-size: 25px;
     box-sizing: border-box;
     margin-bottom: 5px; /* label 요소에만 적용 */
+    color: #03526B;
     
 }
 
 .input input{
     position: absolute;
-    top: 27%; /* Vertical center */
+    top: 30%; /* Vertical center */
     left: 50%; /* Horizontal center */
-    transform: translate(-65%, -50%); /* Adjust for button size */
-    padding:10px;
+    transform: translate(-50%, -50%); /* Adjust for button size */
+    
+   
+    width: 70%;
+    max-width: 820px;
+    height: 8%;
+    max-height: 150px;
     box-sizing: border-box;
-
-    width: 450px;
-    height: 120px;
 
     border-radius: 25px;
     border: none;
 
     color: #03526B;
     background-color: #FDF0CC ;
+   
 
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 20px;
-    text-align: center;
-    letter-spacing: 3px;
+    text-align: left;
+    letter-spacing: 2px;
 }
 
-.input button{
-    position: absolute;
-    top: 7%; /* Vertical center */
-    left: 50%; /* Horizontal center */
-    transform: translate(-65%, -50%); /* Adjust for button size */
-    padding:10px;
-    box-sizing: border-box;
 
-    width:8880px;
-    height: 120px;
-
-    border-radius: 25px;
-    border: none;
-
-    color: #03526B;
-    background-color: #FDF0CC ;
-
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 20px;
-    text-align: center;
-    letter-spacing: 3px;
-}
 
 
 .createaccount_form button{
     
     position: absolute;
+    top:36%; /* Vertical center */
+    left: 50%; /* Horizontal center */
     transform: translate(-50%);
 
-    
-    width: 600px;
-    height: 120px;
-  
-    top: 40%; /* Vertical center */
-    left: 50%; /* Horizontal center */
 
+    width: 70%;
+    max-width: 820px;
+    height: 8%;
+    max-height: 150px;
     box-sizing: border-box;
 
-    color: #FDF0CC;
-    border-radius: 10px;
+    border-radius: 25px;
     border: none;
+
+ 
+    color: #FDF0CC;
     background-color: #03526B;
+
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 4rem;
     line-height: 20px;
     text-align: center;
     letter-spacing: 3px;

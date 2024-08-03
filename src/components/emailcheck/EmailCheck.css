@@ -5,28 +5,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\Email_check_background.png');
+    background-color: #194981;
     background-size: cover;
     background-position: center;
     
     }
 
 .emailcheck_form button{
+    width: 70%;
+    max-width: 820px;
+    height: 8%;
+    max-height: 150px;
+
+    
     position: absolute;
     top: 50%; /* Vertical center */
     left: 50%; /* Horizontal center */
     transform: translate(-50%, -50%); /* Adjust for button size */
     box-sizing: border-box;
-    width: 300px;
-    height: 60px;
-    background-color: #2589FF;
-    border-radius: 16px;
+
     border: none;
+    border-radius: 25px;
+ 
+   
+    background-color: #2589FF;
     color:#FFFFFF;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 20px;
+
     text-align: center;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 20px;
+   
     letter-spacing: 3px;
 
 }
