@@ -38,7 +38,7 @@ const AfterSignup = () => {
             <h3>딸기 빙수</h3>
           </div>
           <div className="slide_item">
-          <img src={mango} alt="망고 빙수" />
+          <img src={mango} alt="망고 빙수"/>
             <h3>망고 빙수</h3>
           </div>
           <div className="slide_item">

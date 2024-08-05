@@ -7,11 +7,7 @@
     height: 100vh;
    
     background-image:url('/src/assets/background.png');
-<<<<<<< HEAD
-        background-size: cover;
-=======
     background-size: cover;
->>>>>>> 15f1cd10cf2056c91d6cfd4cd1a54dbb79ea28d4
     background-position: center;
     gap:40px;
     }
