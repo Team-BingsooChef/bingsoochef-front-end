@@ -5,7 +5,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
     background-image:url('/src/assets/background.png');
+=======
+    background-image:url('/src/assets/background_sun.png');
+>>>>>>> 15f1cd10cf2056c91d6cfd4cd1a54dbb79ea28d4
     background-size: cover;
     background-position: center;
     text-align: center;
