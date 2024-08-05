@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
    
-    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
+    background-image:url('/Desktop/bingsoochef/src/assets/background.png');
     background-size: cover;
     background-position: center;
     gap:40px;
