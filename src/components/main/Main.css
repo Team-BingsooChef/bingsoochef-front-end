@@ -5,8 +5,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background.png');
-    background-size: cover;
+    background-image:url('/src/assets/background.png');
+        background-size: cover;
     background-position: center;
     text-align: center;
     

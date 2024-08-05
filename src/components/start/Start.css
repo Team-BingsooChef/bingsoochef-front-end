@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('C:\Users\heydy\Desktop\bingsoochef\src\assets\background_sun.png');
+    background-image:url('/src/assets/background.png');
     background-size: cover;
     background-position: center;
     text-align: center;
