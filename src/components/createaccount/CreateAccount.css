@@ -1,19 +1,20 @@
 .creataccount_display{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
 .createaccount_form {
     position: relative;
     width: 100vw;
-    max-width: 520px;
+    max-width: 980px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image:url('/src/assets/background.png');
+    background-image:url('/src/assets/background2.png');
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -21,19 +22,21 @@
     }
 
 .back {
-    position: absolute;
-    top: 5%;
-    left: 5%; 
+    position: relative;
     background: none;
+    width: 30%;
+    top: -23%;
+    right: 36%;
     border: none;
     cursor: pointer;
   /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
 .back img{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
+
 .title {
     position: absolute;
     top: 5%; /* Vertical center */
@@ -47,9 +50,9 @@
 
 
 
-.input label{
+.inputlabel{
     position: absolute;
-    top:24%; /* Vertical center */
+    top:22%; /* Vertical center */
     left:18%;
     transform: translate( -50%); /* Adjust for button size */
     padding:10px;
@@ -74,51 +77,62 @@ input::placeholder{
     font-size: 16px;
     
 }
-.input input{
-    padding-bottom: 12px;
 
-    position: absolute;
-    top: 33%; /* Vertical center */
-    left: 50%; /* Horizontal center */
-    transform: translate(-50%, -50%); /* Adjust for button size */
+.inputdup_btnWrapper{ 
+    position: relative;
+    padding-bottom: 30%;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+}
 
+.input{
     width: 70%;
-    max-width: 820px;
-    height: 8%;
-    max-height: 150px;
+    height: 60px;
     box-sizing: border-box;
-
-    border-radius: 25px;
+    position: relative;
+    border-radius: 16px;
     border: none;
 
     color: #03526B;
     background-color: #FDF0CC ;
 
     font-weight: 400;
-    font-size: 3rem;
+    font-size: 20px;
     line-height: 20px;
-    text-align: left;
+    text-align: left ;
     letter-spacing: 2px;
 }
 
-
-
-
-.check{
+.duplicate{
+    position:relative;
+    width: 13%;
+    height: 60px;
+    box-sizing: border-box;
+    line-height: 60px;
+    font-size: 12px;
+    border-radius: 16px;
+    border: none;
+    color: white;
+    background-color: #61BFBF;
+    cursor: pointer;
     
-    position: absolute;
-    top:40%; /* Vertical center */
-    left: 50%; /* Horizontal center */
+}
+
+.gotocheck{
+    position: relative;
+    top:-10%; /* Vertical center */
+    left: 35%; /* Horizontal center */
     transform: translate(-50%);
 
     padding:10px;
     width: 70%;
-    max-width: 820px;
-    height: 8%;
-    max-height: 150px;
+    height: 7%;
     box-sizing: border-box;
     
-    border-radius: 25px;
+    border-radius: 16px;
     border: none;
 
 
@@ -132,5 +146,62 @@ input::placeholder{
     letter-spacing: 3px;
 
     cursor: pointer;
+}
 
+.loginform_btnWrapper{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 50%;
+    top: 40px;
+}
+
+.loginform_btnWrapper button{
+    width: 50%;
+    height: 60px;
+    border-radius:16px;
+    box-sizing: border-box;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.kakao{
+    background-color: #ffe812;
+}
+
+.naver{
+    background-color: #03e266;
+    padding: 10px;
+}
+
+.google{
+    background-color: #f5f5f5;
+}
+
+.CAtext{
+    display: flex;
+    gap: 10px;
+    position: relative;
+    top: 20%;
+    color: #413C3C;
+    font-size: 14px;
+    padding-bottom: 40%;
+}
+.already{
+    position: relative;
+    top: 20%;
+    color: #413C3C;
+    font-size: 14px;
+}
+.gotologin{
+    position: relative;
+    top: 20%;
+    text-decoration-line: underline;
+    color: #0075FF;
+    font-size: 14px;
+    cursor: pointer;
 }

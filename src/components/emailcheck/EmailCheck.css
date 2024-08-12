@@ -1,6 +1,11 @@
+.emailcheck_display{
+    display:flex;
+    justify-content: center;
+}
 .emailcheck_form {
     position: relative;
     width: 100vw;
+    max-width: 980px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -61,6 +66,7 @@
     line-height: 20px;
    
     letter-spacing: 3px;
+    cursor: pointer;
 
 }
 

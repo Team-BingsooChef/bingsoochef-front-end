@@ -19,19 +19,36 @@ const CreateAcccount = () => {
   };
   
   return (
-    <div className="createaccount_display">
+    <div className='createaccount_display'>
       <form className='createaccount_form'>
         <button className='back' onClick={goToBack}>
           <img src={gotobackicon} alt="Icon" ></img>
         </button>
-        <div className='title'><label>가입하기</label></div> 
-        <div className='input'>
-          <label>이메일</label>
-          <input type ="email" placeholder='이메일을 입력해 주세요'></input>
+        <div className='title'>
+        <label>가입하기</label> 
+        </div> 
+        <label className='inputlabel'>이메일</label>
+        <div className='inputdup_btnWrapper'>
+          <input className='input' type ="email" placeholder='이메일을 입력해 주세요'></input>
+          <button className='duplicate'>중복 확인</button>
         </div>
-        <button className='duplicate'>중복 확인</button>
-      
-        <button className='check' onClick={goToEmailCheck}>인증하기</button>
+        <button className='gotocheck' onClick={goToEmailCheck}>인증하기</button>
+        <div className='loginform_btnWrapper'>
+          <button className='kakao' type="button">
+            <img src="/src/assets/kakaotalkicon.png" alt="Icon" /> 
+          </button>
+          <button className='naver' type="button">
+            <img src="/src/assets/navericon.png" alt="Icon" /> 
+          </button>
+          <button className='google' type="button">
+            <img src="/src/assets/googleicon.png" alt="Icon" /> 
+          </button>
+
+        </div>
+        <div className="CAtext">
+        <label className='already'>이미 계정이 있으신가요?</label>
+        <label className='gotologin'>로그인</label>
+        </div>
       </form>
     </div>
 

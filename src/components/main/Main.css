@@ -1,12 +1,12 @@
 .main_form {
     position: relative;
     width: 100vw;
-    max-width: 520px;
+    max-width: 980px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('/src/assets/background.png');
+    background-image:url('/src/assets/background_sun.png');
     background-size: cover;
     background-position: center;
     text-align: center;
