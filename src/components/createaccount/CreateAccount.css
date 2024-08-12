@@ -1,26 +1,50 @@
+.creataccount_display{
+    display: flex;
+    justify-content: center;
+}
+
+
 .createaccount_form {
     position: relative;
     width: 100vw;
+    max-width: 520px;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-image:url('/src/assets/background.png');
     background-size: cover;
     background-position: center;
+    text-align: center;
     
     }
 
+.back {
+    position: absolute;
+    top: 5%;
+    left: 5%; 
+    background: none;
+    border: none;
+    cursor: pointer;
+  /* 다른 요소보다 위에 표시되도록 설정 */
+}
+
+.back img{
+    width: 20px;
+    height: 20px;
+}
 .title {
     position: absolute;
-    top: 3%; /* Vertical center */
+    top: 5%; /* Vertical center */
     left: 50%;
     transform: translate(-50%);
     text-align: center;
     white-space : nowrap;
-    font-size: 50px;
+    font-size: 24px;
     color: #03526B;
 }
+
 
 
 .input label{
@@ -29,20 +53,35 @@
     left:18%;
     transform: translate( -50%); /* Adjust for button size */
     padding:10px;
-    font-size: 25px;
+    font-size: 16px;
     box-sizing: border-box;
     margin-bottom: 5px; /* label 요소에만 적용 */
     color: #03526B;
     
 }
 
+input::placeholder{
+    background-image: url('/src/assets/emailicon.png'); ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:  1px center;
+    background-position-x: 20px;
+    text-align: center;
+    text-indent: 0;
+    display: inline-flex;
+    font-weight: 400;
+    color: #777C89;
+    font-size: 16px;
+    
+}
 .input input{
+    padding-bottom: 12px;
+
     position: absolute;
-    top: 30%; /* Vertical center */
+    top: 33%; /* Vertical center */
     left: 50%; /* Horizontal center */
     transform: translate(-50%, -50%); /* Adjust for button size */
-    
-   
+
     width: 70%;
     max-width: 820px;
     height: 8%;
@@ -54,7 +93,6 @@
 
     color: #03526B;
     background-color: #FDF0CC ;
-   
 
     font-weight: 400;
     font-size: 3rem;
@@ -66,10 +104,10 @@
 
 
 
-.createaccount_form button{
+.check{
     
     position: absolute;
-    top:36%; /* Vertical center */
+    top:40%; /* Vertical center */
     left: 50%; /* Horizontal center */
     transform: translate(-50%);
 
@@ -83,14 +121,16 @@
     border-radius: 25px;
     border: none;
 
- 
+
     color: #FDF0CC;
     background-color: #03526B;
 
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 32px;
     line-height: 20px;
     text-align: center;
     letter-spacing: 3px;
+
+    cursor: pointer;
 
 }

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'; // eslint-disable-line no-unused-vars
 import './CreateAccount.css'
 import { useNavigate } from 'react-router-dom';
+import gotobackicon from '/src/assets/gotobackicon.png'; 
 
 const CreateAcccount = () => {
 
@@ -12,17 +13,28 @@ const CreateAcccount = () => {
     navigate('emailcheck'); // 로그인 페이지로 이동
   };
 
+  const goToBack = (e) => {
+    e.preventDefault();
+    window.history.back();// 로그인 페이지
+  };
+  
   return (
-    <form className='createaccount_form'>
-      <div className='title'><label>가입하기</label></div> 
-      <div className='input'>
+    <div className="createaccount_display">
+      <form className='createaccount_form'>
+        <button className='back' onClick={goToBack}>
+          <img src={gotobackicon} alt="Icon" ></img>
+        </button>
+        <div className='title'><label>가입하기</label></div> 
+        <div className='input'>
           <label>이메일</label>
-          <input type ="email" placeholder='이메일을 입력하세요'></input>
-      </div>
+          <input type ="email" placeholder='이메일을 입력해 주세요'></input>
+        </div>
+        <button className='duplicate'>중복 확인</button>
       
-      <button className='check' onClick={goToEmailCheck}>인증하기</button>
-    </form>
-   
+        <button className='check' onClick={goToEmailCheck}>인증하기</button>
+      </form>
+    </div>
+
   );
 };
 

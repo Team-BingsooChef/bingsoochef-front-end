@@ -7,25 +7,32 @@ import EmailCheck from "./components/emailcheck/EmailCheck";
 import SetPassword from "./components/setpassword/SetPassword";
 import AfterSignup from "./components/aftersignup/AfterSignup";
 import Main from "./components/main/Main";
-import './App.css'
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-          <Route path="/" element={<Startpage />} />
-          <Route path="prelogin" element={<PreLogin />}/>
-          <Route path="/prelogin/login" element={<Login />} />
-          <Route path="/prelogin/createaccount" element={<CreateAccount />} />
-          <Route path="/prelogin/createaccount/emailcheck" element={<EmailCheck />} />
-          <Route path="/prelogin/createaccount/emailcheck/setpassword" element={<SetPassword />} />
-          <Route path="/prelogin/createaccount/emailcheck/setpassword/aftersignup" element={<AfterSignup />} />
-          <Route path="/main" element={<Main />} />
-       </Routes>
-          
-      </Router>
-      
+        <Route path="/" element={<Startpage />} />
+        <Route path="/prelogin" element={<PreLogin />} />
+        <Route path="/prelogin/login" element={<Login />} />
+        <Route path="/prelogin/createaccount" element={<CreateAccount />} />
+        <Route
+          path="/prelogin/createaccount/emailcheck"
+          element={<EmailCheck />}
+        />
+        <Route
+          path="/prelogin/createaccount/emailcheck/setpassword"
+          element={<SetPassword />}
+        />
+        <Route
+          path="/prelogin/createaccount/emailcheck/setpassword/aftersignup"
+          element={<AfterSignup />}
+        />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;

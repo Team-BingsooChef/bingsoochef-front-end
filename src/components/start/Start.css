@@ -1,6 +1,12 @@
+.start_display{
+    display: flex;
+    justify-content: center;
+}
+
 .start_form {
     position: relative;
     width: 100vw;
+    max-width: 520px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,7 +25,7 @@
     transform: translate(-50%);
     text-align: center;
     white-space : nowrap;
-    font-size: 130px;
+    font-size: 48px;
     color: #03526B;
 }
 
@@ -30,16 +36,17 @@
     left: 50%;
     transform: translate(-50%);
     box-sizing: border-box;
-    width: 600px;
-    height: 120px;
+    width: 80%;
+    height: 60px;
     background-color: #FDF0CC;
     border-radius: 25px;
     border: none;
     color: #03526B;
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 32px;
     line-height: 20px;
     text-align: center;
     letter-spacing: 3px;
-
+    font-weight: 600;
+    cursor: pointer;
 }
