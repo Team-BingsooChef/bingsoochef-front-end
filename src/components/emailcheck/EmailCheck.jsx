@@ -20,6 +20,10 @@ const EmailCheck = () => {
       });
   }, []);
 
+  const goToSetPassword = () => {
+    navigate('setpassword'); // 
+  };
+
   const handleChange = (e) => {
     setInputCode(e.target.value); // 코드 입력될때마다 업데이트 하는 역할
   };
@@ -41,7 +45,7 @@ const EmailCheck = () => {
         전달받은 코드를 5분 안에 입력해주세요.
       </p>
       <input type="text" value={inputCode} onChange={handleChange} />
-      <button type="submit">인증하기</button> 
+      <button type="submit" onClick={goToSetPassword}>인증하기</button> 
     </form>
     </div>
   );

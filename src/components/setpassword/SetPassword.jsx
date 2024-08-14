@@ -1,4 +1,4 @@
-import './SetPassword.css';
+import styles from './SetPassword.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const SetPassword = () => {
@@ -9,9 +9,14 @@ const SetPassword = () => {
   };
 
   return (
-    <form className='setpassword_form'>
-      <button onClick={goToAftersignup}>회원가입</button>
+    <div className={styles.setpassword_display}>
+    <form className={styles.setpassword_form}>
+      <div className={styles.title}>
+    
+      </div>
+      <button className={styles.signup} onClick={goToAftersignup}>회원가입</button>
     </form>
+    </div>
   );
 };
 

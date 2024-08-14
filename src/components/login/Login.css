@@ -1,13 +1,13 @@
 .login_display{
     display: flex;
     justify-content: center;
+    width: 100%;   
+    height: 100vh;
 }
 
 .login_form {
-    position: relative;
     width: 100vw;
-    max-width: 980px;
-    height: 100vh;
+    max-width: 520px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,8 +173,6 @@
 }
 
 .Ltext{
-    display: flex;
-    position: relative;
     color: #413C3C;
     font-size: 14px;
     justify-content: center;
@@ -184,10 +182,8 @@
 }
 .noaccount{
     color: #413C3C;
-    width: 100%;
 }
 .gotocreate{
-    width: 100%;
     text-decoration-line: underline;
     color: #0075FF;
     cursor: pointer;

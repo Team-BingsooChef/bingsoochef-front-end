@@ -10,12 +10,12 @@ const Startpage = () => {
 
   return (
     <div className="start_display">
-      <form className="start_form">
+      <div className="start_form">
         <div>
           <h1>녹지마 빙수야!</h1>
           <button onClick={goToPreLogin}>시작하기</button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
