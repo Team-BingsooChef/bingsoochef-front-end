@@ -6,6 +6,8 @@ import CreateAccount from "./components/createaccount/CreateAccount";
 import EmailCheck from "./components/emailcheck/EmailCheck";
 import SetPassword from "./components/setpassword/SetPassword";
 import AfterSignup from "./components/aftersignup/AfterSignup";
+import FindPassword from "./components/findpassword/FindPassword";
+import ResetPassword from "./components/resetpassword/ResetPassword";
 import Main from "./components/main/Main";
 import "./App.css";
 
@@ -29,6 +31,9 @@ function App() {
           path="/prelogin/createaccount/emailcheck/setpassword/aftersignup"
           element={<AfterSignup />}
         />
+        <Route path="/findpassword" element={<FindPassword />} />
+        <Route path="/findpassword/emailcheck" element={<EmailCheck />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/main" element={<Main />} />
       </Routes>
     </Router>

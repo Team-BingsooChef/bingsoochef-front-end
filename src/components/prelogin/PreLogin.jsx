@@ -19,14 +19,14 @@ const PreLogin = () => {
       <div className={styles.preloginForm}>
         <div className={styles.preloginForm_btnWrapper}>
           <button className={styles.kakao} type="button">
-          <img src="/src/assets/kakaotalkicon.png" alt="Icon" style={styles.icon} /> 
+          <img src="/src/assets/icon/kakaotalkicon.png" alt="Icon" style={styles.icon} /> 
             카카오 계정으로 로그인
           </button>
           <button className={styles.naver} type="button">
-          <img src="/src/assets/navericon.png" alt="Icon" style={styles.icon} /> 
+          <img src="/src/assets/icon/navericon.png" alt="Icon" style={styles.icon} /> 
             네이버 계정으로 로그인</button>
           <button className={styles.google} type="button">
-          <img src="/src/assets/googleicon.png" alt="Icon" style={styles.icon} /> 
+          <img src="/src/assets/icon/googleicon.png" alt="Icon" style={styles.icon} /> 
           구글 계정으로 로그인</button>
         </div>
 

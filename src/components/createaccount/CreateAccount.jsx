@@ -1,7 +1,7 @@
 import React,{useState} from 'react'; // eslint-disable-line no-unused-vars
-import './CreateAccount.css'
+import styles from './CreateAccount.module.css'
 import { useNavigate } from 'react-router-dom';
-import gotobackicon from '/src/assets/gotobackicon.png'; 
+import gotobackicon from '/src/assets/icon/gotobackicon.png'; 
 
 const CreateAcccount = () => {
 
@@ -19,37 +19,39 @@ const CreateAcccount = () => {
   };
   
   return (
-    <div className='createaccount_display'>
-      <form className='createaccount_form'>
-        <button className='back' onClick={goToBack}>
-          <img src={gotobackicon} alt="Icon" ></img>
-        </button>
-        <div className='title'>
-        <label>가입하기</label> 
-        </div> 
-        <label className='inputlabel'>이메일</label>
-        <div className='inputdup_btnWrapper'>
-          <input className='input' type ="email" placeholder='이메일을 입력해 주세요'></input>
-          <button className='duplicate'>중복 확인</button>
+    <div className={styles.createaccount_display}>
+      <div className={styles.createaccount_form}>
+        <div className={styles.top}>
+          <button className={styles.back} onClick={goToBack}>
+            <img src={gotobackicon} alt="Icon" ></img>
+          </button>
+          <div className={styles.title}>
+          <label>가입하기</label> 
+          </div> 
         </div>
-        <button className='gotocheck' onClick={goToEmailCheck}>인증하기</button>
-        <div className='loginform_btnWrapper'>
-          <button className='kakao' type="button">
-            <img src="/src/assets/kakaotalkicon.png" alt="Icon" /> 
+        <label className={styles.inputlabel}>이메일</label>
+        <div className={styles.inputdup_btnWrapper}>
+          <input className={styles.input} type ="email" placeholder='이메일을 입력해 주세요'></input>
+          <button className={styles.duplicate}>중복 확인</button>
+        </div>
+        <button className={styles.gotocheck} onClick={goToEmailCheck}>인증하기</button>
+        <div className={styles.loginform_btnWrapper}>
+          <button className={styles.kakao} type="button">
+            <img src="/src/assets/icon/kakaotalkicon.png" alt="Icon" /> 
           </button>
-          <button className='naver' type="button">
-            <img src="/src/assets/navericon.png" alt="Icon" /> 
+          <button className={styles.naver} type="button">
+            <img src="/src/assets/icon/navericon.png" alt="Icon" /> 
           </button>
-          <button className='google' type="button">
-            <img src="/src/assets/googleicon.png" alt="Icon" /> 
+          <button className={styles.google} type="button">
+            <img src="/src/assets/icon/googleicon.png" alt="Icon" /> 
           </button>
 
         </div>
-        <div className="CAtext">
-        <label className='already'>이미 계정이 있으신가요?</label>
-        <label className='gotologin'>로그인</label>
+        <div className={styles.CAtext}>
+        <label className={styles.already}>이미 계정이 있으신가요?</label>
+        <label className={styles.gotologin} onClick={goToBack}>로그인</label>
         </div>
-      </form>
+      </div>
     </div>
 
   );
