@@ -10,13 +10,17 @@ const SetPassword = () => {
 
   return (
     <div className={styles.setpassword_display}>
-    <form className={styles.setpassword_form}>
-      <div className={styles.title}>
-    
+    <div className={styles.setpassword_form}>
+      <label className={styles.title}>가입하기</label>
+      <div className={styles.Wrapper}>
+        <label>비밀번호</label>
+        <input className={styles.input} type ="email" placeholder='10~15자, 특수문자 포함'></input>
+        <label>비밀번호 확인</label>
+        <input className={styles.input} type ="password" placeholder='비밀번호를 한번 더 입력해 주세요'></input>
       </div>
       <button className={styles.signup} onClick={goToAftersignup}>회원가입</button>
-    </form>
     </div>
+  </div>
   );
 };
 
