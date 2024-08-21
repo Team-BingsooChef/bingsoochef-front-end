@@ -9,6 +9,11 @@ import AfterSignup from "./components/aftersignup/AfterSignup";
 import FindPassword from "./components/findpassword/FindPassword";
 import ResetPassword from "./components/resetpassword/ResetPassword";
 import Main from "./components/main/Main";
+import Setting from "./components/setting/Setting";
+import SeeTPlist from "./components/seetplist/SeeTPlist";
+import Search from "./components/search/Search";
+import ChangeFlavor from "./components/changeflavor/ChangeFlavor";
+import Introduce from "./components/introduce/Introduce";
 import "./App.css";
 
 function App() {
@@ -35,6 +40,11 @@ function App() {
         <Route path="/findpassword/emailcheck" element={<EmailCheck />} />
         <Route path="/findpassword/emailcheck/resetpassword" element={<ResetPassword />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/seetplist" element={<SeeTPlist />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/changeflavor" element={<ChangeFlavor />} />
+        <Route path="/introduce" element={<Introduce />} />
       </Routes>
     </Router>
   );

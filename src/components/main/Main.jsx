@@ -4,7 +4,6 @@ import "./Main.css";
 import Sidebar from './Sidebar';
 import menuicon from '/src/assets/icon/menuicon.svg';
 import Bingsoo from './Bingsoo';
-import ToppingSlider from './ToppingSlider';
 
 
 const Main = () => {
