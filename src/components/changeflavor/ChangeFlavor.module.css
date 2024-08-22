@@ -10,11 +10,53 @@
     max-width: 520px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-image: url("/src/assets/background/menu.png");
+    background-image: url("/src/assets/background/background.png");
     background-size: cover;
     background-position: center;
     text-align: center;
   }
  
+  .wrapper{
+    width:calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homebtn{
+    background: none;
+    width: 10%;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 300px;
+  }
+
+.ask {
+  margin-top: 20px;
+  color: #03526B;
+  letter-spacing: 2px;
+  font-size: 24px;
+}
+
+.change{
+  margin-top: 140px;
+  border-radius: 16px;
+  background-color:#03526B;
+  color:aliceblue;
+  height: 60px;
+  width: calc(100% - 60px);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.slider{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+}

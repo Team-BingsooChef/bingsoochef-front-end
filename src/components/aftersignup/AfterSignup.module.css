@@ -72,6 +72,13 @@
 
 }
 
+.slider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+}
 .gotomain {
   margin-top: 36px;
   width: 100%;

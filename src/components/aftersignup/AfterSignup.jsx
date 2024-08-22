@@ -2,21 +2,13 @@ import styles from "./AfterSignup.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SliderComponent from './SliderComponent';
+import SliderComponent from '/src/components/slidercomponent/SliderComponent';
 import { useNavigate } from "react-router-dom";
 
 const AfterSignup = () => {
   const navigate = useNavigate();
 
-  const settings = {
-    centerMode: true,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-  };
+ 
 
   const goToMain = () => {
     navigate("/main");
@@ -34,7 +26,9 @@ const AfterSignup = () => {
             placeholder="8자 내로 닉네임을 설정해 주세요"
           ></input>
           <p className={styles.ask}>무슨 맛 빙수가 먹고 싶나요?</p>
+          <div className={styles.slider}>
           <SliderComponent />
+          </div>
           <button className={styles.gotomain} value="submit" onClick={goToMain}>
             완료
           </button>

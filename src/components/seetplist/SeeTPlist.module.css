@@ -10,10 +10,43 @@
   max-width: 520px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-image: url("/src/assets/background/menu.png");
   background-size: cover;
   background-position: center;
   text-align: center;
+}
+.wrapper{
+  width:calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top{
+  width: 100%;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 150px;
+}
+
+.top label{
+  font-size: 25px;
+  color: black;
+}
+
+.homebtn{
+  background: none;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+}
+.topt{
+  margin-top: 5px;
+  color: #777C89;
+  font-size: 14px;
+  width: 100%;
 }
