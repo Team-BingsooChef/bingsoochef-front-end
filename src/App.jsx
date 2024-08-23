@@ -11,6 +11,7 @@ import ResetPassword from "./components/resetpassword/ResetPassword";
 import Main from "./components/main/Main";
 import Setting from "./components/setting/Setting";
 import SeeTPlist from "./components/seetplist/SeeTPlist";
+import SeeReply from "./components/seetplist/SeeReply";
 import Search from "./components/search/Search";
 import ChangeFlavor from "./components/changeflavor/ChangeFlavor";
 import Introduce from "./components/introduce/Introduce";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/main" element={<Main />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/seetplist" element={<SeeTPlist />} />
+        <Route path="/seetplist/seereply" element={<SeeReply />} />
         <Route path="/search" element={<Search />} />
         <Route path="/changeflavor" element={<ChangeFlavor />} />
         <Route path="/introduce" element={<Introduce />} />

@@ -1,5 +1,5 @@
 // Sidebar.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css"; // 스타일을 위한 CSS 파일
 import menuicon from "/src/assets/icon/menuicon.svg";
 import arrowright from "/src/assets/icon/arrowright.svg";   
@@ -27,6 +27,20 @@ const Sidebar = () => {
   const goToIntroduce = () => {
     navigate('/introduce');
   };
+
+
+useEffect(() => {
+    const handleClickOutside = (event) => {
+        if (isOpen && !event.target.closest('.sidebar')  && !event.target.closest('.toggle-button')) {
+            toggleSidebar(false);
+        }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+    };
+}, [isOpen, toggleSidebar]);
   return (
     <div>
       <div className={`sidebar ${isOpen ? "open" : ""}`}>

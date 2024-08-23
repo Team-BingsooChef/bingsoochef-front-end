@@ -31,7 +31,7 @@
     border: none;
     cursor: pointer;
     margin-top: 10px;
-    margin-right: 300px;
+    margin-left: 300px;
   }
 
 .ask {
@@ -42,8 +42,9 @@
 }
 
 .change{
-  margin-top: 140px;
+  margin-top: 100px;
   border-radius: 16px;
+  border-style: none;
   background-color:#03526B;
   color:aliceblue;
   height: 60px;
