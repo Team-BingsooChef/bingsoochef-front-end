@@ -127,7 +127,7 @@ const SeeTPlist = () => {
               {toppings.map((topping, index) => (
                   <div key={topping.id} className={styles.toppingBox}  
                   style={{
-            opacity: currentSlide === index ? 1 : 0.5,
+            
             transform: currentSlide === index ? 'scale(1)' : 'scale(0.9)',
             transition: 'transform 0.3s ease, opacity 0.3s ease'}}>
                     <div className={styles.toppingHeader}>
