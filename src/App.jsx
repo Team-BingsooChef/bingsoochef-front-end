@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Switch } from "react-router-dom";
 import Startpage from "./components/start/Start";
 import PreLogin from "./components/prelogin/PreLogin";
 import Login from "./components/login/Login";
@@ -41,6 +41,7 @@ function App() {
         <Route path="/findpassword/emailcheck" element={<EmailCheck />} />
         <Route path="/findpassword/emailcheck/resetpassword" element={<ResetPassword />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/main/:userId" element={<Main/>} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/seetplist" element={<SeeTPlist />} />
         <Route path="/seetplist/seereply" element={<SeeReply />} />

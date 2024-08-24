@@ -35,11 +35,24 @@
   letter-spacing: 2px;
 
 }
-
+.ownerWrapper{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
 .container{
+  height: 100%;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
+
 .bingsoo-container {
   padding-top: 100px;
   width: 80%;
@@ -48,11 +61,13 @@
   max-width: 450px; /* 빙수 이미지의 최대 너비 설정 */
   margin: 0 auto;
   overflow: visible;
+  align-items: center;
 }
 
 
 .bingsoo {
   width: 100%;
+  margin-bottom: 30px;
   position: relative;
 }
 

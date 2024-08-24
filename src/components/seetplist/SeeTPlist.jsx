@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./SeeTPlist.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "/node_modules/swiper/swiper-bundle.min.css";
-import "/node_modules/swiper/swiper.min.css";
 import { useNavigate } from "react-router-dom";
 import SeeReply from "/src/components/seetplist/SeeReply";
 
