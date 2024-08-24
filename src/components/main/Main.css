@@ -43,6 +43,53 @@
   align-items: center;
   margin-top: 10%;
 }
+
+.addbutton{
+  color:#FDF0CC;
+  font-size: 32px;
+  width: calc(100% - 90px);
+  height: 45px;
+  background-color: #03526b;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  margin-top: 10%;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.chefWrapper{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.Ctoplabel{
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.homebutton {
+  background: none;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+.homebutton img{
+  width: 35px;
+  height: 35px;
+}
+
 .container{
   height: 100%;
   width: 90%;
@@ -54,7 +101,7 @@
 }
 
 .bingsoo-container {
-  padding-top: 100px;
+  padding-top: 50px;
   width: 80%;
   position: relative;
   width: 100%;

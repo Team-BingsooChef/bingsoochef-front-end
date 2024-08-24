@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Main.css";
 import Sidebar from './Sidebar';
+import homeicon from '/src/assets/icon/homeicon.svg';
 import menuicon from '/src/assets/icon/menuicon.svg';
 import Bingsoo from './Bingsoo';
 
@@ -11,7 +12,10 @@ const Main = () => {
   const {URLbingsooId} = useParams();
   const [UserbingsooId, setUserBingsooId] = useState(null);
   const navigate = useNavigate();
-  const [role, setRole] = useState('owner');
+  const [role, setRole] = useState('chef');
+  // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요. 
+  //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
+  
 
   // const [role, setRole] = useState(null);
   // useEffect(() => {
@@ -43,7 +47,10 @@ const Main = () => {
   //   // 로딩 상태 처리
   //   return <div>Loading...</div>;
   // }
-
+  const goToMine = () => {
+    navigate('/main:UserbingsooId');
+  };
+  // 자기 자신의 빙수 ID로 즉, owner 입장에서의 home에 가는 것
   const OwnerView = () => {
     const copyURL = async () => {
         event.stopPropagation();
@@ -61,6 +68,7 @@ const Main = () => {
         <div className="ownerWrapper">
         <Sidebar />
         <div className="container">
+
         <Bingsoo />
         <button className="copybutton" onClick={copyURL}>공유하기</button>
       </div>
@@ -71,12 +79,17 @@ const Main = () => {
   const ChefView = () => {
     return (
       <div className="chefWrapper">
+         <button className="homebutton" onClick={goToMine}>
+         <img src={homeicon} alt="Icon"/>
+         </button>
         <div className="container">
+        <label className="Ctoplabel">사랑하는 admin의 빙수를 완성시켜 주세요</label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
           <Bingsoo />
+          <button className="addbutton">토핑 추가하기</button>
           </div>
 
-        <button className="copybutton">토핑 추가하기</button>
+        
       </div>
     );
   };
