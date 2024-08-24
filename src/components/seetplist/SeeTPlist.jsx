@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./SeeTPlist.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "/node_modules/swiper/swiper-bundle.min.css";
@@ -12,6 +12,28 @@ const SeeTPlist = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentReply, setCurrentReply] = useState("");
   const [currentTo, setCurrentTo] = useState("");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const containerRef = useRef(null);
+
+
+  const handleScroll = (e) => {
+    const slideHeight = containerRef.current.clientHeight;
+    const scrollTop = containerRef.current.scrollTop;
+    const newSlideIndex = Math.round(scrollTop / slideHeight);
+
+    if (newSlideIndex !== currentSlide) {
+      setCurrentSlide(newSlideIndex);
+    }
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    container.addEventListener('scroll', handleScroll);
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, [currentSlide]);
 
   const handleViewReply = (topping) => {
     setModalOpen(true);
@@ -28,6 +50,9 @@ const SeeTPlist = () => {
   const getImagePath = (topping) => {
     return `/src/assets/toppings/${topping.topping}.svg`;
   };
+
+  
+  
   useEffect(() => {
     // 백엔드에서 토핑 리스트를 가져오는 API 호출
     fetchToppings();
@@ -98,18 +123,13 @@ const SeeTPlist = () => {
           <div className={styles.topt}>
             토핑을 누르면, 빙수 주인의 페이지를 방문할 수 있어요
           </div>
-          <div className={styles.swipercontainer}>
-            <Swiper
-              direction="vertical"
-              spaceBetween={150} // 슬라이드를 세로 방향으로 설정
-              slidesPerView={1}
-              mousewheel={true} // 마우스 휠로 슬라이드 가능
-              className={styles.slider}
-              scrollbar={{ draggable: true }} // 스크롤바를 드래그하여 이동 가능
-            >
-              {toppings.map((topping) => (
-                <SwiperSlide key={topping.id}>
-                  <div className={styles.toppingBox}>
+          <div ref={containerRef} className={styles.slider}>
+              {toppings.map((topping, index) => (
+                  <div key={topping.id} className={styles.toppingBox}  
+                  style={{
+            opacity: currentSlide === index ? 1 : 0.5,
+            transform: currentSlide === index ? 'scale(1)' : 'scale(0.9)',
+            transition: 'transform 0.3s ease, opacity 0.3s ease'}}>
                     <div className={styles.toppingHeader}>
                       <span>To. {topping.to}</span>
                       <img
@@ -133,12 +153,6 @@ const SeeTPlist = () => {
                       {topping.replied && (
                         <div className={styles.replyNotice}>
                           주인이 답장을 남겼어요!{" "}
-                          {/* <span
-                            className={styles.replyLink}
-                            onClick={() => navigate(`/reply/${topping.id}`)}
-                          >
-                            답장 보기
-                          </span> */}
                           <button
                             className={styles.replyLink}
                             onClick={() =>
@@ -158,13 +172,12 @@ const SeeTPlist = () => {
                       )}
                     </div>
                   </div>
-                </SwiperSlide>
+              
               ))}
-            </Swiper>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
