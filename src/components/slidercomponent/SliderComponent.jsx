@@ -8,7 +8,7 @@ import mango from "/src/assets/bingsoo/mango.png";
 import mincho from "/src/assets/bingsoo/mincho.png";
 import malcha from "/src/assets/bingsoo/malcha.png";
 import milk from "/src/assets/bingsoo/milk.png";
-import "./SliderComponent.css";
+import styles from "./SliderComponent.module.css";
 
 const settings = {
   centerMode: false,
@@ -23,29 +23,29 @@ const settings = {
 class SliderComponent extends Component {
   render() {
     return (
-      <div className="slider_container">
+      <div className={styles.slider_container}>
         <Slider {...settings}>
-          <div className="slide_item">
+          <div className={styles.slide_item}>
             <label>딸기 빙수</label>
             <img src={strawberry} alt="Strawberry Bingsoo" />
           </div>
-          <div className="slide_item">
+          <div className={styles.slide_item}>
             <label>초코 빙수</label>
             <img src={chocolate} alt="Chocolate Bingsoo" />
           </div>
-          <div className="slide_item">
+          <div className={styles.slide_item}>
             <label>망고 빙수</label>
             <img src={mango} alt="Mango Bingsoo" />
           </div>
-          <div className="slide_item">
+          <div className={styles.slide_item}>
             <label>민트초코 빙수</label>
             <img src={mincho} alt="Mint Chocolate Bingsoo" />
           </div>
-          <div className="slide_item">
+          <div className={styles.slide_item}>
             <label>말차 빙수</label>
             <img src={malcha} alt="Matcha Bingsoo" />
           </div>
-          <div className="slide_item">
+          <div className={styles.slide_item}>
             <label>연유 빙수</label>
             <img src={milk} alt="Milk Bingsoo" />
           </div>

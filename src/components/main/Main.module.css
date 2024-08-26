@@ -1,0 +1,249 @@
+.main_display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.main_form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/background/background_sun.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.copybutton{
+  color:#FDF0CC;
+  font-size: 32px;
+  width: calc(100% - 90px);
+  height: 45px;
+  background-color: #03526b;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  margin-top: 20%;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+
+}
+.ownerWrapper{
+  width: 83%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.addbutton{
+  color:#FDF0CC;
+  font-size: 32px;
+  width: calc(100% - 60px);
+  height: 45px;
+  background-color: #03526b;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+
+  margin-top: 10%;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.chefWrapper{
+  width: 83%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.Ctoplabel{
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.homebutton {
+  background: none;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+.homebutton img{
+  width: 35px;
+  height: 35px;
+}
+
+.container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/bingsoo/strawberry.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+
+}
+
+.bingsoo_container {
+  margin-top: 20px;
+  width: 100%;
+  height: 70%;
+  max-width: 450px;
+}
+
+
+.bingsoo {
+  width: 100%;
+  height: 90%;
+  margin-bottom: 30px;
+}
+
+
+.bingsoo img {
+  width: 100%;
+  height: 80%;
+}
+
+.slideWrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+}
+.topping_slider {
+  /* background-image: url("/src/assets/bingsoo/chocolate.png");
+  background-size: contain;
+  background-repeat: no-repeat; */
+  margin-top: 20%;
+  height: 70vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+}
+
+.row_0{
+  position: absolute;
+  left: 18%;
+  top: 10%;
+  @media screen and (min-width: 520px) {
+    top: 2%;
+    left: 20%;
+    
+  }
+}
+
+.row_1{
+  position: absolute;
+  top: 20%;
+  left: 5%;
+}
+
+.row_2{
+  position: absolute;
+  top: 27%;
+  left: 20%; 
+  @media screen and (min-width: 520px) {
+    top: 25%;
+    left: 20%;
+    
+  }
+}
+
+.row_3{
+  position: absolute;
+  top: 25%;
+  left: 33%;
+  @media screen and (min-width: 520px) {
+    top: 25%;
+    left: 35%;
+    
+  }
+}
+
+.row_4{
+  position: absolute;
+  top: 40%;
+  left: 0%;
+}
+
+.row_5{
+  position: absolute;
+  top: 45%;
+  left: 13%;
+}
+
+.row_6{
+  position: absolute;
+  top: 45%;
+  left: 27%;
+}
+
+.row_7{
+  position: absolute;
+  top: 40%;
+  left: 38%;
+}
+
+.row_8 {
+  
+  top: 0%; /* 위치 설정 확인 */
+  left: 0%; /* 위치 설정 확인 */
+}
+
+.topping_image {
+  height: 80px;
+  width: 110px;
+  /* object-fit: contain;   */
+  z-index: 20;
+  @media screen and (min-width: 768px) {
+    height: 100px;
+    width: 100px;
+    /* object-fit: contain;   */
+    z-index: 20;
+    
+  }
+}
+
+.topping_ice_image {
+  height: 80px;
+  width: 110px;
+  /* object-fit: contain;   */
+  z-index: 20;
+  @media screen and (min-width: 520px) {
+    height: 200px;
+    width: 200px;
+    /* object-fit: contain;   */
+    z-index: 20;
+    
+  }
+}
+
+

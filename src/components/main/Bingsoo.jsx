@@ -1,88 +1,79 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import styles from "./Main.module.css";
 
-import strawberry from "/src/assets/bingsoo/strawberry.png";
-import chocolate from "/src/assets/bingsoo/chocolate.png";
-import mango from "/src/assets/bingsoo/mango.png";
-import mincho from "/src/assets/bingsoo/mincho.png";
-import malcha from "/src/assets/bingsoo/malcha.png";
-import milk from "/src/assets/bingsoo/milk.png";
+const Bingsoo = ({toppings}) => {
+  const [bingsoo, setBingsoo] = useState([]);
+  
+  console.log("Toppings:", toppings);
 
-import ice_oreo from "/src/assets/toppings/ice_oreo.svg";
-const Bingsoo = () => {
+  const toppingGroups = [];
+  for (let i = 0; i < toppings.length; i += 8) {
+    toppingGroups.push(toppings.slice(i, i + 8));
+  }
+  console.log("ToppingGroups:", toppingGroups);
+  
+  const getbingsooPath = (bingsoo) => {
+    return `/src/assets/bingsoo/${bingsoo}.png`;
+  };
+  
+  const getToppingpath = (topping) => {
+    return `/src/assets/toppings/${topping.topping}.svg`;
+  };
+
+  const getIceToppingpath = (topping) => {
+    return `/src/assets/toppings/ice_${topping.topping}.svg`;
+  }
+
+  useEffect(() => {
+    // 백엔드에서 토핑 리스트를 가져오는 API 호출
+    fetchBingsoo();
+  }, []);
+
+  
+
+  const fetchBingsoo = async () => {
+    // API 요청 코드 - 실제로는 fetch나 axios를 사용해 데이터를 가져옴
+    const samplebingsooData = "strawberry";
+    setBingsoo(samplebingsooData);
+  }
+
   const settings = {
-    centerMode: false,
-    variableWidth: false,
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    draggable: true, // 드래그 기능 활성화
+    swipe: true, 
+    swipeToSlide: true, // 슬라이드 스와이프 기능 활성화
+    touchThreshold: 10, // 스와이프 감도 설정 (기본값 5, 높을수록 민감함)    // 스와이프 기능 활성화
   };
 
-  useEffect(() => {
-    console.log("Slider initialized");
-  }, []);
-
   return (
-    <div className="bingsoo-container">
-      <div className="bingsoo">
-        <img src={mango} alt="빙수 이미지" />
-      </div>
-      <Slider {...settings}>
-        <div className="topping-slider s1">
-          <div className="topping-row row1">
-            <img src={ice_oreo} alt="토핑 1" />
+    <div className={styles.bingsoo_container}>
+      {/* <img className={styles.bingsoo} src={getbingsooPath(bingsoo)} alt="빙수 이미지" /> */}
+      <div className={styles.sliderWrapper}>
+        <Slider {...settings}>
+          {toppingGroups.map((group, index) => (
+            <div key={index} className={styles.topping_slider}>
+               {group.map((topping, idx) => (
+                <div key={idx} className={styles[`row_${idx}`]}>
+                <img 
+                  src={topping.opened ? getToppingpath(topping) : getIceToppingpath(topping)}
+                  alt={topping.from}
+                  className={topping.opened ? styles.topping_image : styles.ice_topping_image}
+               />
+            </div>
+          ))}
           </div>
-          <div className="topping-row row2">
-            <img src={ice_oreo} alt="토핑 2" />
-            <img src={ice_oreo} alt="토핑 3" />
-            <img src={ice_oreo} alt="토핑 4" />
-          </div>
-          <div className="topping-row row3">
-            <img src={ice_oreo} alt="토핑 5" />
-            <img src={ice_oreo} alt="토핑 6" />
-            <img src={ice_oreo} alt="토핑 7" />
-            <img src={ice_oreo} alt="토핑 8" />
-          </div>
-        </div>
-        <div className="topping-slider s2">
-          <div className="topping-row row1">
-            <img src={ice_oreo} alt="토핑 1" />
-          </div>
-          <div className="topping-row row2">
-            <img src={ice_oreo} alt="토핑 2" />
-            <img src={ice_oreo} alt="토핑 3" />
-            <img src={ice_oreo} alt="토핑 4" />
-          </div>
-          <div className="topping-row row3">
-            <img src={ice_oreo} alt="토핑 5" />
-            <img src={ice_oreo} alt="토핑 6" />
-            <img src={ice_oreo} alt="토핑 7" />
-            <img src={ice_oreo} alt="토핑 8" />
-          </div>
-        </div>
-        <div className="topping-slider s3">
-          <div className="topping-row row1">
-            <img src={ice_oreo} alt="토핑 1" />
-          </div>
-          <div className="topping-row row2">
-            <img src={ice_oreo} alt="토핑 2" />
-            <img src={ice_oreo} alt="토핑 3" />
-            <img src={ice_oreo} alt="토핑 4" />
-          </div>
-          <div className="topping-row row3">
-            <img src={ice_oreo} alt="토핑 5" />
-            <img src={ice_oreo} alt="토핑 6" />
-            <img src={ice_oreo} alt="토핑 7" />
-            <img src={ice_oreo} alt="토핑 8" />
-          </div>
-        </div>
-      </Slider>
+           ))}
+        </Slider>
     </div>
+  </div>
   );
 };
 
