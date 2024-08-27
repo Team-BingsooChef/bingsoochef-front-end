@@ -56,7 +56,7 @@
   cursor: pointer;
   z-index: 10;
 
-  margin-top: 10%;
+  margin-top: 20%;
   line-height: 20px;
   text-align: center;
   letter-spacing: 2px;
@@ -113,6 +113,10 @@
   width: 100%;
   height: 70%;
   max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -149,85 +153,90 @@
 
 }
 
-.row_0{
+.row_1, .row_9, .row_17{
   position: absolute;
-  left: 18%;
-  top: 10%;
-  @media screen and (min-width: 520px) {
-    top: 2%;
-    left: 20%;
-    
-  }
-}
-
-.row_1{
-  position: absolute;
-  top: 20%;
-  left: 5%;
-}
-
-.row_2{
-  position: absolute;
-  top: 27%;
-  left: 20%; 
-  @media screen and (min-width: 520px) {
-    top: 25%;
-    left: 20%;
-    
-  }
-}
-
-.row_3{
-  position: absolute;
-  top: 25%;
   left: 33%;
+  top: 15%;
   @media screen and (min-width: 520px) {
-    top: 25%;
-    left: 35%;
+    top: 10%;
+    left: 37%;
     
   }
 }
 
-.row_4{
+.row_2, .row_10, .row_18{
+  position: absolute;
+  top: 28%;
+  left: 8%;
+  @media screen and (min-width: 520px) {
+    top: 25%;
+    left: 8%;
+    
+  }
+}
+
+.row_3, .row_11, .row_19{
+  position: absolute;
+  top: 30%;
+  left: 34%; 
+  @media screen and (min-width: 520px) {
+    top: 28%;
+    left: 38%;
+    
+  }
+}
+
+.row_4, .row_12, .row_20{
+  position: absolute;
+  top: 28%;
+  left: 60%;
+  @media screen and (min-width: 520px) {
+    top: 25%;
+    left: 68%;
+    
+  }
+}
+
+.row_5, .row_13, .row_21{
   position: absolute;
   top: 40%;
   left: 0%;
 }
 
-.row_5{
+.row_6, .row_14, .row_22{
   position: absolute;
-  top: 45%;
-  left: 13%;
+  top: 43%;
+  left: 20%;
+  @media screen and (min-width: 520px) {
+    top: 43%;
+    left: 22%;
+    
+  }
 }
 
-.row_6{
+.row_7, .row_15, .row_23{
   position: absolute;
-  top: 45%;
-  left: 27%;
+  top: 43%;
+  left: 50%;
 }
 
-.row_7{
+.row_8, .row_16, .row_24{
   position: absolute;
   top: 40%;
-  left: 38%;
+  left: 73%;
 }
 
-.row_8 {
-  
-  top: 0%; /* 위치 설정 확인 */
-  left: 0%; /* 위치 설정 확인 */
-}
 
 .topping_image {
   height: 80px;
   width: 110px;
   /* object-fit: contain;   */
-  z-index: 20;
-  @media screen and (min-width: 768px) {
-    height: 100px;
-    width: 100px;
+ 
+  @media screen and (min-width: 520px) {
+    height: 200px;
+    width: 200px;
     /* object-fit: contain;   */
-    z-index: 20;
+ 
     
   }
 }
@@ -236,14 +245,32 @@
   height: 80px;
   width: 110px;
   /* object-fit: contain;   */
-  z-index: 20;
+ 
   @media screen and (min-width: 520px) {
-    height: 200px;
-    width: 200px;
+    height: 230px;
+    width: 230px;
     /* object-fit: contain;   */
-    z-index: 20;
+   
     
   }
 }
 
 
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+
+}
+
+.pagination span {
+  line-height: 40px;
+}

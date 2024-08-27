@@ -23,9 +23,11 @@ const Main = () => {
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: true,
+        opened: false,
+        replied: false,
         topping: "mochi",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 2,
@@ -34,69 +36,96 @@ const Main = () => {
         opened: false,
         replied: false,
         topping: "oreo",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 3,
         from: "좌절한희연이",
         content:
           "언제나 너의 노력을 지켜보며 감동하고 있어. 힘들고 지칠 때도 있지만, 너는 언제나 꿋꿋이 이겨내고 있어 정말 대단해. 지금까지 걸어온 길이 절대 헛되지 않았다는 걸 알았으면 해. 너의 열정과 끈기는 반드시 좋은 결과로 이어질 거야. 나는 항상 네 편이고, 네가 하는 모든 일이 잘되길 진심으로 응원해. 너의 꿈을 향해 나아가는 길이 빛나도록 언제나 함께할게. 힘내, 희연아! 너라면 무엇이든 해낼 수 있어!",
-        opened: true,
+        opened: false,
         replied: false,
         topping: "strawberry",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 4,
         to: "인도BTS상희",
         content:
           "귀하의 위대한 품격과 전통을 찬미하며 저희는 감히 부탁드리고자 합니다. 당신의 뛰어난 춤 실력을 경험할 수 있는 기회를 허락해 주시겠습니까? 인도의 유서 깊은 문화와 우아함을 담아낸 당신의 춤사위는 우리의 마음을 매혹시키고, 그 속에 담긴 아름다움을 느끼고 싶습니다. 우리에게 영감을 주고 기쁨을 안겨줄 당신의 춤을 감상할 수 있도록 허락해 주시길 간청드립니다. 상희님의 춤이 이곳을 빛낼 것을 믿어 의심치 않습니다.",
-        opened: true,
-        replied: true,
+        opened: false,
+        replied: false,
         topping: "kiwi",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 5,
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: true,
+        opened: false,
+        replied: false,
         topping: "banana",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 6,
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: true,
+        opened: false,
+        replied: false,
         topping: "chex",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 7,
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: true,
+        opened: false,
+        replied: false,
         topping: "marshmallow",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 8,
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: true,
+        opened: false,
+        replied: false,
         topping: "mango",
+        currentPage: 0,
+        totalPage: 2,
       },
       {
         id: 9,
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: true,
-        topping: "mochi",
+        opened: false,
+        replied: false,
+        topping: "mango",
+        currentPage: 1,
+        totalPage: 2,
+      },
+      {
+        id: 10,
+        from: "인도공주gus",
+        content:
+          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
+        opened: false,
+        replied: false,
+        topping: "mango",
+        currentPage: 1,
+        totalPage: 2,
       },
     ];
     setToppings(sampletoppingData);
@@ -139,6 +168,7 @@ const Main = () => {
   //   // 로딩 상태 처리
   //   return <div>Loading...</div>;
   // }
+  
   const goToMine = () => {
     navigate("/main:UserbingsooId");
   };
