@@ -2,8 +2,8 @@ import React, { Component, useEffect, useState } from "react";
 import Pagination from "react-js-pagination";
 import styles from "./Main.module.css";
 
-const Bingsoo = ({toppings}) => {
-  
+const Bingsoo = ({toppings, viewType }) => {
+  const isTouchable = viewType === "owner";
   const [data, setData] = useState([]); // 데이터를 저장할 상태
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
   const [totalPage, setTotalPage] = useState(0); // 전체 페이지 수
@@ -76,6 +76,9 @@ useEffect(() => {
     }
   };
 
+  const handleToppingClick = (index) => {
+    console.log("Topping Clicked:", index);
+  }
 
   return (
     <div className={styles.bingsoo_container}>
@@ -88,7 +91,9 @@ useEffect(() => {
                   src={item.opened ? getToppingpath(item) : getIceToppingpath(item)}
                   alt={item.from}
                   className={item.opened ? styles.topping_image : styles.ice_topping_image}
-               />
+                  onClick={isTouchable ? () => handleToppingClick(item.id) : undefined}
+                  style={{ cursor: isTouchable ? 'pointer' : 'default' }} // isTouchable이 true일 때만 pointer 적용
+              />
           
                </div>
           ))}

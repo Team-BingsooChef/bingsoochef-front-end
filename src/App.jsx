@@ -37,6 +37,7 @@ function App() {
           path="/prelogin/createaccount/emailcheck/setpassword/aftersignup"
           element={<AfterSignup />}
         />
+        <Route path="/aftersignup" element={<AfterSignup />} />
         <Route path="/findpassword" element={<FindPassword />} />
         <Route path="/findpassword/emailcheck" element={<EmailCheck />} />
         <Route path="/findpassword/emailcheck/resetpassword" element={<ResetPassword />} />

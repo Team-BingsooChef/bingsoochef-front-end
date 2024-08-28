@@ -185,11 +185,13 @@ const Main = () => {
       }
     };
 
+    
+
     return (
       <div className={styles.ownerWrapper}>
         <Sidebar />
         <div className={styles.container}>
-          <Bingsoo toppings={toppings} />
+          <Bingsoo toppings={toppings} viewType="owner" />
           <button className={styles.copybutton} onClick={copyURL}>
             공유하기
           </button>
@@ -209,7 +211,7 @@ const Main = () => {
             사랑하는 admin의 빙수를 완성시켜 주세요
           </label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
-          <Bingsoo toppings={toppings} />
+          <Bingsoo toppings={toppings} viewType="chef" />
           <button className={styles.addbutton}>토핑 추가하기</button>
         </div>
       </div>
