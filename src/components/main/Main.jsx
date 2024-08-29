@@ -33,7 +33,7 @@ const Main = () => {
         id: 2,
         from: "다래끼왕동운",
         content: "나 눈 야구공에 맞았어",
-        opened: false,
+        opened: true,
         replied: false,
         topping: "oreo",
         currentPage: 0,
@@ -44,11 +44,12 @@ const Main = () => {
         from: "좌절한희연이",
         content:
           "언제나 너의 노력을 지켜보며 감동하고 있어. 힘들고 지칠 때도 있지만, 너는 언제나 꿋꿋이 이겨내고 있어 정말 대단해. 지금까지 걸어온 길이 절대 헛되지 않았다는 걸 알았으면 해. 너의 열정과 끈기는 반드시 좋은 결과로 이어질 거야. 나는 항상 네 편이고, 네가 하는 모든 일이 잘되길 진심으로 응원해. 너의 꿈을 향해 나아가는 길이 빛나도록 언제나 함께할게. 힘내, 희연아! 너라면 무엇이든 해낼 수 있어!",
-        opened: false,
-        replied: false,
+        opened: true,
+        replied: true,
         topping: "strawberry",
         currentPage: 0,
         totalPage: 2,
+        reply: "고마워, 너도 힘내!",
       },
       {
         id: 4,
@@ -77,7 +78,7 @@ const Main = () => {
         from: "인도공주현정",
         content:
           "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: false,
+        opened: true,
         replied: false,
         topping: "chex",
         currentPage: 0,

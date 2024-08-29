@@ -206,7 +206,7 @@
 .row_6, .row_14, .row_22{
   position: absolute;
   top: 43%;
-  left: 20%;
+  left: 22%;
   @media screen and (min-width: 520px) {
     top: 43%;
     left: 22%;
@@ -233,8 +233,8 @@
   /* object-fit: contain;   */
  
   @media screen and (min-width: 520px) {
-    height: 200px;
-    width: 200px;
+    height: 110px;
+    width: 110px;
     /* object-fit: contain;   */
  
     

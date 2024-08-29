@@ -15,6 +15,7 @@ import SeeReply from "./components/seetplist/SeeReply";
 import Search from "./components/search/Search";
 import ChangeFlavor from "./components/changeflavor/ChangeFlavor";
 import Introduce from "./components/introduce/Introduce";
+import ReplyLetter from "./components/modal/ReplyLetter";
 import "./App.css";
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/changeflavor" element={<ChangeFlavor />} />
         <Route path="/introduce" element={<Introduce />} />
+        <Route path="/ReplyLetter" element={<ReplyLetter />} />
       </Routes>
     </Router>
   );
