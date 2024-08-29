@@ -12,7 +12,13 @@ const OpenLetter = ({ isOpen, onClose, item, content, from, isReplied, replyCont
     setIsExpanded(!isExpanded);
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const openModal = () => {
+    setIsModalOpen(false); // 기존 모달을 닫기
+    setTimeout(() => setIsModalOpen(true), 0); // 새로운 모달 열기
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
   
     <div className={styles.modalDisplay} onClick={onClose}>
@@ -48,8 +54,8 @@ const OpenLetter = ({ isOpen, onClose, item, content, from, isReplied, replyCont
           ) : (
              <div className={styles.reply}>
               <p>답장을 남기지 않았어요!</p>
-              <button onClick={() => setIsModalOpen(true)}>답장 작성</button>
-              <ReplyLetter isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+              <button onClick={openModal} >답장 작성</button>
+              {isModalOpen && <ReplyLetter isOpen={isModalOpen} onClose={closeModal}/>}
            </div>
        
         )}

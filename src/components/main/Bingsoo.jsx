@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import Pagination from "react-js-pagination";
 import styles from "./Main.module.css";
-import OpenLetter from "./OpenLetter";
+import OpenLetter from "../modal/OpenLetter";
 
 const Bingsoo = ({toppings, viewType }) => {
   const isTouchable = viewType === "owner";
