@@ -2,26 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./OpenLetter.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
-import ReplyLetter from "../modal/ReplyLetter";
-const OpenLetter = ({ isOpen, onClose, item, content, from, isReplied, replyContent }) => {
+import ReplyLetter from "./ReplyLetter";
+
+const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent }) => {
   if (!isOpen) return null;
-  
-  
+
   const [isExpanded, setIsExpanded] = useState(false);
   const handleExpandClick = () => {
     setIsExpanded(!isExpanded);
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
-    setIsModalOpen(false); // 기존 모달을 닫기
-    setTimeout(() => setIsModalOpen(true), 0); // 새로운 모달 열기
+    setIsModalOpen(true); // 모달 열기
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const navigate = useNavigate();
+  const goToMain = () => {
+    navigate("/main");
+  }
   return (
   
-    <div className={styles.modalDisplay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.top}>
           <button className={styles.back} onClick={onClose}>
@@ -53,9 +52,9 @@ const OpenLetter = ({ isOpen, onClose, item, content, from, isReplied, replyCont
             </div>
           ) : (
              <div className={styles.reply}>
-              <p>답장을 남기지 않았어요!</p>
+              <p>답장을 남기시겠습니까?</p>
               <button onClick={openModal} >답장 작성</button>
-              {isModalOpen && <ReplyLetter isOpen={isModalOpen} onClose={closeModal}/>}
+              {isModalOpen && <ReplyLetter isOpen={isModalOpen} onClose={goToMain}/>}
            </div>
        
         )}
@@ -65,7 +64,7 @@ const OpenLetter = ({ isOpen, onClose, item, content, from, isReplied, replyCont
           닫기
         </button>
       </div>
-    </div>
+    
   );
 };
 

@@ -28,6 +28,9 @@ const Main = () => {
         topping: "mochi",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: true,
+        isQuizOpen: false,
+        quizID: 1,
       },
       {
         id: 2,
@@ -38,6 +41,8 @@ const Main = () => {
         topping: "oreo",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
       {
         id: 3,
@@ -50,6 +55,8 @@ const Main = () => {
         currentPage: 0,
         totalPage: 2,
         reply: "고마워, 너도 힘내!",
+        isQuiz: true,
+        isQuizOpen: true,
       },
       {
         id: 4,
@@ -61,6 +68,9 @@ const Main = () => {
         topping: "kiwi",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: true,
+        isQuizOpen: false,
+        quizID: 2,
       },
       {
         id: 5,
@@ -72,6 +82,8 @@ const Main = () => {
         topping: "banana",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
       {
         id: 6,
@@ -83,6 +95,8 @@ const Main = () => {
         topping: "chex",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
       {
         id: 7,
@@ -94,6 +108,8 @@ const Main = () => {
         topping: "marshmallow",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
       {
         id: 8,
@@ -105,6 +121,8 @@ const Main = () => {
         topping: "mango",
         currentPage: 0,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
       {
         id: 9,
@@ -116,6 +134,8 @@ const Main = () => {
         topping: "mango",
         currentPage: 1,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
       {
         id: 10,
@@ -127,6 +147,8 @@ const Main = () => {
         topping: "mango",
         currentPage: 1,
         totalPage: 2,
+        isQuiz: false,
+        isQuizOpen: false,
       },
     ];
     setToppings(sampletoppingData);
@@ -135,7 +157,7 @@ const Main = () => {
   // const {URLbingsooId} = useParams();
   // const [UserbingsooId, setUserBingsooId] = useState(null);
   const navigate = useNavigate();
-  const [role, setRole] = useState("owner");
+const [role, setRole] = useState("owner");  
   // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요.
   //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
 
