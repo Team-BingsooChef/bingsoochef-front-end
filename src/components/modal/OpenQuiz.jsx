@@ -1,8 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import styles from './OpenQuiz.module.css';
+import { useNavigate } from 'react-router-dom';
+import back from '/src/assets/icon/gotobackicon_white.svg';
+import ReplyLetter from '/src/components/modal/ReplyLetter';
+
 
 const OpenQuiz = ({isOpen, onClose, id}) => {
   if (!isOpen) return null;
+  const [modalType, setModalType] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
   const [quizType, setQuizType] = useState("");
   const [quiz, setQuiz] = useState([]);
   const [quizQ, setQuizQ] = useState("");
@@ -31,28 +38,91 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
         quizType: "Multiple",
         quizQ: "다음 중 가장 큰 숫자는?",
         quizA: "3",
-        quizChoices: ["1", "2", "3", "4"],
+        quizChoices: ["1", "2", "3", "8"],
       }
       
     ];
     setQuiz(sampleQuizData);
     setQuizType(sampleQuizData[id-1].quizType);
-    setQuizQ(sampleQuizData[0].quizQ);
-    setQuizA(sampleQuizData[0].quizA);
-    setQuizChoices(sampleQuizData[1].quizChoices);
+    setQuizQ(sampleQuizData[id-1].quizQ);
+    setQuizA(sampleQuizData[id-1].quizA);
+    setQuizChoices(sampleQuizData[id-1].quizChoices);
 
   };
+
+  const navigate = useNavigate();
+  const goToReply = () => {
+    navigate('/modal/ReplyLetter');
+  }
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => {
-    setIsModalOpen(true); // 모달 열기
+
+  const handleOCorrectAnswer = () => {
+    if (quizA === "O") {
+      setModalType('correct');
+    } else {
+      setModalType('incorrect');
+    }
+
+    // 모달을 2초 후에 닫도록 설정
+    setTimeout(() => {
+      setModalType(null);
+    }, 2000); // 2000ms = 2초
   };
+  
+
+  const handleXCorrectAnswer = () => {
+    if (quizA === "X") {
+      setModalType('correct');
+    } else {
+      setModalType('incorrect');
+    }
+
+    // 모달을 2초 후에 닫도록 설정
+    setTimeout(() => {
+      setModalType(null);
+    }, 2000); // 2000ms = 2초
+  };
+  
+  const handleMCorrectAnswer = (answer) => {
+    setSelectedAnswer(answer);
+    if (quizA === answer) {
+      setModalType('correct');
+    } else {
+      setModalType('incorrect');
+    }
+
+    // 모달을 2초 후에 닫도록 설정
+    setTimeout(() => {
+      setModalType(null);
+    }, 2000); // 2000ms = 2초
+  };
+
 
   const OX = () =>{
     return(
         
         <div className={styles.modalContent}>
-        <button> O </button>
-        <button> X </button>
+           <div className={styles.top}>
+           <label>퀴즈</label>
+        </div>
+        <div className={styles.quizQ}>
+          <p>Q.</p>
+          <p>{quizQ}</p>
+          </div>
+        
+        <button  onClick={handleOCorrectAnswer}> O </button>
+        <button  onClick={handleXCorrectAnswer}> X </button>
+        {modalType === 'correct' && (
+        <div className="modal">
+          <p>정답입니다! 토핑이 오픈됩니다.</p>
+        </div>
+      )}
+       {modalType === 'incorrect' &&(
+        <div className="modal">
+          <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
+        </div>
+      )}
         <button onClick={onClose} className={styles.closeButton}>닫기</button>
       </div>
       
@@ -62,11 +132,27 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   const Multiple = () =>{
     return(
         <div className={styles.modalContent}>
-     
-        <button> 1 </button>
-        <button> 2 </button>
-        <button> 3 </button>
-        <button> 4 </button>
+        <div className={styles.top}>
+        <label>퀴즈</label>
+        </div>
+        <div className={styles.quizQ}>
+          <p>{quizQ}</p>
+          </div>
+        <button  onClick={handleMCorrectAnswer(quizChoices[0])}>  {quizChoices[0]} </button>
+        <button  onClick={handleMCorrectAnswer(quizChoices[1])}>  {quizChoices[1]}  </button>
+        <button  onClick={handleMCorrectAnswer(quizChoices[2])}>  {quizChoices[2]}  </button>
+        <button  onClick={handleMCorrectAnswer(quizChoices[3])}>  {quizChoices[3]}  </button>
+
+        {modalType === 'correct' && (
+        <div className="modal">
+          <p>정답입니다! 토핑이 오픈됩니다.</p>
+        </div>
+      )}
+       {modalType === 'incorrect' &&(
+        <div className="modal">
+          <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
+        </div>
+      )}
         <button onClick={onClose} className={styles.closeButton}>닫기</button>
       </div>
   
