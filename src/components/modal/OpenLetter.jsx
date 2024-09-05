@@ -4,7 +4,7 @@ import styles from "./OpenLetter.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
 import ReplyLetter from "./ReplyLetter";
 
-const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent }) => {
+const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent, willReply }) => {
   if (!isOpen) return null;
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -18,6 +18,9 @@ const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent }) 
   const navigate = useNavigate();
   const goToMain = () => {
     navigate("/main");
+  }
+  const sendReply = () => {
+    willReply();
   }
   return (
   
@@ -53,8 +56,7 @@ const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent }) 
           ) : (
              <div className={styles.reply}>
               <p>답장을 남기시겠습니까?</p>
-              <button onClick={openModal} >답장 작성</button>
-              {isModalOpen && <ReplyLetter isOpen={isModalOpen} onClose={goToMain}/>}
+              <button onClick={sendReply} >답장 작성</button>
            </div>
        
         )}

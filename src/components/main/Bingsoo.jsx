@@ -21,6 +21,8 @@ const Bingsoo = ({ toppings, viewType }) => {
   const [currentReply, setCurrentReply] = useState("");
   const [quizID, setQuizID] = useState(0);
 
+  const [isReplyOpen, setIsReplyOpen] = useState(false);
+
   const handleCloseModal = () => {
     setModalOpen(false);
     setCurrentContent("");
@@ -31,6 +33,7 @@ const Bingsoo = ({ toppings, viewType }) => {
     setIsQuiz(false);
     setIsQuizOpen(false);
     setQuizID(0);
+    setIsReplyOpen(false);
   };
   const handleViewLetter = (topping) => {
     setModalOpen(true);
@@ -57,6 +60,10 @@ const Bingsoo = ({ toppings, viewType }) => {
         //  console.error('Error updating topping:', error);
        // });
     
+  };
+
+  const handleGoReply = () => {
+    setIsReplyOpen(true);
   };
 
   const handleQuizCompletion = () => {
@@ -157,7 +164,10 @@ const Bingsoo = ({ toppings, viewType }) => {
             />
             {isModalOpen && (
               <div className={styles.modalDisplay} onClick={handleCloseModal}>
-                {isOpen ? (
+                {isReplyOpen ? (
+                  <ReplyLetter isOpen={isModalOpen} onClose={handleCloseModal} />
+                )
+                : isOpen ? (
                   <OpenLetter
                     isOpen={isModalOpen}
                     onClose={handleCloseModal}
@@ -165,6 +175,7 @@ const Bingsoo = ({ toppings, viewType }) => {
                     content={currentContent}
                     isReplied={isIReplied}
                     replyContent={currentReply}
+                    willReply={handleGoReply}
                   />
                 ) : isQuiz ? (
                   <OpenQuiz 
