@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import back from '/src/assets/icon/gotobackicon_white.svg';
 
 
-const OpenQuiz = ({isOpen, onClose, id}) => {
+const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
   if (!isOpen) return null;
 
   const [modalType, setModalType] = useState(null);
@@ -67,6 +67,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   const handleOCorrectAnswer = () => {
     if (quizA === "O") {
       setModalType('correct');
+      onQuizSuccess();
     } else {
       setModalType('incorrect');
     }
@@ -78,6 +79,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   const handleXCorrectAnswer = () => {
     if (quizA === "X") {
       setModalType('correct');
+      onQuizSuccess();
     } else {
       setModalType('incorrect');
     }
@@ -89,6 +91,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
     setSelectedAnswer(answer);
     if (quizA === answer) {
       setModalType('correct');
+      onQuizSuccess();
     } else {
       setModalType('incorrect');
     }

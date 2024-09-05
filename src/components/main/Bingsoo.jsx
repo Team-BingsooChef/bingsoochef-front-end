@@ -59,6 +59,22 @@ const Bingsoo = ({ toppings, viewType }) => {
     
   };
 
+  const handleQuizCompletion = () => {
+    setIsQuiz(false);
+    setIsOpen(true);
+    return (
+      <OpenLetter
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    from={currentFrom}
+                    content={currentContent}
+                    isReplied={isIReplied}
+                    replyContent={currentReply}
+                  />
+    ); // Trigger OpenLetter after quiz completion
+  };
+  //나중에는 백에다가 opened 상태를 업데이트하는 요청을 보내야함
+
   const [bingsoo, setBingsoo] = useState([]);
 
   console.log("Toppings:", toppings);
@@ -154,7 +170,8 @@ const Bingsoo = ({ toppings, viewType }) => {
                   <OpenQuiz 
                   isOpen={isModalOpen} 
                   onClose={handleCloseModal}
-                  id={quizID} />
+                  id={quizID}
+                  onQuizSuccess={handleQuizCompletion} />
                 ) : (
                   <OpenLetter
                     isOpen={isModalOpen}
