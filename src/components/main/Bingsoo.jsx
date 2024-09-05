@@ -5,13 +5,13 @@ import OpenLetter from "../modal/OpenLetter";
 import OpenQuiz from "../modal/OpenQuiz";
 import ReplyLetter from "../modal/ReplyLetter";
 
+
 const Bingsoo = ({ toppings, viewType }) => {
   const isTouchable = viewType === "owner";
   const [data, setData] = useState([]); // 데이터를 저장할 상태
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
   const [totalPage, setTotalPage] = useState(0); // 전체 페이지 수
   const [isModalOpen, setModalOpen] = useState(false);
-
   const [isQuiz, setIsQuiz] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -165,7 +165,7 @@ const Bingsoo = ({ toppings, viewType }) => {
             {isModalOpen && (
               <div className={styles.modalDisplay} onClick={handleCloseModal}>
                 {isReplyOpen ? (
-                  <ReplyLetter isOpen={isModalOpen} onClose={handleCloseModal} />
+                  <ReplyLetter isOpen={isModalOpen} onClose={handleCloseModal} from={currentFrom} />
                 )
                 : isOpen ? (
                   <OpenLetter
