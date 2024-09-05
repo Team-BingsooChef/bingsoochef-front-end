@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from './OpenQuiz.module.css';
 import { useNavigate } from 'react-router-dom';
 import back from '/src/assets/icon/gotobackicon_white.svg';
-import ReplyLetter from '/src/components/modal/ReplyLetter';
 
 
 const OpenQuiz = ({isOpen, onClose, id}) => {
   if (!isOpen) return null;
+
   const [modalType, setModalType] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
@@ -15,6 +15,8 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   const [quizQ, setQuizQ] = useState("");
   const [quizA, setQuizA] = useState("");
   const [quizChoices, setQuizChoices] = useState([]);
+
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     // 백엔드에서 토핑 리스트를 가져오는 API 호출
@@ -51,12 +53,17 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   };
 
   const navigate = useNavigate();
-  const goToReply = () => {
-    navigate('/modal/ReplyLetter');
-  }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const resetModalTimeout = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current); // 이전 타이머 취소
+    }
+    timeoutRef.current = setTimeout(() => {
+      setModalType(null); // 2초 후에 modalType을 null로 설정
+    }, 2000); // 2000ms = 2초
+  };
   const handleOCorrectAnswer = () => {
     if (quizA === "O") {
       setModalType('correct');
@@ -64,10 +71,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
       setModalType('incorrect');
     }
 
-    // 모달을 2초 후에 닫도록 설정
-    setTimeout(() => {
-      setModalType(null);
-    }, 2000); // 2000ms = 2초
+    resetModalTimeout(); // 타이머 초기화 및 재설정
   };
   
 
@@ -78,13 +82,10 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
       setModalType('incorrect');
     }
 
-    // 모달을 2초 후에 닫도록 설정
-    setTimeout(() => {
-      setModalType(null);
-    }, 2000); // 2000ms = 2초
+    resetModalTimeout(); // 타이머 초기화 및 재설정
   };
   
-  const handleMCorrectAnswer = (answer) => {
+  const handleMCorrectAnswer = (answer) => () =>  {
     setSelectedAnswer(answer);
     if (quizA === answer) {
       setModalType('correct');
@@ -92,18 +93,14 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
       setModalType('incorrect');
     }
 
-    // 모달을 2초 후에 닫도록 설정
-    setTimeout(() => {
-      setModalType(null);
-    }, 2000); // 2000ms = 2초
+    resetModalTimeout(); // 타이머 초기화 및 재설정
   };
 
 
   const OX = () =>{
     return(
-        
-        <div className={styles.modalContent}>
-           <div className={styles.top}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+           <div className={styles.top} >
            <label>퀴즈</label>
         </div>
         <div className={styles.quizQ}>
@@ -125,13 +122,14 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
       )}
         <button onClick={onClose} className={styles.closeButton}>닫기</button>
       </div>
+    
       
     );
   };
 
   const Multiple = () =>{
     return(
-        <div className={styles.modalContent}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.top}>
         <label>퀴즈</label>
         </div>
