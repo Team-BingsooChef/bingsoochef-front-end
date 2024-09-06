@@ -1,0 +1,201 @@
+.login_display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.login_form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/background/background.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  gap: 25%;
+  padding-right: 30%;
+  padding-top: 10%;
+  width: 100%;
+}
+
+.back {
+  background: none;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+}
+
+.back img {
+  width: 30px;
+  height: 30px;
+}
+
+.title {
+  text-align: center;
+  white-space: nowrap;
+  font-size: 24px;
+  color: #03526b;
+}
+
+.input_Wrapper{
+    padding-top: 20%;
+    padding-bottom: 40%;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.inputelabel {
+  padding-bottom: 10px;
+  padding-right: 70%; /* Adjust for button size */
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-bottom: 5px; /* label 요소에만 적용 */
+  color: #03526b;
+}
+
+.inpute::placeholder {
+  background-image: url("/src/assets/icon/emailicon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 1px center;
+  background-position-x: 15px;
+  text-align: center;
+  text-indent: 0;
+  display: inline-flex;
+  font-weight: 400;
+  color: #777c89;
+  font-size: 16px;
+}
+
+.inpute {
+  width: calc(100% - 64px);
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+  color: #03526b;
+  background-color: #fdf0cc;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.inputplabel {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-right: 70%; /* Adjust for button size */
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-bottom: 5px; /* label 요소에만 적용 */
+  color: #03526b; /* Adjust for button size */
+}
+
+.inputp::placeholder {
+  background-image: url("/src/assets/icon/lockicon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 1px center;
+  background-position-x: 20px;
+  text-align: center;
+  text-indent: 0;
+  display: inline-flex;
+  font-weight: 400;
+  color: #777c89;
+  font-size: 16px;
+}
+
+.inputp {
+  width: calc(100% - 64px);
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+
+  color: #03526b;
+  background-color: #fdf0cc;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.findpw{
+    color:#777C89;
+    font-weight: 300;
+    cursor: pointer;
+    padding-left: 60%;
+    text-decoration-line: none;
+    padding-bottom: 50px;
+  
+}
+
+.gomain {
+  /* Adjust for button size */
+  box-sizing: border-box;
+  width: calc(100% - 102px);
+  height: 60px;
+  background-color: #03526b;
+  border-radius: 16px;
+  border: none;
+  color: #fdf0cc;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.Ltext {
+  display: flex;
+  padding-top:5%;
+  gap: 10px;
+  color: #413c3c;
+  font-size: 14px;
+  padding-bottom: 10%;
+}
+.noaccount {
+  top: 20%;
+  color: #413c3c;
+  font-size: 14px;
+}
+.gotocreate {
+  top: 20%;
+  text-decoration-line: underline;
+  color: #0075ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modalDisplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
