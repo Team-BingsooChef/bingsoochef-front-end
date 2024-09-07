@@ -22,7 +22,8 @@ const AfterSignup = () => {
           <label className={styles.inputlabel}>당신을 뭐라고 부를까요?</label>
           <input
             className={styles.input}
-            type="email"
+            type="text"
+            maxLength={8}
             placeholder="8자 내로 닉네임을 설정해 주세요"
           ></input>
           <p className={styles.ask}>무슨 맛 빙수가 먹고 싶나요?</p>

@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./EmailCheck.module.css";
+import WrongCode from "../modal/WrongCode";
 import { useNavigate, useLocation } from "react-router-dom";
 import gotobackicon from "/src/assets/icon/gotobackicon_white.svg";
+
 const EmailCheck = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const inputRefs = useRef([]);
   // inputRefs는 배열로 각 입력 필드의 ref를 저장하기 위해 사용
   const handleInputChange = (e, index) => {
@@ -77,9 +81,12 @@ const EmailCheck = () => {
     if (emailcheck.length > 0 && inputCode === emailcheck[0].code.toString()) {
       // 코드 일치 여부 확인
       navigate("setpassword"); //일치하면 페이지 이동
-    } else {
-      alert("코드가 일치하지 않습니다. 다시 시도해주세요.");
-    }
+    } else       
+      {isModalOpen && (
+        <div className={styles.modalDisplay} onClick={handleCloseModal}>
+        <WrongCode isOpen={isModalOpen} onClose={handleCloseModal} />
+        </div>
+      )}
   };
 
   const goToBack = (e) => {
