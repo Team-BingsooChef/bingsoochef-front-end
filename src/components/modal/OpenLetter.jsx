@@ -31,10 +31,10 @@ const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent, wi
           </button>
           <div className={styles.topWrapper}>
             <p className={styles.from}>
-              <strong>FROM.</strong>
+             FROM.
             </p>
             <p className={styles.fromWho}>
-              <strong>{from}</strong>
+              {from}
             </p>
           </div>
         </div>

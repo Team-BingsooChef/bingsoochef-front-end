@@ -34,9 +34,53 @@
   cursor: pointer;
 }
 
-.top{
+.back {
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.topWrapper{
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.from{
+  color: #FDF0CC;
+  justify-content: center;
+  align-items: ;
+}
+
+.fromWho{
+  color: #007DA4;
+  background-color: #D2ECF3;
+  border-radius: 40px;
+  font-size: 20px;
+  height: 45px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.contentWrapper {
+  background-color: #f1f1f1;
+  border-radius: 30px;
+  padding: 20px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-spacing: 5px;
+
 }
 
 .expandedContent {

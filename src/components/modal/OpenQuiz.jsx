@@ -39,9 +39,28 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
         isQuizOpen: false,
         quizType: "Multiple",
         quizQ: "다음 중 가장 큰 숫자는?",
-        quizA: "3",
+        quizA: "8",
         quizChoices: ["1", "2", "3", "8"],
+      },
+      {
+        id: 3,
+        isQuiz: true,
+        isQuizOpen: false,
+        quizType: "Multiple",
+        quizQ: "다음 중 가장 작은 숫자는?",
+        quizA: "2",
+        quizChoices: ["2", "3", "8"],
+      },
+      {
+        id:4,
+        isQuiz: true,
+        isQuizOpen: false,
+        quizType: "Multiple",
+        quizQ: "다음 중 희연이가 가장 바쁜 요일은",
+        quizA: "목요일",
+        quizChoices: ["수요일", "목요일"],
       }
+
       
     ];
     setQuiz(sampleQuizData);
@@ -139,11 +158,11 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
         <div className={styles.quizQ}>
           <p>{quizQ}</p>
           </div>
-        <button  onClick={handleMCorrectAnswer(quizChoices[0])}>  {quizChoices[0]} </button>
-        <button  onClick={handleMCorrectAnswer(quizChoices[1])}>  {quizChoices[1]}  </button>
-        <button  onClick={handleMCorrectAnswer(quizChoices[2])}>  {quizChoices[2]}  </button>
-        <button  onClick={handleMCorrectAnswer(quizChoices[3])}>  {quizChoices[3]}  </button>
-
+        <div className={layoutClass()}>
+          {quizChoices.map((choice, index) => (
+            <button key={index} onClick={handleMCorrectAnswer(choice)}>{choice}</button>
+          ))}
+           
         {modalType === 'correct' && (
         <div className="modal">
           <p>정답입니다! 토핑이 오픈됩니다.</p>
@@ -154,10 +173,18 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
           <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
         </div>
       )}
+      
         <button onClick={onClose} className={styles.closeButton}>닫기</button>
       </div>
-  
+      </div>
     );
+  };
+
+  const layoutClass = () => {
+    const length = quizChoices;
+    if(length == 2) return styles.twoChoices;
+    else if(length == 3) return styles.threeChoices;
+    else return styles.fourChoices;
   };
 
   return (

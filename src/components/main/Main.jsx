@@ -82,8 +82,9 @@ const Main = () => {
         topping: "banana",
         currentPage: 0,
         totalPage: 2,
-        isQuiz: false,
+        isQuiz: true,
         isQuizOpen: false,
+        quizID: 3,
       },
       {
         id: 6,
@@ -108,8 +109,9 @@ const Main = () => {
         topping: "marshmallow",
         currentPage: 0,
         totalPage: 2,
-        isQuiz: false,
+        isQuiz: true,
         isQuizOpen: false,
+        quizID: 4,
       },
       {
         id: 8,
