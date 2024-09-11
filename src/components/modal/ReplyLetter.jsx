@@ -19,7 +19,7 @@ const ReplyLetter = ({isOpen, onClose, from}) => {
     }
   };
 
-
+ 
 
   return (
     
@@ -31,10 +31,14 @@ const ReplyLetter = ({isOpen, onClose, from}) => {
           </button>
           <label>답장 작성 </label>
         </div>
-        <div className={styles.to}>
-          <p>To.</p>
-          <p>{from}</p> 
+        <div className={styles.topWrapper}>
+          <p className={styles.to}>
+            To.
+          </p>
+        
+          <p className={styles.toWho}>{from}</p> 
           {/* from이지만, 답장을 받는 사람임 */}
+     
         </div>
     <div className={styles.replyContent}>
       <input 
@@ -42,10 +46,12 @@ const ReplyLetter = ({isOpen, onClose, from}) => {
         value={inputValue}
         onChange={handleInputChange}
         placeholder="답장을 작성해주세요"/>
-         <p>{charCount} / {maxChars} 글자 </p>      {/* 현재 글자 수 표시 */}
+         <p>{charCount} / {maxChars} </p>      {/* 현재 글자 수 표시 */}
       </div>
-        <button onClick={onClose} className={styles.closeButton}>닫기(완료가 될)</button>
+      <div className={styles.bottomWrapper}>
+        <button onClick={onClose} className={styles.closeButton}>완료</button>
       </div>
+    </div>
   );
 };
 

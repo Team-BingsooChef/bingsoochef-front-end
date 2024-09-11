@@ -25,10 +25,7 @@ const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent, wi
   return (
   
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.top}>
-          <button className={styles.back} onClick={onClose}>
-            <img src={backicon} alt="back" />
-          </button>
+     
           <div className={styles.topWrapper}>
             <p className={styles.from}>
              FROM.
@@ -37,7 +34,6 @@ const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent, wi
               {from}
             </p>
           </div>
-        </div>
         <div className={styles.contentWrapper}>
           <p className={styles.content}>{content}</p>
         </div>
@@ -61,10 +57,11 @@ const OpenLetter = ({isOpen, onClose, from, content, isReplied, replyContent, wi
        
         )}
          </div>
-
+        <div className={styles.bottomWrapper}>
         <button className={styles.closeButton} onClick={onClose}>
           닫기
         </button>
+        </div>
       </div>
     
   );
