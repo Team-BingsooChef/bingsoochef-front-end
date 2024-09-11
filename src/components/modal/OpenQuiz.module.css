@@ -24,24 +24,81 @@
     text-align: center;
   }
   
-  .closeButton {
-    padding: 10px 20px;
-    background-color: #03526B;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 100px;
+  
+}
   
   .top{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 30px; 
+  }
+
+  .top label{
+    font-size: 28px;
+    color: #FDF0CC;
+    margin-right: 140px;
   }
   
+
+  .quizQ {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    height: 100px;
+    background-color: #D9D9D9 ;
+    border-radius: 30px;
+  }
+
+  .choices{
+
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .choices button{
+    border-radius: 30px;
+    border: none;
+    height:120px;
+    width: 120px;
+  }
   .expandedContent {
     margin-top: 20px;
     padding: 20px;
     background-color: #f1f1f1;
     border-radius: 8px;
     transition: max-height 0.3s ease-out;
+  }
+
+  .twochocies{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .threechocies{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .fourchocies{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+    justify-content: center;
   }

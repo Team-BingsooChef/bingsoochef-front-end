@@ -2,6 +2,8 @@ import React, {useState, useEffect, useRef} from 'react';
 import styles from './OpenQuiz.module.css';
 import { useNavigate } from 'react-router-dom';
 import back from '/src/assets/icon/gotobackicon_white.svg';
+import O from '/src/assets/icon/O.svg';
+import X from '/src/assets/icon/X.svg';
 
 
 const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
@@ -123,6 +125,9 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
     return(
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
            <div className={styles.top} >
+           <button className={styles.back} onClick={onClose}>
+              <img src={back} alt="back" />
+            </button>
            <label>퀴즈</label>
         </div>
         <div className={styles.quizQ}>
@@ -130,8 +135,14 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
           <p>{quizQ}</p>
           </div>
         
-        <button  onClick={handleOCorrectAnswer}> O </button>
-        <button  onClick={handleXCorrectAnswer}> X </button>
+        <div className={styles.choices}>
+        <button  onClick={handleOCorrectAnswer}> 
+          <img src={O}/>
+           </button>
+        <button  onClick={handleXCorrectAnswer}> 
+        <img src={X}/>
+           </button>
+        </div>
         {modalType === 'correct' && (
         <div className="modal">
           <p>정답입니다! 토핑이 오픈됩니다.</p>
@@ -142,7 +153,6 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
           <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
         </div>
       )}
-        <button onClick={onClose} className={styles.closeButton}>닫기</button>
       </div>
     
       
@@ -153,9 +163,13 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
     return(
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.top}>
+        <button className={styles.back} onClick={onClose}>
+              <img src={back} alt="back" />
+            </button>
         <label>퀴즈</label>
         </div>
         <div className={styles.quizQ}>
+          <p>Q.</p>
           <p>{quizQ}</p>
           </div>
         <div className={layoutClass()}>
