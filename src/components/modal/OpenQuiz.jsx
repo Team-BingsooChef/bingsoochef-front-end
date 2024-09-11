@@ -172,7 +172,11 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
           <p>Q.</p>
           <p>{quizQ}</p>
           </div>
-        <div className={layoutClass()}>
+          <div className={
+            quizChoices.length === 2 ? styles.twochoices :
+            quizChoices.length === 3 ? styles.threechoices :
+            styles.fourchoices
+}>
           {quizChoices.map((choice, index) => (
             <button key={index} onClick={handleMCorrectAnswer(choice)}>{choice}</button>
           ))}
@@ -188,17 +192,10 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
         </div>
       )}
       
-        <button onClick={onClose} className={styles.closeButton}>닫기</button>
+      
       </div>
       </div>
     );
-  };
-
-  const layoutClass = () => {
-    const length = quizChoices;
-    if(length == 2) return styles.twoChoices;
-    else if(length == 3) return styles.threeChoices;
-    else return styles.fourChoices;
   };
 
   return (
