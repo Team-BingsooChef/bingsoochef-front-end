@@ -37,33 +37,33 @@ const SelectTP = ({isOpen, onClose}) => {
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
       <div className={styles.top}>
         <button className={styles.back} onClick={onClose}>
-          <img src={backicon} />
+          <img src={backicon} alt="Icon" />
         </button>
         <label> 토핑 선택 </label>
       </div>
       <div className={styles.contentWrapper}>
+      <label> - 과일</label>
       <div className={styles.itemsWrapper}>
       {categories["fruits"].map((item, index) => (
-              <div key={index} className={styles.itemCard}>
+              <button key={index} className={styles.itemCard}>
                 <img src={getToppingpath(item)} alt={item} className={styles.itemImage} />
-                <p>{item}</p>
-                </div>
+                </button>
             ))}
       </div>
+      <label> - 과자</label>
       <div className={styles.itemsWrapper}>
       {categories["snacks"].map((item, index) => (
-              <div key={index} className={styles.itemCard}>
+              <button key={index} className={styles.itemCard}>
                 <img src={getToppingpath(item)} alt={item} className={styles.itemImage} />
-                <p>{item}</p>
-                </div>
+                </button>
             ))}
       </div>
+      <label> - 떡</label>
       <div className={styles.itemsWrapper}>
       {categories["ricecakes"].map((item, index) => (
-              <div key={index} className={styles.itemCard}>
+              <button key={index} className={styles.itemCard}>
                 <img src={getToppingpath(item)} alt={item} className={styles.itemImage} />
-                <p>{item}</p>
-                </div>
+                </button>
             ))}
       </div>
 
