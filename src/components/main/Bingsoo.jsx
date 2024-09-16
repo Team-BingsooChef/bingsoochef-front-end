@@ -5,6 +5,14 @@ import OpenLetter from "../modal/OpenLetter";
 import OpenQuiz from "../modal/OpenQuiz";
 import ReplyLetter from "../modal/ReplyLetter";
 
+import QuizMakeOX from "../modal/chef/QuizMakeOX";
+import QuizMakeMult from "../modal/chef/QuizMakeMult";
+import QuizOrNot from "../modal/chef/QuizOrNot";
+import QuizSelect from "../modal/chef/QuizSelect";
+import SelectTP from "../modal/chef/SelectTP";
+import SetChefName from "../modal/chef/SetChefName";
+import WriteTP from "../modal/chef/WriteTP";
+
 
 const Bingsoo = ({ toppings, viewType }) => {
   const isTouchable = viewType === "owner";

@@ -5,6 +5,13 @@ import Sidebar from "./Sidebar";
 import homeicon from "/src/assets/icon/homeicon.svg";
 import menuicon from "/src/assets/icon/menuicon.svg";
 import Bingsoo from "./Bingsoo";
+import SelectTP from "../modal/chef/SelectTP";
+import WriteTP from "../modal/chef/WriteTP";
+import QuizOrNot from "../modal/chef/QuizOrNot";
+import QuizSelect from "../modal/chef/QuizSelect";
+import QuizMakeOX from "../modal/chef/QuizMakeOX";
+import QuizMakeMult from "../modal/chef/QuizMakeMult";
+import SetChefName from "../modal/chef/SetChefName";
 
 const Main = () => {
   const [toppings, setToppings] = useState([]);
@@ -153,13 +160,14 @@ const Main = () => {
         isQuizOpen: false,
       },
     ];
+    //toppingData 배열 접어둠
     setToppings(sampletoppingData);
   };
 
   // const {URLbingsooId} = useParams();
   // const [UserbingsooId, setUserBingsooId] = useState(null);
   const navigate = useNavigate();
-const [role, setRole] = useState("owner");  
+  const [role, setRole] = useState("chef");  
   // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요.
   //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
 
@@ -193,7 +201,17 @@ const [role, setRole] = useState("owner");
   //   // 로딩 상태 처리
   //   return <div>Loading...</div>;
   // }
-  
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleCloseModal = () =>{
+    setModalOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+
   const goToMine = () => {
     navigate("/main:UserbingsooId");
   };
@@ -237,7 +255,13 @@ const [role, setRole] = useState("owner");
           </label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
           <Bingsoo toppings={toppings} viewType="chef" />
-          <button className={styles.addbutton}>토핑 추가하기</button>
+          <button className={styles.addbutton} onClick={handleModalOpen}>토핑 추가하기</button>
+          {isModalOpen && (
+            <SelectTP
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
+          )}
         </div>
       </div>
     );
