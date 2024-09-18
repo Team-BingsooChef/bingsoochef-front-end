@@ -19,10 +19,8 @@ const SelectTP = ({isOpen, onClose}) => {
 
   const handleItemClick = (item) => {
     setSelectedTopping(item);
-    useEffect(() => {
-      window.sessionStorage.setItem("topping", JSON.stringify(selectedTopping));
-  }, [selectedTopping]);
-    
+    window.sessionStorage.setItem("selectedTopping", item);
+    onClose();
   };
   return (
       <div className={styles.modalDisplay} onClick={onClose}>
