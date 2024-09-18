@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./SelectTP.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
@@ -6,7 +6,7 @@ import backicon from "/src/assets/icon/gotobackicon_white.svg";
 const SelectTP = ({isOpen, onClose}) => {
   if (!isOpen) return null;
 
-  const [selectedTopping, setSelectedTopping] = useState([]);
+  const [selectedTopping, setSelectedTopping] = useState('');
   const categories = {
     "fruits":["banana", "cherry", "kiwi", "mango", "shine", "strawberry"],
     "snacks":["chex", "maltesers", "oreo", "stick"],
@@ -17,20 +17,12 @@ const SelectTP = ({isOpen, onClose}) => {
     return `/src/assets/toppings/${topping}.svg`;
   };
 
-  const handleSubmit = () => {
-    // const orderDetails = [];
-    // };
-    // fetch('/your-api-endpoint', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(orderDetails)
-    // })
-    //   .then(response => response.json())
-    //   .then(data => console.log(data))
-    //   .catch(error => console.error('Error:', error));
-    console.log('백엔드로 전송할 데이터:', orderDetails);
+  const handleItemClick = (item) => {
+    setSelectedTopping(item);
+    useEffect(() => {
+      window.sessionStorage.setItem("topping", JSON.stringify(selectedTopping));
+  }, [selectedTopping]);
+    
   };
   return (
       <div className={styles.modalDisplay} onClick={onClose}>
@@ -45,7 +37,9 @@ const SelectTP = ({isOpen, onClose}) => {
       <label> - 과일</label>
       <div className={styles.itemsWrapper}>
       {categories["fruits"].map((item, index) => (
-              <button key={index} className={styles.itemCard}>
+             <button key={index} 
+             className={styles.itemCard}
+             onClick={() => handleItemClick(item)}>
                 <img src={getToppingpath(item)} alt={item} className={styles.itemImage} />
                 </button>
             ))}
@@ -53,7 +47,9 @@ const SelectTP = ({isOpen, onClose}) => {
       <label> - 과자</label>
       <div className={styles.itemsWrapper}>
       {categories["snacks"].map((item, index) => (
-              <button key={index} className={styles.itemCard}>
+              <button key={index} 
+              className={styles.itemCard}
+              onClick={() => handleItemClick(item)}>
                 <img src={getToppingpath(item)} alt={item} className={styles.itemImage} />
                 </button>
             ))}
@@ -61,7 +57,9 @@ const SelectTP = ({isOpen, onClose}) => {
       <label> - 떡</label>
       <div className={styles.itemsWrapper}>
       {categories["ricecakes"].map((item, index) => (
-              <button key={index} className={styles.itemCard}>
+              <button key={index} 
+              className={styles.itemCard}
+              onClick={() => handleItemClick(item)}>
                 <img src={getToppingpath(item)} alt={item} className={styles.itemImage} />
                 </button>
             ))}
