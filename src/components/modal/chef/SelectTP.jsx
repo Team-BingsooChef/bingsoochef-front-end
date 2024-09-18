@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./SelectTP.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
 
-const SelectTP = ({isOpen, onClose}) => {
+const SelectTP = ({isOpen, onClose, onSelectSuccess}) => {
   if (!isOpen) return null;
 
   const [selectedTopping, setSelectedTopping] = useState('');
@@ -20,7 +20,7 @@ const SelectTP = ({isOpen, onClose}) => {
   const handleItemClick = (item) => {
     setSelectedTopping(item);
     window.sessionStorage.setItem("selectedTopping", item);
-    onClose();
+    onSelectSuccess();
   };
   return (
       <div className={styles.modalDisplay} onClick={onClose}>

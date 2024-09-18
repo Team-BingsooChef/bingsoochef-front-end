@@ -20,7 +20,7 @@ const Main = () => {
     fetchToppings();
   }, []);
 
-  console.log("Toppings:", toppings);
+  // console.log("Toppings:", toppings);
 
   const fetchToppings = async () => {
     // API 요청 코드 - 실제로는 fetch나 axios를 사용해 데이터를 가져옴
@@ -203,6 +203,7 @@ const Main = () => {
   // }
   const [isModalOpen, setModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isWriteOpen, setWriteOpen] = useState(false);
 
   const handleCloseModal = () =>{
     setModalOpen(false);
@@ -211,6 +212,15 @@ const Main = () => {
   const handleModalOpen = () => {
     setModalOpen(true);
   };
+
+ const handleCloseWrite = () => {
+    setWriteOpen(false);
+  };
+
+  const handleSTPCompletion = () => {
+    handleCloseModal();
+    setWriteOpen(true);
+  }; 
 
   const goToMine = () => {
     navigate("/main:UserbingsooId");
@@ -256,12 +266,19 @@ const Main = () => {
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
           <Bingsoo toppings={toppings} viewType="chef" />
           <button className={styles.addbutton} onClick={handleModalOpen}>토핑 추가하기</button>
-          {isModalOpen && (
+          {isModalOpen ? (
             <SelectTP
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
+                onSelectSuccess={handleSTPCompletion}
             />
-          )}
+          ) : isWriteOpen ? (
+            <WriteTP
+              isOpen={isWriteOpen}
+              onClose={handleCloseWrite}
+            />
+          )
+          : null}
         </div>
       </div>
     );

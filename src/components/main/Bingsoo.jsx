@@ -92,7 +92,7 @@ const Bingsoo = ({ toppings, viewType }) => {
 
   const [bingsoo, setBingsoo] = useState([]);
 
-  console.log("Toppings:", toppings);
+  // console.log("Toppings:", toppings);
 
   const getbingsooPath = (bingsoo) => {
     return `/src/assets/bingsoo/${bingsoo}.png`;
