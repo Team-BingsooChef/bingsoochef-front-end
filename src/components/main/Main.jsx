@@ -202,8 +202,8 @@ const Main = () => {
   //   return <div>Loading...</div>;
   // }
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [isWriteOpen, setWriteOpen] = useState(false);
+  const [isQuizOrNotOpen, setQuizOrNotOpen] = useState(false);
 
   const handleCloseModal = () =>{
     setModalOpen(false);
@@ -221,6 +221,15 @@ const Main = () => {
     handleCloseModal();
     setWriteOpen(true);
   }; 
+
+  const handleWCompletion = () => {
+    setWriteOpen(false);
+    setQuizOrNotOpen(true);
+  };
+
+const handleCloseQON = () => {
+  setQuizOrNotOpen(false);
+};
 
   const goToMine = () => {
     navigate("/main:UserbingsooId");
@@ -276,9 +285,16 @@ const Main = () => {
             <WriteTP
               isOpen={isWriteOpen}
               onClose={handleCloseWrite}
+              goBack={handleModalOpen}
+              onWriteSuccess={handleWCompletion}
             />
           )
-          : null}
+          : isQuizOrNotOpen ? (
+            <QuizOrNot
+                isOpen={isQuizOrNotOpen}
+                onClose={handleCloseQON}
+            />
+          ) : null}
         </div>
       </div>
     );
