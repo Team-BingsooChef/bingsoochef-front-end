@@ -8,11 +8,11 @@ const QuizOrNot = ({isOpen, onClose, goBack, onQONSuccess}) => {
 
   const goToWriteTP = () => {
     goBack();
-  }
+  };
   const handleQuizX = () => {
     window.sessionStorage.setItem("Quiz", false);
     onQONSuccess();
-  }
+  };
   const handleQuizO = () => {
     window.sessionStorage.setItem("Quiz", true);
     onQONSuccess();

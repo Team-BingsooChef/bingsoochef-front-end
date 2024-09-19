@@ -204,6 +204,7 @@ const Main = () => {
   const [isSelectOpen, setSelectOpen] = useState(false);
   const [isWriteOpen, setWriteOpen] = useState(false);
   const [isQuizOrNotOpen, setQuizOrNotOpen] = useState(false);
+  const [isQuizSelectOpen, setQuizSelectOpen] = useState(false);
 
   const handleCloseSelect = () =>{
     setSelectOpen(false);
@@ -221,6 +222,11 @@ const Main = () => {
     setWriteOpen(true);
     setQuizOrNotOpen(false);
   }
+
+  const handleQONOpen = () => {
+    setQuizOrNotOpen(true);
+    setQuizSelectOpen(false);
+  }
   const handleSTPCompletion = () => {
     setSelectOpen(false);
     setWriteOpen(true);
@@ -237,6 +243,11 @@ const handleCloseQON = () => {
 
 const handleQONCompletion = () =>{
   setQuizOrNotOpen(false);
+  setQuizSelectOpen(true);
+}
+
+const handleQSCompletion = () =>{
+  setQuizSelectOpen(false);
 }
 
   const goToMine = () => {
@@ -305,6 +316,13 @@ const handleQONCompletion = () =>{
                 goBack={handleWriteOpen}
                 onQONSuccess={handleQONCompletion}
             />
+          )}
+          { isQuizSelectOpen && (
+            <QuizSelect
+                isOpen={isQuizSelectOpen}
+                onClose={handleCloseSelect}
+                goBack={handleQONOpen}
+                onQSSuccess={handleQSCompletion}/>
           )}
         </div>
       </div>
