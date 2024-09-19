@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./WriteTP.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
@@ -7,6 +7,16 @@ const WriteTP = ({isOpen, onClose, goBack, onWriteSuccess}) => {
   if (!isOpen) return null;
 
 
+  useEffect(() => {
+    // 세션 스토리지에서 writtenContent를 가져오고 상태를 초기화
+    const savedContent = window.sessionStorage.getItem('writtenContent');
+    if (savedContent) {
+      setInputValue(savedContent);
+      setCharCount(savedContent.length);
+    }
+  }, []);
+
+  
   const to = '해커핑'
 
   const [inputValue, setInputValue] = useState('');  // 입력 값 관리
@@ -22,6 +32,7 @@ const WriteTP = ({isOpen, onClose, goBack, onWriteSuccess}) => {
     }
   };
 
+  
   const goToSelectTP = () => {
     goBack();
   }
@@ -58,7 +69,7 @@ const WriteTP = ({isOpen, onClose, goBack, onWriteSuccess}) => {
       <p>{charCount} / {maxChars}</p>
    </div>
    <div className={styles.bottomWrapper}>
-   <button className={styles.nextButton} onClick={handleSession}>
+   <button className={styles.nextButton} onClick={()=> handleSession(inputValue)}>
      다음
    </button>
    </div>

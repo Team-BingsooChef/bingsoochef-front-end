@@ -201,24 +201,28 @@ const Main = () => {
   //   // 로딩 상태 처리
   //   return <div>Loading...</div>;
   // }
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isSelectOpen, setSelectOpen] = useState(false);
   const [isWriteOpen, setWriteOpen] = useState(false);
   const [isQuizOrNotOpen, setQuizOrNotOpen] = useState(false);
 
-  const handleCloseModal = () =>{
-    setModalOpen(false);
+  const handleCloseSelect = () =>{
+    setSelectOpen(false);
   };
 
-  const handleModalOpen = () => {
-    setModalOpen(true);
+  const handleModalSelect = () => {
+    setSelectOpen(true);
   };
 
  const handleCloseWrite = () => {
     setWriteOpen(false);
   };
 
+  const handleWriteOpen = () => {
+    setWriteOpen(true);
+    setQuizOrNotOpen(false);
+  }
   const handleSTPCompletion = () => {
-    handleCloseModal();
+    setSelectOpen(false);
     setWriteOpen(true);
   }; 
 
@@ -230,6 +234,10 @@ const Main = () => {
 const handleCloseQON = () => {
   setQuizOrNotOpen(false);
 };
+
+const handleQONCompletion = () =>{
+  setQuizOrNotOpen(false);
+}
 
   const goToMine = () => {
     navigate("/main:UserbingsooId");
@@ -274,27 +282,30 @@ const handleCloseQON = () => {
           </label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
           <Bingsoo toppings={toppings} viewType="chef" />
-          <button className={styles.addbutton} onClick={handleModalOpen}>토핑 추가하기</button>
-          {isModalOpen ? (
+          <button className={styles.addbutton} onClick={handleModalSelect}>토핑 추가하기</button>
+          {isSelectOpen && (
             <SelectTP
-                isOpen={isModalOpen}
-                onClose={handleCloseModal}
+                isOpen={isSelectOpen}
+                onClose={handleCloseSelect}
                 onSelectSuccess={handleSTPCompletion}
-            />
-          ) : isWriteOpen ? (
+            />)}
+
+            {isWriteOpen && (
             <WriteTP
               isOpen={isWriteOpen}
               onClose={handleCloseWrite}
-              goBack={handleModalOpen}
+              goBack={handleModalSelect}
               onWriteSuccess={handleWCompletion}
             />
-          )
-          : isQuizOrNotOpen ? (
+          ) }
+          { isQuizOrNotOpen && (
             <QuizOrNot
                 isOpen={isQuizOrNotOpen}
                 onClose={handleCloseQON}
+                goBack={handleWriteOpen}
+                onQONSuccess={handleQONCompletion}
             />
-          ) : null}
+          )}
         </div>
       </div>
     );
