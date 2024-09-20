@@ -3,19 +3,20 @@ import { useNavigate } from "react-router-dom";
 import styles from "./QuizOrNot.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
 
-const QuizOrNot = ({isOpen, onClose, goBack, onQONSuccess}) => {
+const QuizOrNot = ({isOpen, onClose, goBack, onQONSuccess, noQuiz}) => {
   if (!isOpen) return null;
 
   const goToWriteTP = () => {
     goBack();
   };
-  const handleQuizX = () => {
-    window.sessionStorage.setItem("Quiz", false);
-    onQONSuccess();
-  };
+
   const handleQuizO = () => {
     window.sessionStorage.setItem("Quiz", true);
     onQONSuccess();
+  };
+  const handleQuizX = () => {
+    window.sessionStorage.setItem("Quiz", false);
+    noQuiz();
   };
   
   return (
