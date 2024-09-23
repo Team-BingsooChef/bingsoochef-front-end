@@ -2,9 +2,11 @@ import React, {useState, useEffect, useRef} from 'react';
 import styles from './OpenQuiz.module.css';
 import { useNavigate } from 'react-router-dom';
 import back from '/src/assets/icon/gotobackicon_white.svg';
+import O from '/src/assets/icon/O.svg';
+import X from '/src/assets/icon/X.svg';
 
 
-const OpenQuiz = ({isOpen, onClose, id}) => {
+const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
   if (!isOpen) return null;
 
   const [modalType, setModalType] = useState(null);
@@ -39,9 +41,28 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
         isQuizOpen: false,
         quizType: "Multiple",
         quizQ: "다음 중 가장 큰 숫자는?",
-        quizA: "3",
+        quizA: "8",
         quizChoices: ["1", "2", "3", "8"],
+      },
+      {
+        id: 3,
+        isQuiz: true,
+        isQuizOpen: false,
+        quizType: "Multiple",
+        quizQ: "다음 중 가장 작은 숫자는?",
+        quizA: "2",
+        quizChoices: ["2", "3", "8"],
+      },
+      {
+        id:4,
+        isQuiz: true,
+        isQuizOpen: false,
+        quizType: "Multiple",
+        quizQ: "다음 중 희연이가 가장 바쁜 요일은",
+        quizA: "목요일",
+        quizChoices: ["수요일", "목요일"],
       }
+
       
     ];
     setQuiz(sampleQuizData);
@@ -67,6 +88,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   const handleOCorrectAnswer = () => {
     if (quizA === "O") {
       setModalType('correct');
+      onQuizSuccess();
     } else {
       setModalType('incorrect');
     }
@@ -78,6 +100,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
   const handleXCorrectAnswer = () => {
     if (quizA === "X") {
       setModalType('correct');
+      onQuizSuccess();
     } else {
       setModalType('incorrect');
     }
@@ -89,6 +112,7 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
     setSelectedAnswer(answer);
     if (quizA === answer) {
       setModalType('correct');
+      onQuizSuccess();
     } else {
       setModalType('incorrect');
     }
@@ -101,6 +125,9 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
     return(
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
            <div className={styles.top} >
+           <button className={styles.back} onClick={onClose}>
+              <img src={back} alt="back" />
+            </button>
            <label>퀴즈</label>
         </div>
         <div className={styles.quizQ}>
@@ -108,8 +135,14 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
           <p>{quizQ}</p>
           </div>
         
-        <button  onClick={handleOCorrectAnswer}> O </button>
-        <button  onClick={handleXCorrectAnswer}> X </button>
+        <div className={styles.choices}>
+        <button  onClick={handleOCorrectAnswer}> 
+          <img src={O}/>
+           </button>
+        <button  onClick={handleXCorrectAnswer}> 
+        <img src={X}/>
+           </button>
+        </div>
         {modalType === 'correct' && (
         <div className="modal">
           <p>정답입니다! 토핑이 오픈됩니다.</p>
@@ -120,7 +153,6 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
           <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
         </div>
       )}
-        <button onClick={onClose} className={styles.closeButton}>닫기</button>
       </div>
     
       
@@ -131,16 +163,24 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
     return(
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.top}>
+        <button className={styles.back} onClick={onClose}>
+              <img src={back} alt="back" />
+            </button>
         <label>퀴즈</label>
         </div>
         <div className={styles.quizQ}>
+          <p>Q.</p>
           <p>{quizQ}</p>
           </div>
-        <button  onClick={handleMCorrectAnswer(quizChoices[0])}>  {quizChoices[0]} </button>
-        <button  onClick={handleMCorrectAnswer(quizChoices[1])}>  {quizChoices[1]}  </button>
-        <button  onClick={handleMCorrectAnswer(quizChoices[2])}>  {quizChoices[2]}  </button>
-        <button  onClick={handleMCorrectAnswer(quizChoices[3])}>  {quizChoices[3]}  </button>
-
+          <div className={
+            quizChoices.length === 2 ? styles.twochoices :
+            quizChoices.length === 3 ? styles.threechoices :
+            styles.fourchoices
+}>
+          {quizChoices.map((choice, index) => (
+            <button key={index} onClick={handleMCorrectAnswer(choice)}>{choice}</button>
+          ))}
+           
         {modalType === 'correct' && (
         <div className="modal">
           <p>정답입니다! 토핑이 오픈됩니다.</p>
@@ -151,9 +191,10 @@ const OpenQuiz = ({isOpen, onClose, id}) => {
           <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
         </div>
       )}
-        <button onClick={onClose} className={styles.closeButton}>닫기</button>
+      
+      
       </div>
-  
+      </div>
     );
   };
 

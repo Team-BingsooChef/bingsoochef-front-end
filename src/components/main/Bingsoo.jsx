@@ -5,13 +5,21 @@ import OpenLetter from "../modal/OpenLetter";
 import OpenQuiz from "../modal/OpenQuiz";
 import ReplyLetter from "../modal/ReplyLetter";
 
+import QuizMakeOX from "../modal/chef/QuizMakeOX";
+import QuizMakeMult from "../modal/chef/QuizMakeMult";
+import QuizOrNot from "../modal/chef/QuizOrNot";
+import QuizSelect from "../modal/chef/QuizSelect";
+import SelectTP from "../modal/chef/SelectTP";
+import SetChefName from "../modal/chef/SetChefName";
+import WriteTP from "../modal/chef/WriteTP";
+
+
 const Bingsoo = ({ toppings, viewType }) => {
   const isTouchable = viewType === "owner";
   const [data, setData] = useState([]); // 데이터를 저장할 상태
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
   const [totalPage, setTotalPage] = useState(0); // 전체 페이지 수
   const [isModalOpen, setModalOpen] = useState(false);
-
   const [isQuiz, setIsQuiz] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +28,8 @@ const Bingsoo = ({ toppings, viewType }) => {
   const [isIReplied, setIsIReplied] = useState(false);
   const [currentReply, setCurrentReply] = useState("");
   const [quizID, setQuizID] = useState(0);
+
+  const [isReplyOpen, setIsReplyOpen] = useState(false);
 
   const handleCloseModal = () => {
     setModalOpen(false);
@@ -31,6 +41,7 @@ const Bingsoo = ({ toppings, viewType }) => {
     setIsQuiz(false);
     setIsQuizOpen(false);
     setQuizID(0);
+    setIsReplyOpen(false);
   };
   const handleViewLetter = (topping) => {
     setModalOpen(true);
@@ -59,9 +70,29 @@ const Bingsoo = ({ toppings, viewType }) => {
     
   };
 
+  const handleGoReply = () => {
+    setIsReplyOpen(true);
+  };
+
+  const handleQuizCompletion = () => {
+    setIsQuiz(false);
+    setIsOpen(true);
+    return (
+      <OpenLetter
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    from={currentFrom}
+                    content={currentContent}
+                    isReplied={isIReplied}
+                    replyContent={currentReply}
+                  />
+    ); // Trigger OpenLetter after quiz completion
+  };
+  //나중에는 백에다가 opened 상태를 업데이트하는 요청을 보내야함
+
   const [bingsoo, setBingsoo] = useState([]);
 
-  console.log("Toppings:", toppings);
+  // console.log("Toppings:", toppings);
 
   const getbingsooPath = (bingsoo) => {
     return `/src/assets/bingsoo/${bingsoo}.png`;
@@ -141,7 +172,10 @@ const Bingsoo = ({ toppings, viewType }) => {
             />
             {isModalOpen && (
               <div className={styles.modalDisplay} onClick={handleCloseModal}>
-                {isOpen ? (
+                {isReplyOpen ? (
+                  <ReplyLetter isOpen={isModalOpen} onClose={handleCloseModal} from={currentFrom} />
+                )
+                : isOpen ? (
                   <OpenLetter
                     isOpen={isModalOpen}
                     onClose={handleCloseModal}
@@ -149,12 +183,14 @@ const Bingsoo = ({ toppings, viewType }) => {
                     content={currentContent}
                     isReplied={isIReplied}
                     replyContent={currentReply}
+                    willReply={handleGoReply}
                   />
                 ) : isQuiz ? (
                   <OpenQuiz 
                   isOpen={isModalOpen} 
                   onClose={handleCloseModal}
-                  id={quizID} />
+                  id={quizID}
+                  onQuizSuccess={handleQuizCompletion} />
                 ) : (
                   <OpenLetter
                     isOpen={isModalOpen}

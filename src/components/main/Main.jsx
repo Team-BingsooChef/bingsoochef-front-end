@@ -5,6 +5,13 @@ import Sidebar from "./Sidebar";
 import homeicon from "/src/assets/icon/homeicon.svg";
 import menuicon from "/src/assets/icon/menuicon.svg";
 import Bingsoo from "./Bingsoo";
+import SelectTP from "../modal/chef/SelectTP";
+import WriteTP from "../modal/chef/WriteTP";
+import QuizOrNot from "../modal/chef/QuizOrNot";
+import QuizSelect from "../modal/chef/QuizSelect";
+import QuizMakeOX from "../modal/chef/QuizMakeOX";
+import QuizMakeMult from "../modal/chef/QuizMakeMult";
+import SetChefName from "../modal/chef/SetChefName";
 
 const Main = () => {
   const [toppings, setToppings] = useState([]);
@@ -13,7 +20,7 @@ const Main = () => {
     fetchToppings();
   }, []);
 
-  console.log("Toppings:", toppings);
+  // console.log("Toppings:", toppings);
 
   const fetchToppings = async () => {
     // API 요청 코드 - 실제로는 fetch나 axios를 사용해 데이터를 가져옴
@@ -60,7 +67,7 @@ const Main = () => {
       },
       {
         id: 4,
-        to: "인도BTS상희",
+        from: "인도BTS상희",
         content:
           "귀하의 위대한 품격과 전통을 찬미하며 저희는 감히 부탁드리고자 합니다. 당신의 뛰어난 춤 실력을 경험할 수 있는 기회를 허락해 주시겠습니까? 인도의 유서 깊은 문화와 우아함을 담아낸 당신의 춤사위는 우리의 마음을 매혹시키고, 그 속에 담긴 아름다움을 느끼고 싶습니다. 우리에게 영감을 주고 기쁨을 안겨줄 당신의 춤을 감상할 수 있도록 허락해 주시길 간청드립니다. 상희님의 춤이 이곳을 빛낼 것을 믿어 의심치 않습니다.",
         opened: false,
@@ -82,8 +89,9 @@ const Main = () => {
         topping: "banana",
         currentPage: 0,
         totalPage: 2,
-        isQuiz: false,
+        isQuiz: true,
         isQuizOpen: false,
+        quizID: 3,
       },
       {
         id: 6,
@@ -108,8 +116,9 @@ const Main = () => {
         topping: "marshmallow",
         currentPage: 0,
         totalPage: 2,
-        isQuiz: false,
+        isQuiz: true,
         isQuizOpen: false,
+        quizID: 4,
       },
       {
         id: 8,
@@ -151,13 +160,14 @@ const Main = () => {
         isQuizOpen: false,
       },
     ];
+    //toppingData 배열 접어둠
     setToppings(sampletoppingData);
   };
 
   // const {URLbingsooId} = useParams();
   // const [UserbingsooId, setUserBingsooId] = useState(null);
   const navigate = useNavigate();
-const [role, setRole] = useState("owner");  
+  const [role, setRole] = useState("owner");  
   // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요.
   //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
 
@@ -191,7 +201,62 @@ const [role, setRole] = useState("owner");
   //   // 로딩 상태 처리
   //   return <div>Loading...</div>;
   // }
-  
+  const [isSelectOpen, setSelectOpen] = useState(false);
+  const [isWriteOpen, setWriteOpen] = useState(false);
+  const [isQuizOrNotOpen, setQuizOrNotOpen] = useState(false);
+  const [isQuizSelectOpen, setQuizSelectOpen] = useState(false);
+  const [isQuizMakeOXOpen, setQuizMakeOXOpen] = useState(false);
+  const [isQuizMakeMultOpen, setQuizMakeMultOpen] = useState(false);
+  const [isSetChefNameOpen, setChefNameOpen] = useState(false);
+
+  const handleCloseSelect = () =>{
+    setSelectOpen(false);
+  };
+
+  const handleModalSelect = () => {
+    setSelectOpen(true);
+  };
+
+ const handleCloseWrite = () => {
+    setWriteOpen(false);
+  };
+
+  const handleWriteOpen = () => {
+    setWriteOpen(true);
+    setQuizOrNotOpen(false);
+  }
+
+  const handleQONOpen = () => {
+    setQuizOrNotOpen(true);
+    setQuizSelectOpen(false);
+  }
+  const handleSTPCompletion = () => {
+    setSelectOpen(false);
+    setWriteOpen(true);
+  }; 
+
+  const handleWCompletion = () => {
+    setWriteOpen(false);
+    setQuizOrNotOpen(true);
+  };
+
+const handleCloseQON = () => {
+  setQuizOrNotOpen(false);
+};
+
+const handleQONCompletion = () =>{
+  setQuizOrNotOpen(false);
+  setQuizSelectOpen(true);
+}
+
+const handleQSCompletion = () =>{
+  setQuizSelectOpen(false);
+}
+
+const handleNoQuiz = () => {
+  setQuizOrNotOpen(false);
+  setChefNameOpen(true);
+};
   const goToMine = () => {
     navigate("/main:UserbingsooId");
   };
@@ -235,7 +300,39 @@ const [role, setRole] = useState("owner");
           </label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
           <Bingsoo toppings={toppings} viewType="chef" />
-          <button className={styles.addbutton}>토핑 추가하기</button>
+          <button className={styles.addbutton} onClick={handleModalSelect}>토핑 추가하기</button>
+          {isSelectOpen && (
+            <SelectTP
+                isOpen={isSelectOpen}
+                onClose={handleCloseSelect}
+                onSelectSuccess={handleSTPCompletion}
+            />)}
+
+            {isWriteOpen && (
+            <WriteTP
+              isOpen={isWriteOpen}
+              onClose={handleCloseWrite}
+              goBack={handleModalSelect}
+              onWriteSuccess={handleWCompletion}
+            />
+          ) }
+          { isQuizOrNotOpen && (
+            <QuizOrNot
+                isOpen={isQuizOrNotOpen}
+                onClose={handleCloseQON}
+                goBack={handleWriteOpen}
+                onQONSuccess={handleQONCompletion}
+                noQuiz={handleNoQuiz}
+            />
+          )}
+          { isQuizSelectOpen && (
+            <QuizSelect
+                isOpen={isQuizSelectOpen}
+                onClose={handleCloseSelect}
+                goBack={handleQONOpen}
+                onQSSuccess={handleQSCompletion}/>
+          )}
+    
         </div>
       </div>
     );
