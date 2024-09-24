@@ -11,11 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-    background-image:url('/src/assets/background_sun.png');
-=======
     background-image:url("/src/assets/background/background_sun.png");
->>>>>>> 4a1ee8e25b34b550795c5940f4cc949cd8ef172b
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
