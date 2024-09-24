@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./QuizMakeOX.module.css";
 
 
-const QuizMakeOX = ({isOpen, onClose, from, content, isReplied, replyContent, willReply }) => {
+const QuizMakeOX = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
   if (!isOpen) return null;
 
   

@@ -12,6 +12,7 @@ import QuizSelect from "../modal/chef/QuizSelect";
 import QuizMakeOX from "../modal/chef/QuizMakeOX";
 import QuizMakeMult from "../modal/chef/QuizMakeMult";
 import SetChefName from "../modal/chef/SetChefName";
+import axios from "axios";
 
 const Main = () => {
   const [toppings, setToppings] = useState([]);
@@ -167,7 +168,7 @@ const Main = () => {
   // const {URLbingsooId} = useParams();
   // const [UserbingsooId, setUserBingsooId] = useState(null);
   const navigate = useNavigate();
-  const [role, setRole] = useState("owner");  
+  const [role, setRole] = useState("chef");
   // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요.
   //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
 
@@ -209,54 +210,81 @@ const Main = () => {
   const [isQuizMakeMultOpen, setQuizMakeMultOpen] = useState(false);
   const [isSetChefNameOpen, setChefNameOpen] = useState(false);
 
-  const handleCloseSelect = () =>{
+  const handleCloseSelect = () => {
     setSelectOpen(false);
   };
 
   const handleModalSelect = () => {
     setSelectOpen(true);
+    setWriteOpen(false);
   };
 
- const handleCloseWrite = () => {
+  const handleCloseWrite = () => {
     setWriteOpen(false);
   };
 
   const handleWriteOpen = () => {
     setWriteOpen(true);
     setQuizOrNotOpen(false);
-  }
+  };
 
   const handleQONOpen = () => {
     setQuizOrNotOpen(true);
     setQuizSelectOpen(false);
-  }
+  };
   const handleSTPCompletion = () => {
     setSelectOpen(false);
     setWriteOpen(true);
-  }; 
+  };
 
   const handleWCompletion = () => {
     setWriteOpen(false);
     setQuizOrNotOpen(true);
   };
 
-const handleCloseQON = () => {
-  setQuizOrNotOpen(false);
-};
+  const handleCloseQON = () => {
+    setQuizOrNotOpen(false);
+  };
 
-const handleQONCompletion = () =>{
-  setQuizOrNotOpen(false);
-  setQuizSelectOpen(true);
-}
+  const handleQONCompletion = () => {
+    setQuizOrNotOpen(false);
+    setQuizSelectOpen(true);
+  };
 
-const handleQSCompletion = () =>{
-  setQuizSelectOpen(false);
-}
+  const handleQSoxCompletion = () => {
+    setQuizSelectOpen(false);
+    setQuizMakeOXOpen(true);
+  };
 
-const handleNoQuiz = () => {
-  setQuizOrNotOpen(false);
-  setChefNameOpen(true);
-};
+  const handleQSmultCompletion = () => {
+    setQuizSelectOpen(false);
+    setQuizMakeMultOpen(true);
+  };
+
+  const handleCloseMakeOX = () => {
+    setQuizMakeOXOpen(false);
+  };
+
+  const handleCloseMakeMult = () => {
+    setQuizMakeMultOpen(false);
+  };
+
+  const handleQuizSelect = () => {
+    setQuizMakeMultOpen(false);
+    setQuizMakeOXOpen(false);
+    setQuizSelectOpen(true);
+  };
+
+  const handleQMCompletion = () => {
+    setChefNameOpen(true);
+    setQuizMakeMultOpen(false);
+    setQuizMakeOXOpen(false);
+  };
+  const handleNoQuiz = () => {
+    setQuizOrNotOpen(false);
+    setChefNameOpen(true);
+  };
+
   const goToMine = () => {
     navigate("/main:UserbingsooId");
   };
@@ -272,8 +300,6 @@ const handleNoQuiz = () => {
         console.error("Failed to copy: ", err);
       }
     };
-
-    
 
     return (
       <div className={styles.ownerWrapper}>
@@ -300,39 +326,59 @@ const handleNoQuiz = () => {
           </label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
           <Bingsoo toppings={toppings} viewType="chef" />
-          <button className={styles.addbutton} onClick={handleModalSelect}>토핑 추가하기</button>
+          <button className={styles.addbutton} onClick={handleModalSelect}>
+            토핑 추가하기
+          </button>
           {isSelectOpen && (
             <SelectTP
-                isOpen={isSelectOpen}
-                onClose={handleCloseSelect}
-                onSelectSuccess={handleSTPCompletion}
-            />)}
+              isOpen={isSelectOpen}
+              onClose={handleCloseSelect}
+              onSelectSuccess={handleSTPCompletion}
+            />
+          )}
 
-            {isWriteOpen && (
+          {isWriteOpen && (
             <WriteTP
               isOpen={isWriteOpen}
               onClose={handleCloseWrite}
               goBack={handleModalSelect}
               onWriteSuccess={handleWCompletion}
             />
-          ) }
-          { isQuizOrNotOpen && (
+          )}
+          {isQuizOrNotOpen && (
             <QuizOrNot
-                isOpen={isQuizOrNotOpen}
-                onClose={handleCloseQON}
-                goBack={handleWriteOpen}
-                onQONSuccess={handleQONCompletion}
-                noQuiz={handleNoQuiz}
+              isOpen={isQuizOrNotOpen}
+              onClose={handleCloseQON}
+              goBack={handleWriteOpen}
+              onQONSuccess={handleQONCompletion}
+              noQuiz={handleNoQuiz}
             />
           )}
-          { isQuizSelectOpen && (
+          {isQuizSelectOpen && (
             <QuizSelect
-                isOpen={isQuizSelectOpen}
-                onClose={handleCloseSelect}
-                goBack={handleQONOpen}
-                onQSSuccess={handleQSCompletion}/>
+              isOpen={isQuizSelectOpen}
+              onClose={handleCloseSelect}
+              goBack={handleQONOpen}
+              onQSoxSuccess={handleQSoxCompletion}
+              onQSmultSuccess={handleQSmultCompletion}
+            />
           )}
-    
+
+          {isQuizMakeOXOpen && (
+            <QuizMakeOX
+              isOpen={isQuizMakeOXOpen}
+              onClose={handleCloseMakeOX}
+              goback={handleQuizSelect}
+              onQuizMakeSuccess={handleQMCompletion}
+            />
+          )}
+
+          {isQuizMakeMultOpen && 
+          <QuizMakeMult 
+          isOpen={isQuizMakeMultOpen}
+          onClose={handleCloseMakeMult}
+          goback={handleQuizSelect}
+          onQuizMakeSuccess={handleQMCompletion}/>}
         </div>
       </div>
     );

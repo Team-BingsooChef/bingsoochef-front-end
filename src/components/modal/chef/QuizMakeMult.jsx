@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./QuizMakeMult.module.css";
 
 
-const QuizMakeMult = ({isOpen, onClose, from, content, isReplied, replyContent, willReply }) => {
+const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
   if (!isOpen) return null;
-
   
   return (
   
