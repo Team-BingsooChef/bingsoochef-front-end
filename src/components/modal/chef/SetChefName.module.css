@@ -59,7 +59,7 @@
 
   .top label{
     color:#FFFFFF;
-    font-size: 32px;
+    font-size: 24px;
   }
   
   .NameContentWrapper
@@ -107,63 +107,22 @@
   background: none;
   &::placeholder
   {
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 
-  .from{
-    color: #FDF0CC;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-  }
-  
-  .fromWho{
-    color: #007DA4;
-    background-color: #D2ECF3;
-    border-radius: 40px;
-    font-size: 20px;
-    height: 45px;
-    width: 200px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    align-content: center;
-    letter-spacing: 1px;
-  }
-  
-  .contentWrapper {
-    background-color: #f1f1f1;
-    border-radius: 30px;
-    padding: 20px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    word-spacing: 5px;
-  
-  }
-  
-  .expandedContent {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    transition: max-height 0.3s ease-out;
-  }
-  
 
 
 
 .nextButton {
-  width: 40%;
+  width: 50%;
   margin-top:10px;
   padding: 10px 20px;
   font-size: 18px;
   background-color: #03526B;
   color: white;
   border: none;
-  border-radius: 40px;
+  border-radius: 16px;
   cursor: pointer;
 }
 
