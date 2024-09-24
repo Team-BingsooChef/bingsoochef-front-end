@@ -7,6 +7,7 @@ import X from '/src/assets/icon/X.svg';
 
 const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
   if (!isOpen) return null;
+
   const [inputValue, setInputValue] = useState('');  // 입력 값 관리
   const [charCount, setCharCount] = useState(0);     // 현재 글자 수 관리
   const maxChars = 30;                               // 최대 글자 수 설정
@@ -16,11 +17,13 @@ const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
     { text: '', selected: false },
   ]);
   const [maxChoices, setMaxChoices] = useState(2);   // 기본 2개만 보여줌
+
   const handleChoiceInputChange = (index, value) => {
     const newChoices = [...choices];
     newChoices[index].text = value;
     setChoices(newChoices);
   };
+
   const handleRadioChange = (index) => {
     const newChoices = choices.map((choice, i) => ({
       ...choice,
@@ -28,6 +31,7 @@ const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
     }));
     setChoices(newChoices);
   };
+
   const addChoice = () => {
     if (choices.length < 4) {
       setChoices([...choices, { text: '', selected: false }]);
@@ -44,10 +48,12 @@ const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
       setCharCount(charLength);
     }
   };
+
   const goToSetChefName = () => {
     handleSession();
     onQuizMakeSuccess();
   }
+
   const handleSession = () => {
     const questions = choices.map((choice) => ({
       first: choice.text,
@@ -57,11 +63,17 @@ const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
     window.sessionStorage.setItem("quizQ", inputValue);  // 질문 저장
     window.sessionStorage.setItem("quizA", JSON.stringify(questions));  // 선택지 저장
   };
+
   return (
     <div className={styles.modalDisplay} onClick={onClose}>
      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.top}>
-
+           <button className={styles.back} onClick={goback}>
+             <img src={backicon} alt="back" />
+           </button>
+           <label> 객관식 퀴즈 내기 </label>
+         </div>
+        
      <div className={styles.QuestionContent}>
        <input 
          className={styles.input}
@@ -94,6 +106,7 @@ const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
           </div>
            ))}
       
+
         {maxChoices < 4 && (
           <button className={styles.addButton} onClick={addChoice}>
             + 클릭해서 선지를 추가하세요
@@ -104,6 +117,8 @@ const QuizMakeMult = ({isOpen, onClose, goback, onQuizMakeSuccess}) => {
        <div className={styles.bottomWrapper}>
          <button onClick={goToSetChefName} className={styles.nextButton}>작성 완료</button>
        </div>
+     </div>
+     </div>
    );
 };
 
