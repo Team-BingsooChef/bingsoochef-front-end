@@ -1,0 +1,194 @@
+.createaccount_display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.createaccount_form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/background/background.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  gap: 25%;
+  width: 100%;
+  margin-top: 60px;
+  padding-right: 30%;
+  margin-bottom: 10%;
+  margin-bottom: 120px;
+}
+.back {
+  background: none;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+}
+
+.back img {
+  width: 30px;
+  height: 30px;
+}
+
+.title {
+  text-align: center;
+  white-space: nowrap;
+  font-size: 24px;
+  color: #03526b;
+}
+
+.inputlabel {
+  /* Adjust for button size */
+  margin-bottom: 10px;
+  padding-right: 70%;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-bottom: 5px; /* label 요소에만 적용 */
+  color: #03526b;
+}
+
+.input::placeholder {
+  background-image: url("/src/assets/icon/emailicon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 1px center;
+  background-position-x: 15px;
+  text-align: center;
+  text-indent: 0;
+  display: inline-flex;
+  font-weight: 400;
+  color: #777c89;
+  font-size: 16px;
+}
+
+.inputdup_btnWrapper {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input {
+  width: 70%;
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+
+  color: #03526b;
+  background-color: #fdf0cc;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.duplicate {
+  width: 17%;
+  height: 60px;
+  box-sizing: border-box;
+  line-height: 60px;
+  font-size: 12px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  background-color: #61bfbf;
+  cursor: pointer;
+}
+
+.gotocheck {
+  width: calc(100% - 50px);
+  height: 60px;
+  border-style: box;
+  border-radius: 16px;
+  border: none;
+  color: #fdf0cc;
+  background-color: #03526b;
+  padding: 20px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.loginform_btnWrapper {
+  margin-top: 200px;
+  margin-bottom: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 60%;
+}
+
+.loginform_btnWrapper button {
+  width: 70%;
+  height: 60px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.kakao {
+  background-color: #ffe812;
+}
+
+.naver {
+  background-color: #03e266;
+}
+
+.google {
+  background-color: #f5f5f5;
+}
+
+.CAtext {
+  display: flex;
+  gap: 10px;
+  color: #413c3c;
+  font-size: 14px;
+  padding-bottom: 10%;
+}
+.already {
+  top: 20%;
+  color: #413c3c;
+  font-size: 14px;
+}
+.gotologin {
+  top: 20%;
+  text-decoration-line: underline;
+  color: #0075ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.modalDisplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

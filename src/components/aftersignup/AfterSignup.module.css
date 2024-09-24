@@ -1,0 +1,101 @@
+.aftersignup_display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.aftersignup_form {
+  width: 100%;
+  max-width: 520px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/background/background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.widthwrapper {
+  width: calc(100% - 102px);
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.inputlabel {
+  font-size: 14px; /* label 요소에만 적용 */
+  color: #03526b;
+}
+
+.input::placeholder {
+  background-image: url("/src/assets/icon/manicon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 1px center;
+  background-position-x: 3px;
+  text-align: center;
+  text-indent: 0;
+  display: inline-flex;
+  font-weight: 400;
+  color: #777c89;
+  font-size: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+
+  color: #03526b;
+  background-color: #fdf0cc;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: 2px;
+}
+.ask{
+  margin-top: 60px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #03526b;
+
+}
+
+.slider{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.gotomain {
+  margin-top: 36px;
+  width: 100%;
+  height: 60px;
+  background-color: #03526b;
+  color: #fdf0cc;
+  font-size: 32px;
+  font-weight: 400;
+  border-radius: 16px;
+  border: none;
+
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+}
+
+
