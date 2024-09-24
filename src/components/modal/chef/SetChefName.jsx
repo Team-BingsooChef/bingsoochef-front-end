@@ -3,19 +3,17 @@ import { useNavigate } from "react-router-dom";
 import styles from "./SetChefName.module.css";
 
 
-const SetChefName = ({isOpen, onClose, onChefNameSuccess}) => {
+const SetChefName = ({isOpen, onClose, from, content, isReplied, replyContent, willReply }) => {
   if (!isOpen) return null;
 
-  const handleChefName = () => {
-    onChefNameSuccess();
-  }
+  
   return (
-    <div className={styles.modalDisplay} onClick={onClose}>
+  
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
      
        ㅎㅇ
       </div>
-    </div>
+    
   );
 };
 
