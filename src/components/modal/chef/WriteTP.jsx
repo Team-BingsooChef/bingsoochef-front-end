@@ -18,6 +18,7 @@ const WriteTP = ({isOpen, onClose, goBack, onWriteSuccess}) => {
 
   
   const to = '해커핑'
+  //수정해야 함
 
   const [inputValue, setInputValue] = useState('');  // 입력 값 관리
   const [charCount, setCharCount] = useState(0);     // 현재 글자 수 관리
@@ -57,12 +58,12 @@ const WriteTP = ({isOpen, onClose, goBack, onWriteSuccess}) => {
        <p className={styles.to}>
         To.
        </p>
-       <p className={styles.tomWho}>
+       <p className={styles.toWho}>
          {to}
        </p>
      </div>
    <div className={styles.contentWrapper}>
-     <input className={styles.content}
+     <textarea className={styles.content}
             value={inputValue}
             onChange={handleInputChange}
             placeholder="편지를 작성해 주세요."/>

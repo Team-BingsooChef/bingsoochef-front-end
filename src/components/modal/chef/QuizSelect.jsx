@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./QuizSelect.module.css";
 import backicon from "/src/assets/icon/gotobackicon_white.svg";
 
-const QuizSelect = ({isOpen, onClose, goBack, onQSSuccess }) => {
+const QuizSelect = ({isOpen, onClose, goBack, onQSoxSuccess, onQSmultSuccess }) => {
   if (!isOpen) return null;
 
   const goToQuizOrNot = () => {
@@ -12,12 +12,12 @@ const QuizSelect = ({isOpen, onClose, goBack, onQSSuccess }) => {
 
   const handleOX =() =>{
     window.sessionStorage.setItem("QuizType", 'OX');
-    onQSSuccess();
+    onQSoxSuccess();
   };
 
   const handleMult =() =>{
     window.sessionStorage.setItem("QuizType", 'Multiple');
-    onQSSuccess();
+    onQSmultSuccess();
   };
 
 
