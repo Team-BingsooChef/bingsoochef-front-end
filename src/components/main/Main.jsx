@@ -269,6 +269,12 @@ const Main = () => {
     setQuizMakeMultOpen(false);
   };
 
+  const handleCloseChefName= () => {
+    setChefNameOpen(false);
+
+  };
+
+
   const handleQuizSelect = () => {
     setQuizMakeMultOpen(false);
     setQuizMakeOXOpen(false);
@@ -280,6 +286,13 @@ const Main = () => {
     setQuizMakeMultOpen(false);
     setQuizMakeOXOpen(false);
   };
+
+  const handleChefNameCompletion = () => {
+    setChefNameOpen(false);
+    
+  };
+
+
   const handleNoQuiz = () => {
     setQuizOrNotOpen(false);
     setChefNameOpen(true);
@@ -379,6 +392,13 @@ const Main = () => {
           onClose={handleCloseMakeMult}
           goback={handleQuizSelect}
           onQuizMakeSuccess={handleQMCompletion}/>}
+
+          
+          {isSetChefNameOpen && 
+          <SetChefName 
+          isOpen={isSetChefNameOpen}
+          onClose={handleCloseChefName}
+          onChefNameSuccess={handleChefNameCompletion}/>}
         </div>
       </div>
     );

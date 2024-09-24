@@ -18,7 +18,7 @@
     border-radius: 50px;
     max-width: 420px;
     width: 80%;
-    height: 70%;
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,14 +47,70 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    margin-top: 20px;
+  
   }
+
   .top{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px 0;
+  }
+
+  .top label{
+    color:#FFFFFF;
+    font-size: 32px;
   }
   
+  .NameContentWrapper
+  {
+    background-color: #ffffff;
+    border-radius: 28px;
+    display: flex;
+    height: auto;
+    align-items: center;
+    flex-direction: row;
+    gap:10px;
+    padding: 0 28px;
+    margin-bottom: 8px;
+
+  }
+
+  .NameContentWrapper label {
+    font-size: 28px;
+    white-space: nowrap;
+    color: #000;
+  }
+.NameContent 
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  height: 100%;
+}
+
+.NameContent input{
+  display: flex;
+  flex-direction: column;
+  border: none;
+  text-align: center;
+  font-size: 28px;
+  outline: none;
+  width: 95%;
+  border-radius: 20px;
+  padding: 18px 20px;
+  text-align: center;
+
+  background: none;
+  &::placeholder
+  {
+    font-size: 28px;
+  }
+}
+
   .from{
     color: #FDF0CC;
     justify-content: center;
@@ -96,9 +152,19 @@
     transition: max-height 0.3s ease-out;
   }
   
-  .reply p{
-    padding-top: 20px;
-    color: #777C89;
-  
-  }
-  
+
+
+
+.nextButton {
+  width: 40%;
+  margin-top:10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #03526B;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+
