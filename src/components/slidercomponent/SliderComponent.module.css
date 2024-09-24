@@ -1,0 +1,58 @@
+.slider_container {
+    background-color: #FDF0CC;
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    height: 100%; /* 부모 컨테이너의 높이를 100%로 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slick_slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%; /* 슬라이더의 높이를 100%로 설정 */
+}
+
+.slide_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* 슬라이드 아이템의 높이를 100%로 설정 */
+}
+
+.slide_item label{
+ color:#03526B;
+ font-size: 24px;
+}
+
+.slide_item img {
+    max-height: 50%;
+    height: auto;
+    width: 60%;
+    object-fit: contain;
+    margin-left: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.slick-dots li button:before {
+    color: #03526B;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #03526B;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 30px;
+    color: #777C89 !important;
+}

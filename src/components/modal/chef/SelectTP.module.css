@@ -1,0 +1,107 @@
+.modalDisplay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background: #61BFBF;
+    padding: 20px;
+    border-radius: 50px;
+    max-width: 420px;
+    width: 80%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .back{
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+  }
+
+  .top label{
+    color: #FDF0CC;
+    font-size: 32px;
+    margin-left: 25%;
+  }
+  
+  .closeButton {
+    margin-top:10px;
+    padding: 10px 20px;
+    background-color: #03526B;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 100px;
+  }
+  
+ 
+  .top{
+    display: flex;
+    justify-content:start;
+    align-items: center;
+  }
+  
+
+  .contentWrapper {
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    padding: 20px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    word-spacing: 5px;
+    overflow-y: auto;
+
+    margin-top: 20px;
+  
+  }
+
+  .contentWrapper label{
+    margin-right: 70%;
+    margin-top: 10px;
+
+  }
+  .itemsWrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* 품목 슬라이드 스크롤 */
+    overflow-y: hidden;
+    gap: 15px;
+    padding: 10px;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .itemCard
+  {
+    border-radius: 20px;
+    border: none;
+    height: 100px;
+    cursor: pointer;
+    background-color: white;
+    align-items: center;
+    align-content: center;
+    flex: 0 0 30%; /* 아이템 너비를 30%로 설정하여 한 화면에 3개만 보이도록 함 */
+  }
+ 
+  .itemCard img{
+    width: 80px;
+  }
+  

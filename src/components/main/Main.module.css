@@ -1,0 +1,329 @@
+.main_display {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.main_form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/background/background_sun.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.copybutton{
+  color:#FDF0CC;
+  font-size: 32px;
+  width: calc(100% - 90px);
+  height: 45px;
+  background-color: #03526b;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  margin-top: 20%;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+
+}
+.ownerWrapper{
+  width: 83%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.addbutton{
+  color:#FDF0CC;
+  font-size: 32px;
+  width: calc(100% - 60px);
+  height: 45px;
+  background-color: #03526b;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+
+  margin-top: 20%;
+  @media screen and (min-width: 450px) {
+    margin-top: 40%;
+  }
+    line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.chefWrapper{
+  width: 83%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.Ctoplabel{
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.homebutton {
+  background: none;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+.homebutton img{
+  width: 35px;
+  height: 35px;
+}
+
+.container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/assets/bingsoo/strawberry.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 20%;
+
+}
+
+.bingsoo_container {
+  margin-top: 20px;
+  width: 100%;
+  height: 70%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.bingsoo {
+  width: 100%;
+  height: 90%;
+  margin-bottom: 30px;
+}
+
+
+.bingsoo img {
+  width: 100%;
+  height: 80%;
+}
+
+.slideWrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+}
+.topping_slider {
+  /* background-image: url("/src/assets/bingsoo/chocolate.png");
+  background-size: contain;
+  background-repeat: no-repeat; */
+  margin-top: 20%;
+  height: 70vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+}
+
+.row_1, .row_9, .row_17{
+  position: absolute;
+  left: 33%;
+  top: 15%;
+  @media screen and (min-width: 520px) {
+    top: 10%;
+    left: 37%;
+    
+  }
+}
+
+.row_2, .row_10, .row_18{
+  position: absolute;
+  top: 28%;
+  left: 8%;
+  @media screen and (min-width: 520px) {
+    top: 25%;
+    left: 8%;
+    
+  }
+}
+
+.row_3, .row_11, .row_19{
+  position: absolute;
+  top: 30%;
+  left: 34%; 
+  @media screen and (min-width: 520px) {
+    top: 28%;
+    left: 38%;
+    
+  }
+}
+
+.row_4, .row_12, .row_20{
+  position: absolute;
+  top: 28%;
+  left: 60%;
+  @media screen and (min-width: 520px) {
+    top: 25%;
+    left: 68%;
+    
+  }
+}
+
+.row_5, .row_13, .row_21{
+  position: absolute;
+  top: 40%;
+  left: 0%;
+}
+
+.row_6, .row_14, .row_22{
+  position: absolute;
+  top: 43%;
+  left: 22%;
+  @media screen and (min-width: 520px) {
+    top: 43%;
+    left: 22%;
+    
+  }
+}
+
+.row_7, .row_15, .row_23{
+  position: absolute;
+  top: 43%;
+  left: 50%;
+}
+
+.row_8, .row_16, .row_24{
+  position: absolute;
+  top: 40%;
+  left: 73%;
+}
+
+
+.topping_image {
+  height: 80px;
+  width: 110px;
+  /* object-fit: contain;   */
+ 
+  @media screen and (min-width: 520px) {
+    height: 110px;
+    width: 110px;
+    /* object-fit: contain;   */
+ 
+    
+  }
+}
+
+.topping_ice_image {
+  height: 80px;
+  width: 110px;
+  /* object-fit: contain;   */
+ 
+  @media screen and (min-width: 520px) {
+    height: 230px;
+    width: 230px;
+    /* object-fit: contain;   */
+   
+    
+  }
+}
+
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+
+}
+
+.pagination span {
+  line-height: 40px;
+}
+
+
+.modalDisplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #61BFBF;
+  padding: 20px;
+  border-radius: 50px;
+  max-width: 420px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.closeButton {
+  padding: 10px 20px;
+  background-color: #03526B;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.top{
+  display: flex;
+  justify-content: center;
+}
+
+.expandedContent {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition: max-height 0.3s ease-out;
+}

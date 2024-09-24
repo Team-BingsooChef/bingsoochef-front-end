@@ -1,0 +1,112 @@
+.searchDisplay {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .searchForm {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/src/assets/background/menu.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+ 
+  .wrapper{
+    width:calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .top{
+    width: 100%;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 120px;
+  }
+
+  .top label{
+    font-size: 25px;
+    color: black;
+  }
+
+  .homebtn{
+    background: none;
+    width: 10%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .searchWrapper{
+    padding-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .searchWrapper label{
+    font-size: 14px;
+    color: #777C89;
+    margin-bottom:10px;
+  }
+  .searchWrapper input{
+    width: 90%;
+    height: 60px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: none;
+    color: black;
+    background-color: #A4ABBC;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: left;
+    letter-spacing: 2px;
+    padding-left: 20px; 
+  }
+
+  .searchWrapper input::placeholder {
+    background-image: url("/src/assets/icon/search.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 1px center;
+    background-position-x: 15px;
+    display: inline-flex;
+    text-indent: 60px;
+    font-weight: 400;
+    color: #777c89;
+    font-size: 22px;
+  }
+
+  .resultItem{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    gap: 20px;
+    cursor: pointer;
+
+/* 왼쪽으로 간격 추가 */
+  }
+
+  .resultWrapper{
+    width: 90%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽으로 정렬 */
+    gap: 20px; /* 아이템 간 간격 추가 */
+  }
+
+  .resultItem span{
+    letter-spacing: 2px;
+  }
