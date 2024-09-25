@@ -16,7 +16,7 @@
     padding: 20px;
     border-radius: 50px;
     max-width: 420px;
-    width: 100%;
+    width: 80%;
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -125,4 +125,13 @@
     height: 48px;
     border: none;
     cursor: pointer;
+  }
+
+  .modalCorrect p{
+    color: green;
+  }
+  .modalFalse p
+  {
+    margin-top: 10px;
+    color: red;
   }

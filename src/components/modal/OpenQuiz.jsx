@@ -20,6 +20,7 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
 
   const timeoutRef = useRef(null);
 
+
   useEffect(() => {
     // 백엔드에서 토핑 리스트를 가져오는 API 호출
     fetchToppings();
@@ -144,12 +145,12 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
            </button>
         </div>
         {modalType === 'correct' && (
-        <div className="modal">
+        <div className={styles.modalCorrect}>
           <p>정답입니다! 토핑이 오픈됩니다.</p>
         </div>
       )}
        {modalType === 'incorrect' &&(
-        <div className="modal">
+             <div className={styles.modalFalse}>
           <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
         </div>
       )}
@@ -182,12 +183,12 @@ const OpenQuiz = ({isOpen, onClose, id, onQuizSuccess}) => {
           ))}
            
         {modalType === 'correct' && (
-        <div className="modal">
+        <div className={styles.modalCorrect}>
           <p>정답입니다! 토핑이 오픈됩니다.</p>
         </div>
       )}
        {modalType === 'incorrect' &&(
-        <div className="modal">
+        <div className={styles.modalFalse}>
           <p> 땡 틀렸습니다. 다시 시도해 주세요. </p>
         </div>
       )}
