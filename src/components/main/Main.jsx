@@ -168,7 +168,7 @@ const Main = () => {
   // const {URLbingsooId} = useParams();
   // const [UserbingsooId, setUserBingsooId] = useState(null);
   const navigate = useNavigate();
-  const [role, setRole] = useState("chef");
+  const [role, setRole] = useState("owner");
   // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요.
   //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
 

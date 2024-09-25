@@ -5,14 +5,6 @@ import OpenLetter from "../modal/OpenLetter";
 import OpenQuiz from "../modal/OpenQuiz";
 import ReplyLetter from "../modal/ReplyLetter";
 
-import QuizMakeOX from "../modal/chef/QuizMakeOX";
-import QuizMakeMult from "../modal/chef/QuizMakeMult";
-import QuizOrNot from "../modal/chef/QuizOrNot";
-import QuizSelect from "../modal/chef/QuizSelect";
-import SelectTP from "../modal/chef/SelectTP";
-import SetChefName from "../modal/chef/SetChefName";
-import WriteTP from "../modal/chef/WriteTP";
-
 
 const Bingsoo = ({ toppings, viewType }) => {
   const isTouchable = viewType === "owner";
@@ -155,6 +147,11 @@ const Bingsoo = ({ toppings, viewType }) => {
     }
   };
 
+  const handleOpenLetter = () => {
+    setIsReplyOpen(false);
+    setIsOpen(true);
+  }
+
   return (
     <div className={styles.bingsoo_container}>
       {/* <img className={styles.bingsoo} src={getbingsooPath(bingsoo)} alt="빙수 이미지" /> */}
@@ -173,7 +170,7 @@ const Bingsoo = ({ toppings, viewType }) => {
             {isModalOpen && (
               <div className={styles.modalDisplay} onClick={handleCloseModal}>
                 {isReplyOpen ? (
-                  <ReplyLetter isOpen={isModalOpen} onClose={handleCloseModal} from={currentFrom} />
+                  <ReplyLetter isOpen={isReplyOpen} onClose={handleCloseModal} from={currentFrom} goback={handleOpenLetter} />
                 )
                 : isOpen ? (
                   <OpenLetter
