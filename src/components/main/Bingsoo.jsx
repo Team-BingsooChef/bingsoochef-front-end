@@ -6,7 +6,7 @@ import OpenQuiz from "../modal/OpenQuiz";
 import ReplyLetter from "../modal/ReplyLetter";
 
 
-const Bingsoo = ({ toppings, viewType }) => {
+const Bingsoo = ({toppings, viewType }) => {
   const isTouchable = viewType === "owner";
   const [data, setData] = useState([]); // 데이터를 저장할 상태
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
@@ -82,13 +82,9 @@ const Bingsoo = ({ toppings, viewType }) => {
   };
   //나중에는 백에다가 opened 상태를 업데이트하는 요청을 보내야함
 
-  const [bingsoo, setBingsoo] = useState([]);
 
   // console.log("Toppings:", toppings);
 
-  const getbingsooPath = (bingsoo) => {
-    return `/src/assets/bingsoo/${bingsoo}.png`;
-  };
 
   const getToppingpath = (topping) => {
     return `/src/assets/toppings/${topping.topping}.svg`;
