@@ -13,7 +13,7 @@ import QuizMakeOX from "../modal/chef/QuizMakeOX";
 import QuizMakeMult from "../modal/chef/QuizMakeMult";
 import SetChefName from "../modal/chef/SetChefName";
 import axios from "axios";
-import { API_BASE_URL, ACCESS_TOKEN } from "../../const/const";
+import { API_BASE_URL, ACCESS_TOKEN } from "@/constants/const";
 
 const Main = () => {
   const navigate = useNavigate();
