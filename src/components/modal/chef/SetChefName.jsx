@@ -39,7 +39,7 @@ const SetChefName = ({isOpen, onClose, onChefNameSuccess}) => {
     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
 
        <div className={styles.top}>
-          <label> 세프의 이름을 적어주세요 </label>
+          <label> 세프님의 이름을 적어주세요! </label>
         </div>
        
         <div className={styles.NameContentWrapper}>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './ReplyLetter.module.css';
 import backicon from '/src/assets/icon/gotobackicon_white.svg';
 
-const ReplyLetter = ({isOpen, onClose, from}) => {
+const ReplyLetter = ({isOpen, onClose, from, goback}) => {
   if (!isOpen) return null;
   const [inputValue, setInputValue] = useState('');  // 입력 값 관리
   const [charCount, setCharCount] = useState(0);     // 현재 글자 수 관리
@@ -26,7 +26,7 @@ const ReplyLetter = ({isOpen, onClose, from}) => {
 
     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
        <div className={styles.top}>
-          <button className={styles.back} onClick={onClose}>
+          <button className={styles.back} onClick={goback}>
             <img src={backicon} alt="back" />
           </button>
           <label>답장 작성 </label>

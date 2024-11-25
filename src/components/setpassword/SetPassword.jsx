@@ -34,7 +34,7 @@ const SetPassword = () => {
     }
     
    if(isValid) {
-    navigate("aftersignup");
+    navigate("/aftersignup");
    }
   };
 

@@ -13,15 +13,88 @@ import QuizMakeOX from "../modal/chef/QuizMakeOX";
 import QuizMakeMult from "../modal/chef/QuizMakeMult";
 import SetChefName from "../modal/chef/SetChefName";
 import axios from "axios";
+import { API_BASE_URL, ACCESS_TOKEN } from "@/constants/const";
 
 const Main = () => {
-  const [toppings, setToppings] = useState([]);
+  const navigate = useNavigate();
+  const {bingsooId} = useParams();
+  const [bingsooTaste, setBingsooTaste] = useState('strawberry');
+  // const [role, setRole] = useState(null);
+  
+  // useEffect(() => {
+  //   const fetchBingsoo = async () => {
+  //     try {
+  //       const response = await axios.get(`${API_BASE_URL}/users/bingsoo/${bingsooId}`, {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+  //           Accept: 'application/json',
+  //         },
+  //       });
+  //       setBingsooTaste(response.data.bingsoo.taste.toLowerCase());
+  //     } catch (error) {
+  //       if (error.response && error.response.status === 404) {
+  //         console.error("존재하지 않는 빙수입니다.", error);
+  //       } else {
+  //         console.error('Error fetching bingsoo:', error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchBingsoo();
+  // }, [bingsooId]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const bingsooData = await fetchBingsoo(userId);
+  //     setBingsoo(bingsooData);
+  //     const toppingsData = await fetchToppings(userId);
+  //     setToppings(toppingsData);
+  //     determineRole(userId);
+  //   };
+  //   fetchData();
+  // }, [userId]);
+
+  
+  // const determineRole = (userId) => {
+  //   const loggedInUserId = localStorage.getItem('userId');
+  //   if (loggedInUserId === userId) {
+  //     setRole('owner');
+  //   } else {
+  //     setRole('chef');
+  //   }
+  // };
+
+  // if (role === null || bingsoo === null) {
+  //   return <div>Loading...</div>;
+  // }
+  
+
+  // console.log("Toppings:", toppings);
+
+  // const fetchToppings = async (bingsooId, page = 0, size = 8) => {
+  //   try {
+  //     const response = await axios.get(`${API_BASE_URL}/users/bingsoos/toppings`, {
+  //       params: {
+  //         b: bingsooId,
+  //         page: page,
+  //         size: size,
+  //       },
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+  //       },
+  //     });
+  //     return response.data.toppings;
+  //   } catch (error) {
+  //     console.error('Error fetching toppings:', error);
+  //   }
+  // };
+
+    const [toppings, setToppings] = useState([]);
   useEffect(() => {
     // 백엔드에서 토핑 리스트를 가져오는 API 호출
     fetchToppings();
   }, []);
 
-  // console.log("Toppings:", toppings);
 
   const fetchToppings = async () => {
     // API 요청 코드 - 실제로는 fetch나 axios를 사용해 데이터를 가져옴
@@ -66,100 +139,6 @@ const Main = () => {
         isQuiz: true,
         isQuizOpen: true,
       },
-      {
-        id: 4,
-        from: "인도BTS상희",
-        content:
-          "귀하의 위대한 품격과 전통을 찬미하며 저희는 감히 부탁드리고자 합니다. 당신의 뛰어난 춤 실력을 경험할 수 있는 기회를 허락해 주시겠습니까? 인도의 유서 깊은 문화와 우아함을 담아낸 당신의 춤사위는 우리의 마음을 매혹시키고, 그 속에 담긴 아름다움을 느끼고 싶습니다. 우리에게 영감을 주고 기쁨을 안겨줄 당신의 춤을 감상할 수 있도록 허락해 주시길 간청드립니다. 상희님의 춤이 이곳을 빛낼 것을 믿어 의심치 않습니다.",
-        opened: false,
-        replied: false,
-        topping: "kiwi",
-        currentPage: 0,
-        totalPage: 2,
-        isQuiz: true,
-        isQuizOpen: false,
-        quizID: 2,
-      },
-      {
-        id: 5,
-        from: "인도공주현정",
-        content:
-          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: false,
-        replied: false,
-        topping: "banana",
-        currentPage: 0,
-        totalPage: 2,
-        isQuiz: true,
-        isQuizOpen: false,
-        quizID: 3,
-      },
-      {
-        id: 6,
-        from: "인도공주현정",
-        content:
-          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: true,
-        replied: false,
-        topping: "chex",
-        currentPage: 0,
-        totalPage: 2,
-        isQuiz: false,
-        isQuizOpen: false,
-      },
-      {
-        id: 7,
-        from: "인도공주현정",
-        content:
-          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: false,
-        replied: false,
-        topping: "marshmallow",
-        currentPage: 0,
-        totalPage: 2,
-        isQuiz: true,
-        isQuizOpen: false,
-        quizID: 4,
-      },
-      {
-        id: 8,
-        from: "인도공주현정",
-        content:
-          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: false,
-        replied: false,
-        topping: "mango",
-        currentPage: 0,
-        totalPage: 2,
-        isQuiz: false,
-        isQuizOpen: false,
-      },
-      {
-        id: 9,
-        from: "인도공주현정",
-        content:
-          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: false,
-        replied: false,
-        topping: "mango",
-        currentPage: 1,
-        totalPage: 2,
-        isQuiz: false,
-        isQuizOpen: false,
-      },
-      {
-        id: 10,
-        from: "인도공주gus",
-        content:
-          "늘 당신을 생각하며 마음속 깊이 간직해온 감정을 이제야 전할 용기를 냅니다. 당신의 아름다움과 지혜에 항상 감탄하고, 함께할 때마다 세상이 더욱 빛나는 것을 느낍니다. 저의 작은 존재가 당신 곁에서 행복을 더할 수 있다면 그것만으로도 큰 영광입니다. 당신의 미소가 제 삶에 기쁨을 주고, 당신의 따뜻한 마음이 제게 위로가 됩니다. 공주님을 존경하고 사랑하는 마음이 날마다 깊어집니다. 부디 제 진심을 받아주십시오.",
-        opened: false,
-        replied: false,
-        topping: "mango",
-        currentPage: 1,
-        totalPage: 2,
-        isQuiz: false,
-        isQuizOpen: false,
-      },
     ];
     //toppingData 배열 접어둠
     setToppings(sampletoppingData);
@@ -167,8 +146,8 @@ const Main = () => {
 
   // const {URLbingsooId} = useParams();
   // const [UserbingsooId, setUserBingsooId] = useState(null);
-  const navigate = useNavigate();
-  const [role, setRole] = useState("chef");
+
+  const [role, setRole] = useState("owner");
   // 일단 여기서 role을 owner로 설정해놓았습니다. 나중에 수정해주세요.
   //chef view 볼 거면 chef로 해놓고 userID는 나중에 연결
 
@@ -301,6 +280,13 @@ const Main = () => {
   const goToMine = () => {
     navigate("/main:UserbingsooId");
   };
+
+  const getBingsooPath = (bingsoo) => {
+    return `/src/assets/bingsoo/${bingsoo}.png`;
+  };
+
+
+
   // 자기 자신의 빙수 ID로 즉, owner 입장에서의 home에 가는 것
   const OwnerView = () => {
     const copyURL = async () => {
@@ -317,8 +303,8 @@ const Main = () => {
     return (
       <div className={styles.ownerWrapper}>
         <Sidebar />
-        <div className={styles.container}>
-          <Bingsoo toppings={toppings} viewType="owner" />
+        <div className={styles.container} style={{ backgroundImage: `url(${getBingsooPath(bingsooTaste)})` }}>
+          <Bingsoo bingsooTaste={bingsooTaste} toppings={toppings} viewType="owner" />
           <button className={styles.copybutton} onClick={copyURL}>
             공유하기
           </button>
@@ -333,12 +319,12 @@ const Main = () => {
         <button className={styles.homebutton} onClick={goToMine}>
           <img src={homeicon} alt="Icon" />
         </button>
-        <div className={styles.container}>
+        <div className={styles.container} style={{ backgroundImage: `url(${getBingsooPath(bingsooTaste)})` }}>
           <label className={styles.Ctoplabel}>
             사랑하는 admin의 빙수를 완성시켜 주세요
           </label>
           {/* 빙수와 토핑 렌더링, 토핑 클릭 불가능하게 설정 */}
-          <Bingsoo toppings={toppings} viewType="chef" />
+          <Bingsoo bingsooTaste={bingsooTaste} toppings={toppings} viewType="chef" />
           <button className={styles.addbutton} onClick={handleModalSelect}>
             토핑 추가하기
           </button>

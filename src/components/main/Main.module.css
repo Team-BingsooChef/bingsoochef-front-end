@@ -55,14 +55,15 @@
   border: none;
   cursor: pointer;
   z-index: 10;
-
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+  
   margin-top: 20%;
   @media screen and (min-width: 450px) {
     margin-top: 40%;
   }
-    line-height: 20px;
-  text-align: center;
-  letter-spacing: 2px;
+
 }
 
 .chefWrapper{
@@ -103,7 +104,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/src/assets/bingsoo/strawberry.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

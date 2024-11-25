@@ -35,7 +35,7 @@ function App() {
           element={<SetPassword />}
         />
         <Route
-          path="/prelogin/createaccount/emailcheck/setpassword/aftersignup"
+          path="/aftersignup"
           element={<AfterSignup />}
         />
         <Route path="/aftersignup" element={<AfterSignup />} />
@@ -43,12 +43,12 @@ function App() {
         <Route path="/findpassword/emailcheck" element={<EmailCheck />} />
         <Route path="/findpassword/emailcheck/resetpassword" element={<ResetPassword />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/main/:userId" element={<Main/>} />
+        <Route path="/main/:bingsooId" element={<Main/>} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/seetplist" element={<SeeTPlist />} />
         <Route path="/seetplist/seereply" element={<SeeReply />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/changeflavor" element={<ChangeFlavor />} />
+        <Route path="/changeflavor" element={<ChangeFlavor />} />ㅇ
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/ReplyLetter" element={<ReplyLetter />} />
       </Routes>

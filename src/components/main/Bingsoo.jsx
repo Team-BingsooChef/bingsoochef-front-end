@@ -5,16 +5,8 @@ import OpenLetter from "../modal/OpenLetter";
 import OpenQuiz from "../modal/OpenQuiz";
 import ReplyLetter from "../modal/ReplyLetter";
 
-import QuizMakeOX from "../modal/chef/QuizMakeOX";
-import QuizMakeMult from "../modal/chef/QuizMakeMult";
-import QuizOrNot from "../modal/chef/QuizOrNot";
-import QuizSelect from "../modal/chef/QuizSelect";
-import SelectTP from "../modal/chef/SelectTP";
-import SetChefName from "../modal/chef/SetChefName";
-import WriteTP from "../modal/chef/WriteTP";
 
-
-const Bingsoo = ({ toppings, viewType }) => {
+const Bingsoo = ({toppings, viewType }) => {
   const isTouchable = viewType === "owner";
   const [data, setData] = useState([]); // 데이터를 저장할 상태
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
@@ -90,13 +82,9 @@ const Bingsoo = ({ toppings, viewType }) => {
   };
   //나중에는 백에다가 opened 상태를 업데이트하는 요청을 보내야함
 
-  const [bingsoo, setBingsoo] = useState([]);
 
   // console.log("Toppings:", toppings);
 
-  const getbingsooPath = (bingsoo) => {
-    return `/src/assets/bingsoo/${bingsoo}.png`;
-  };
 
   const getToppingpath = (topping) => {
     return `/src/assets/toppings/${topping.topping}.svg`;
@@ -155,6 +143,11 @@ const Bingsoo = ({ toppings, viewType }) => {
     }
   };
 
+  const handleOpenLetter = () => {
+    setIsReplyOpen(false);
+    setIsOpen(true);
+  }
+
   return (
     <div className={styles.bingsoo_container}>
       {/* <img className={styles.bingsoo} src={getbingsooPath(bingsoo)} alt="빙수 이미지" /> */}
@@ -173,7 +166,7 @@ const Bingsoo = ({ toppings, viewType }) => {
             {isModalOpen && (
               <div className={styles.modalDisplay} onClick={handleCloseModal}>
                 {isReplyOpen ? (
-                  <ReplyLetter isOpen={isModalOpen} onClose={handleCloseModal} from={currentFrom} />
+                  <ReplyLetter isOpen={isReplyOpen} onClose={handleCloseModal} from={currentFrom} goback={handleOpenLetter} />
                 )
                 : isOpen ? (
                   <OpenLetter
