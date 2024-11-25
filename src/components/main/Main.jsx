@@ -27,18 +27,21 @@ const Main = () => {
   //       const response = await axios.get(`${API_BASE_URL}/users/bingsoo/${bingsooId}`, {
   //         headers: {
   //           Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
-  //           Accept: 'application/json', // 생략 가능
+  //           Accept: 'application/json',
   //         },
   //       });
-  //       setBingsooTaste(response.data.bingsoo.taste.toLowerCase()); // 소문자로 변환
+  //       setBingsooTaste(response.data.bingsoo.taste.toLowerCase());
   //     } catch (error) {
-  //       console.error('Error fetching bingsoo:', error);
+  //       if (error.response && error.response.status === 404) {
+  //         console.error("존재하지 않는 빙수입니다.", error);
+  //       } else {
+  //         console.error('Error fetching bingsoo:', error);
+  //       }
   //     }
   //   };
 
   //   fetchBingsoo();
   // }, [bingsooId]);
-
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -51,18 +54,6 @@ const Main = () => {
   //   fetchData();
   // }, [userId]);
 
-  // const fetchBingsoo = async (bingsooId) => {
-  //   try {
-  //     const response = await axios.get(`${API_BASE_URL}/users/bingsoo/${bingsooId}`, {
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
-  //       },
-  //     });
-  //     return response.data.bingsoo;
-  //   } catch (error) {
-  //     console.error('Error fetching bingsoo:', error);
-  //   }
-  // };
   
   // const determineRole = (userId) => {
   //   const loggedInUserId = localStorage.getItem('userId');
