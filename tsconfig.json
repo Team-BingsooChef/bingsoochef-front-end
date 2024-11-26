@@ -1,18 +1,7 @@
 {
-  "compilerOptions": {
-    "allowJs": true,                 // JavaScript 파일 허용
-    "checkJs": false,                // JavaScript 파일에 대한 타입 체크 비활성화
-    "target": "esnext",              // 컴파일 후 사용할 JavaScript 버전
-    "module": "esnext",              // ES 모듈 사용
-    "strict": true,                  // 엄격한 타입 체크
-    "jsx": "react",                  // React JSX를 사용할 경우
-    "moduleResolution": "node",      // Node.js 모듈 해석 방식
-    "baseUrl": "./",    
-    "esModuleInterop": true,  // ESModule과 CommonJS 호환             // 프로젝트 루트 경로
-    "paths": {
-      "@/*": ["src/*"]               // 절대 경로 별칭 설정
-    }
-  },
-  "include": ["src/**/*"],           // TypeScript와 JavaScript 파일 포함
-  "exclude": ["node_modules", "dist"] // 처리에서 제외할 파일
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
