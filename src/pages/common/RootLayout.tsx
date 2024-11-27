@@ -23,7 +23,8 @@ const InsideWrapper = styled.div`
   max-width: 430px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-image: url("/src/assets/background.png");
+  align-items: center;
+  background-image: url("/src/assets/background/background.png");
   background-size: cover;
+  background-position: center;
 `;
