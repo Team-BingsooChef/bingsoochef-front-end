@@ -8,39 +8,54 @@ import FindPasswordPage from "../pages/auth/FindPasswordPage";
 import EmailCheckPage from "../pages/auth/EmailCheckPage";
 import AfterSignUpPage from "../pages/auth/AfterSignUpPage";
 import ChangeFlavorPage from "../pages/user/ChangeFlavorPage";
+import SettingPage from "../pages/user/SettingPage";
+import SeeToppnigListPage from "../pages/user/SeeToppingListPage";
+import SearchPage from "../pages/user/SerachPage";
 
 
 const router = createBrowserRouter([
   { 
-    path: RouterPath.root, 
+    path: "/",
     element: <RootLayout />, 
     children: [
       {
-        path: RouterPath.home,
+        path: "",
         element: <HomePage />,
       },
       {
-        path: RouterPath.login,
+        path: "login",
         element: <LoginPage />,
       },
       {
-        path: RouterPath.signup,
+        path: "signup",
         element: <SignUpPage />,
       },
       {
-        path: RouterPath.findpassword,
+        path: "findpassword",
         element: <FindPasswordPage />,
       },
       {
-        path: RouterPath.emailcheck,
+        path: "emailcheck",
         element: <EmailCheckPage />,
       },
       {
-        path: RouterPath.aftersignup,
+        path: "aftersignup",
         element: <AfterSignUpPage />,
       },
       {
-        path: RouterPath.changeflavor,
+        path: "setting",
+        element: <SettingPage />,
+      },
+      {
+        path: "seetoppinglist",
+        element: <SeeToppnigListPage />,
+      },
+      {
+        path: "search",
+        element: <SearchPage />,
+      },
+      {
+        path: "changeflavor",
         element: <ChangeFlavorPage />,
       }
     ]
