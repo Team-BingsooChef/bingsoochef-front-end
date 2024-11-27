@@ -10,7 +10,8 @@ import google_icon from "../../../assets/icon/google_icon.png";
 // export const AuthBottomWrapper = ({ children }: AuthBottomWrapperProps) => {
 export const AuthBottomWrapper = () => {
   return (
-    <>
+    <Flex flexDir="column" mb="60px" position="fixed" bottom="0">
+    <Flex w="100%" justifyContent="center" gap="12px" mb="120px">
     <Button 
     w="70px"
     h="50px" 
@@ -50,6 +51,7 @@ export const AuthBottomWrapper = () => {
       }}>
         <img src={google_icon} alt="google_icon" />
       </Button>
+      </Flex>
       <Flex w="100%" justifyContent="center">
         <Text color="#413C3C" fontSize="14px" marginRight="8px">
           아직 회원이 아니신가요?
@@ -63,7 +65,7 @@ export const AuthBottomWrapper = () => {
           회원가입
         </ChakraLink>
       </Flex>
-    </>
+    </Flex>
   );
 };
 
