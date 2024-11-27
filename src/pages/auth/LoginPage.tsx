@@ -1,14 +1,14 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Link as RouterLink } from "react-router-dom";
-import { Link as ChakraLink, Text } from "@chakra-ui/react";
+import { Link as ChakraLink, Flex, Text } from "@chakra-ui/react";
 import { ToppestText } from "../../components/auth/ToppestText";
 import { PasswordInput } from "../../components/auth/PasswordInput";
 import { BlueRectangleButton } from "../../components/common/BlueRectangleButton";
 import { IvoryInput } from "../../components/common/IvoryInput";
+import { AuthBottomWrapper } from "../../components/auth/AuthBottomWrapper";
 
 export default function LoginPage() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,18 +33,25 @@ export default function LoginPage() {
         handleChange={handleChangePassword}
         placeholder="비밀번호를 입력해 주세요"
       />
-      <ChakraLink as={RouterLink} to="/findpassword" color="#777C89" fontSize="14px" alignSelf="end" margin="0 20px 56px 0" >비밀번호 찾기</ChakraLink>
+      <ChakraLink
+        as={RouterLink}
+        to="/findpassword"
+        color="#777C89"
+        fontSize="14px"
+        alignSelf="end"
+        margin="0 20px 56px 0"
+      >
+        비밀번호 찾기
+      </ChakraLink>
       <BlueRectangleButton>로그인</BlueRectangleButton>
-      </Wrapper>
+      <AuthBottomWrapper />
+    </Wrapper>
   );
 }
 
-
 const Wrapper = styled.div`
-    width: calc(100% - 60px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    `;
-
+  width: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
