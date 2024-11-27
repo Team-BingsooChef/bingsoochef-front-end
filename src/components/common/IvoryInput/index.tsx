@@ -10,10 +10,10 @@ interface IvoryInputProps {
     placeholder: string;
 }
 
-const IvoryInput: React.FC<IvoryInputProps> = ({ value, text, handleChange, placeholder }) => {
+export const IvoryInput: React.FC<IvoryInputProps> = ({ value, text, handleChange, placeholder }) => {
   return (
     <>
-      <Text mb='8px' color="#03526B" fontWeight="100" alignSelf="start"  ml="48px">{text}</Text>
+      <Text mb='8px' color="#03526B" fontWeight="100" alignSelf="start" >{text}</Text>
       <Input
       variant="filled"
         value={value}
@@ -26,11 +26,9 @@ const IvoryInput: React.FC<IvoryInputProps> = ({ value, text, handleChange, plac
         borderRadius="16px"
         backgroundColor="#FDF0CC"
         mb="24px"
-        _hover={{ backgroundColor: "FDF0CC" }} // Keeps the background white on hover
-        _focus={{ backgroundColor: "FDF0CC", boxShadow: "none" }} // Keeps the background white on focus
+        _hover={{ backgroundColor: "#FDF0CC" }} // Keeps the background white on hover
+        _focus={{ backgroundColor: "#FDF0CC", boxShadow: "none" }} // Keeps the background white on focus
       />
     </>
   );
 };
-
-export default IvoryInput;
