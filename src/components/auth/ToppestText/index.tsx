@@ -5,6 +5,6 @@ export interface ToppestTextProps {
 }
 
 export const ToppestText = ({ text, color }: ToppestTextProps) => {
-    return <Text fontSize="20px" color={color}>{text}</Text>;
+    return <Text fontSize="20px" mt="40px" color={color}>{text}</Text>;
 };
 
