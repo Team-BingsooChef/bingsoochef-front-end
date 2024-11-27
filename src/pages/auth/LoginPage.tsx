@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
+import { ToppestText } from "../../components/auth/ToppestText";
 import { BlueRectangleButton } from "../../components/common/BlueRectangleButton";
 import  { IvoryInput }  from "../../components/common/IvoryInput";
 export default function LoginPage() {
@@ -13,6 +14,7 @@ export default function LoginPage() {
       };
     return(
         <>
+        <ToppestText text="로그인하기" color="#03526B" />
         <IvoryInput           
         value={email}
           text="이메일"
@@ -24,7 +26,6 @@ export default function LoginPage() {
           handleChange={handleChangePassword}
           placeholder="비밀번호를 입력해 주세요"/>
         <BlueRectangleButton>로그인</BlueRectangleButton>
-        <h1>하이</h1>
         </>
     );
 }

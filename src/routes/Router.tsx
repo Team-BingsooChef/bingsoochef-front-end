@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { RouterPath } from "./path"; //경로 상수 가져옴
 import RootLayout from "../pages/common/RootLayout";
 import HomePage from "../pages/home/HomePage";
 import LoginPage from "../pages/auth/LoginPage";
