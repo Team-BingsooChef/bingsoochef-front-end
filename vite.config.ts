@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
+import path from 'path';
 import react from "@vitejs/plugin-react";
-import path from "path";
 
 export default defineConfig({
   plugins: [
@@ -11,9 +11,10 @@ export default defineConfig({
         },
     }),
   ],
+  optimizeDeps: {
+    include: ["@chakra-ui/react", "@emotion/react", "@emotion/styled", "framer-motion"],
+  },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"), // '@'를 src로 매핑
-    },
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
 });
