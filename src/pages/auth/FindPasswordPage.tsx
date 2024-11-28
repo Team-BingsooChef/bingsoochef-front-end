@@ -14,7 +14,7 @@ export default function FindPasswordPage() {
     setEmail(e.target.value);
   };
   const goToEmailCheck = () => {
-   navigate("/emailcheck");
+    navigate("/emailcheck", { state: { from: "findpassword" } });
   };
   return (
     <Wrapper>

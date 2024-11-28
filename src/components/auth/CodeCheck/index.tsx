@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useState, useEffect, useRef } from "react";
 import { Box, Text, useToast } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { LightBlueRectangleButton } from "../../common/CustomedButton";
 
 export const CodeCheck = () => {
@@ -10,8 +10,11 @@ export const CodeCheck = () => {
   const [code, setCode] = useState<string[]>(Array(6).fill(""));
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const navigate = useNavigate();
+  const location = useLocation();
   const toast = useToast();
 
+ // 이전 페이지 정보 확인
+ const from = location.state?.from || "unknown"; // 기본값 설정
   // 타이머 로직
   useEffect(() => {
     if (timeLeft > 0) {
@@ -29,7 +32,7 @@ export const CodeCheck = () => {
         isClosable: true,
       });
     }
-  }, [timeLeft]);
+  }, [timeLeft, toast]);
 
   // 포맷된 타이머 출력
   const formatTime = (seconds: number) => {
@@ -73,7 +76,13 @@ export const CodeCheck = () => {
         duration: 3000,
         isClosable: true,
       });
-      navigate("/aftersignup"); // 다음 페이지로 이동
+     if (from === "signup") {
+      navigate("/setpassword", { state: { to: "setpassword" } });
+    } else if (from === "findpassword") {
+      navigate("/setpassword", { state: { to: "resetpassword" } });
+    } else {
+      console.error("Unknown navigation source");
+    }
     } else {
       toast({
         title: "인증 번호가 틀렸습니다.",

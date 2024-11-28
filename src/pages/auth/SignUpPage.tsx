@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useNavigate, navigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { BlueRectangleButton } from "../../components/common/CustomedButton";
 import {
   AuthTopWrapper,
@@ -10,7 +10,7 @@ import { CheckDuplicate } from "../../components/auth/CheckDuplicate";
 export default function SignUpPage() {
   const navigate = useNavigate();
   const goToEmailCheck = () => {
-    navigate("/emailcheck");
+    navigate("/emailcheck", { state: { from: "signup" } });
   };
 
   return (
