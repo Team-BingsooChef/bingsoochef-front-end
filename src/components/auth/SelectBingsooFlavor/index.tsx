@@ -19,6 +19,15 @@ export const SelectBingsooFlavor = () => {
     slidesToScroll: 1,
     arrow: true,
   };
+  
+  const bingsooData = [
+    { name: "딸기 빙수", image: strawberry },
+    { name: "초코 빙수", image: chocolate },
+    { name: "망고 빙수", image: mango },
+    { name: "민트초코 빙수", image: mincho },
+    { name: "말차 빙수", image: malcha },
+    { name: "연유 빙수", image: milk },
+  ];
   return (
     <SelectBingsooFlavorWrapper>
       <Text fontSize="14px" mb="20px" color="#03526B">
@@ -26,30 +35,12 @@ export const SelectBingsooFlavor = () => {
       </Text>
       <SliderContainer>
         <CustomSlider {...settings}>
-          <SlideItem>
-            <InSlideText color="#03526B">딸기 빙수</InSlideText>
-            <SlideImage src={strawberry} alt="Strawberry Bingsoo" />
+        {bingsooData.map((item, index) => (
+          <SlideItem key={index}>
+            <InSlideText color="#03526B">{item.name}</InSlideText>
+            <SlideImage src={item.image} alt={item.name} />
           </SlideItem>
-          <SlideItem>
-          <InSlideText color="#03526B">초코 빙수</InSlideText>
-            <SlideImage src={chocolate} alt="Chocolate Bingsoo" />
-          </SlideItem>
-          <SlideItem>
-          <InSlideText color="#03526B">망고 빙수</InSlideText>
-            <SlideImage src={mango} alt="Mango Bingsoo" />
-          </SlideItem>
-          <SlideItem>
-          <InSlideText color="#03526B">민트초코 빙수</InSlideText>
-            <SlideImage src={mincho} alt="Mint Chocolate Bingsoo" />
-          </SlideItem>
-          <SlideItem>
-          <InSlideText color="#03526B">말차 빙수</InSlideText>
-            <SlideImage src={malcha} alt="Matcha Bingsoo" />
-          </SlideItem>
-          <SlideItem>
-          <InSlideText color="#03526B">연유 빙수</InSlideText>
-            <SlideImage src={milk} alt="Milk Bingsoo" />
-          </SlideItem>
+               ))}
         </CustomSlider>
       </SliderContainer>
     </SelectBingsooFlavorWrapper>
