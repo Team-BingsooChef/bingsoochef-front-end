@@ -56,13 +56,22 @@ const SelectBingsooFlavorWrapper = styled.div`
 const SliderContainer = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fdf0cc;
   border-radius: 16px;
 `;
 const CustomSlider = styled(Slider)`
+ width: 100%; /* 슬라이더 너비 */
+ height: 100%; /* 슬라이더 높이 */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .slick-dots{
+    bottom: 10px;
+  }
 `;
 
 const SlideItem = styled.div`
@@ -70,16 +79,19 @@ const SlideItem = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center; /* 텍스트 중앙 정렬 */
 `;
 
 const InSlideText = styled(Text)`
-  margin-top: 20px;
+  font-size: 24px;
 
 `;
 const SlideImage = styled.img`
-  width: 70%; // 이미지가 컨테이너 안에 꽉 차지 않도록
+  width: 100%; // 이미지가 컨테이너 안에 꽉 차지 않도록
+  height: 300px;
   object-fit: contain; // 이미지 비율 유지하며 컨테이너에 맞춤
-  margin-top: 10px; // 라벨과 이미지 간 여백
+  margin-top: 24px; // 라벨과 이미지 간 여백
+
 `;
