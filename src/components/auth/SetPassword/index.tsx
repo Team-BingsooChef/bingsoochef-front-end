@@ -1,11 +1,13 @@
+import { useState } from "react";
+import { useNavigate, navigate } from 'react-router-dom';
 import { ToppestText } from "../ToppestText";
 import { PasswordInput } from "../PasswordInput";
 import { BlueRectangleButton } from "../../common/CustomedButton";
-import { useState } from "react";
 import { useToast, Box } from "@chakra-ui/react";
 
 export const SetPassword = () => {
   const toast = useToast();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); // 두 번째 비밀번호
 
@@ -29,6 +31,7 @@ export const SetPassword = () => {
     });
 
     // 다음 단계로 이동 로직 추가
+    navigate("/aftersignup");
   };
 
   return (
