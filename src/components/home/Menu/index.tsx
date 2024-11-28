@@ -6,6 +6,7 @@ import {
     Flex,
     Box
   } from "@chakra-ui/react";
+  import { Link } from "react-router-dom";
   import { IconButton } from "@chakra-ui/icons";
   import { Settings, IceCreamBowl, Search, RefreshCcw, MenuIcon, ChefHat } from "lucide-react";
   
@@ -33,6 +34,7 @@ import {
             >
               {nickName} 님
             </MenuItem>
+            <Link to="/setting">
             <MenuItem
               icon={<Settings size="20" color="#777C89" />}
               bg="#00181B"
@@ -40,6 +42,8 @@ import {
             >
               계정 설정
             </MenuItem>
+            </Link>
+            <Link to="/seetoppinglist">
             <MenuItem
               icon={<IceCreamBowl size="20" color="#777C89" />}
               bg="#00181B"
@@ -47,6 +51,8 @@ import {
             >
               내가 만든 토핑
             </MenuItem>
+            </Link>
+            <Link to="/search">
             <MenuItem
               icon={<Search size="20" color="#777C89" />}
               bg="#00181B"
@@ -54,6 +60,8 @@ import {
             >
               빙수 찾아 떠나기
             </MenuItem>
+            </Link>
+            <Link to="/changeflavor">
             <MenuItem
               bg="#00181B"
               icon={<RefreshCcw size="20" color="#777C89" />}
@@ -61,6 +69,7 @@ import {
             >
               빙수 맛 변경하기
             </MenuItem>
+            </Link>
             {/* 구분선 추가 */}
             <Box
               as="hr"
