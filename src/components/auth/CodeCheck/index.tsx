@@ -21,6 +21,13 @@ export const CodeCheck = () => {
       return () => clearInterval(timer);
     } else {
       setTimeExpired(true);
+            toast({
+                title: "입력 시간이 끝났습니다.",
+                description: "다시 메일을 전송할까요?",
+                status: "warning",
+                duration: 5000,
+                isClosable: true,
+              });
     }
   }, [timeLeft]);
 
