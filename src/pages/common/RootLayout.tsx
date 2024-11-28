@@ -1,9 +1,24 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
+
 export default function RootLayout() {
+  const location = useLocation();
+
+  // 경로에 따라 배경 이미지 선택
+  let backgroundImage;
+  if (location.pathname === "/emailcheck") {
+    backgroundImage = 'url("/src/assets/background/background_blue.png")';
+  } else if (
+    ["/setting", "/seetoppinglist", "/search"].includes(location.pathname)
+  ) {
+    backgroundImage = 'url("/src/assets/background/background_ivory.png")';
+  } else {
+    backgroundImage = 'url("/src/assets/background/background.png")';
+  }
+
   return (
     <Wrapper>
-      <InsideWrapper>
+      <InsideWrapper backgroundImage={backgroundImage}>
         <Outlet />
       </InsideWrapper>
     </Wrapper>
@@ -16,15 +31,17 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: #f5f5f5;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
-const InsideWrapper = styled.div`
+const InsideWrapper = styled.div<{ backgroundImage: string }>`
   width: 100%;
   max-width: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("/src/assets/background/background.png");
+  background-image: ${({ backgroundImage }) => backgroundImage};
   background-size: cover;
   background-position: center;
 `;

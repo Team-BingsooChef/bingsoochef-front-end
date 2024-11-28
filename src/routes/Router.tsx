@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { RouterPath } from "./path"; //경로 상수 가져옴
 import RootLayout from "../pages/common/RootLayout";
 import HomePage from "../pages/home/HomePage";
 import LoginPage from "../pages/auth/LoginPage";
@@ -11,7 +10,7 @@ import ChangeFlavorPage from "../pages/user/ChangeFlavorPage";
 import SettingPage from "../pages/user/SettingPage";
 import SeeToppnigListPage from "../pages/user/SeeToppingListPage";
 import SearchPage from "../pages/user/SerachPage";
-
+import SetPasswordPage from "../pages/auth/SetPasswordPage";
 
 const router = createBrowserRouter([
   { 
@@ -41,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "aftersignup",
         element: <AfterSignUpPage />,
+      },
+      {
+        path: "setpassword",
+        element: <SetPasswordPage />,
       },
       {
         path: "setting",
