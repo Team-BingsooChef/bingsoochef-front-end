@@ -2,7 +2,7 @@ import { ToppestText } from "../ToppestText";
 import { PasswordInput } from "../PasswordInput";
 import { BlueRectangleButton } from "../../common/CustomedButton";
 import { useState } from "react";
-import { useToast } from "@chakra-ui/react";
+import { useToast, Box } from "@chakra-ui/react";
 
 export const SetPassword = () => {
   const toast = useToast();
@@ -33,7 +33,9 @@ export const SetPassword = () => {
 
   return (
     <>
-      <ToppestText text="비밀번호 변경" />
+      <Box margin="40px 0 80px 0">
+        <ToppestText text="비밀번호 변경" color="#03526B" />
+      </Box>
       <PasswordInput
         value={password}
         text="비밀번호"
@@ -46,7 +48,11 @@ export const SetPassword = () => {
         placeholder="비밀번호를 한 번 더 입력해 주세요"
         handleChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <BlueRectangleButton onClick={handleSubmit}>변경하기</BlueRectangleButton>
+      <Box w="100%" mt="160px">
+        <BlueRectangleButton onClick={handleSubmit}>
+          변경하기
+        </BlueRectangleButton>
+      </Box>
     </>
   );
 };
@@ -79,7 +85,9 @@ export const ReSetPassword = () => {
 
   return (
     <>
-      <ToppestText text="가입하기" />
+      <Box margin="40px 0 80px 0">
+        <ToppestText text="가입하기" color="#03526B" />
+      </Box>
       <PasswordInput
         value={password}
         text="비밀번호"
@@ -92,7 +100,11 @@ export const ReSetPassword = () => {
         placeholder="비밀번호를 한 번 더 입력해 주세요"
         handleChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <BlueRectangleButton onClick={handleSubmit}>다음으로</BlueRectangleButton>
+      <Box w="100%" mt="140px">
+        <BlueRectangleButton onClick={handleSubmit}>
+          다음으로
+        </BlueRectangleButton>
+      </Box>
     </>
   );
 };
