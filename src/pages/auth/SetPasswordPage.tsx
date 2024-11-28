@@ -1,5 +1,5 @@
 
-export default function SetPassword()   {
+export default function SetPasswordPage()   {
     return(
         <>
         reset</>

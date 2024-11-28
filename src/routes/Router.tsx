@@ -10,7 +10,7 @@ import ChangeFlavorPage from "../pages/user/ChangeFlavorPage";
 import SettingPage from "../pages/user/SettingPage";
 import SeeToppnigListPage from "../pages/user/SeeToppingListPage";
 import SearchPage from "../pages/user/SerachPage";
-
+import SetPasswordPage from "../pages/auth/SetPasswordPage";
 
 const router = createBrowserRouter([
   { 
@@ -40,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "aftersignup",
         element: <AfterSignUpPage />,
+      },
+      {
+        path: "setpassword",
+        element: <SetPasswordPage />,
       },
       {
         path: "setting",
