@@ -4,9 +4,9 @@ import kakao_icon from "../../../assets/icon/kakao_icon.svg";
 import naver_icon from "../../../assets/icon/naver_icon.svg";
 import google_icon from "../../../assets/icon/google_icon.png";
 export interface AuthBottomWrapperProps {
-    linkText: "string",
-    linkText2: "string",
-    linkTo: "string"
+    linkText?: string;
+    linkText2?: string;
+    linkTo?: string;
 }
 
 // export const AuthBottomWrapper = ({ children }: AuthBottomWrapperProps) => {

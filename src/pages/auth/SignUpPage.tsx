@@ -1,31 +1,17 @@
-import { useState } from "react";
 import styled from "@emotion/styled";
-import { Link as RouterLink } from "react-router-dom";
-import { Link as ChakraLink, Box } from "@chakra-ui/react";
 import { BlueRectangleButton } from "../../components/common/BlueRectangleButton";
-import { IvoryInput } from "../../components/common/IvoryInput";
 import { AuthBottomWrapper } from "../../components/auth/AuthBottomWrapper";
 import { AuthTopWrapper } from "../../components/auth/AuthTopWrapper";
-export default function SignUpPage() {
-  const [email, setEmail] = useState("");
+import { CheckDuplicate } from "../../components/auth/CheckDuplicate";
 
-  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
+export default function SignUpPage() {
 
   return (
     <Wrapper>
        <AuthTopWrapper text="가입하기" color="#03526B"/>
-       <Box width= "100%" mt="100px">
-      <IvoryInput
-        value={email}
-        text="이메일"
-        handleChange={handleChangeEmail}
-        placeholder="이메일을 입력해 주세요"
-      />
-    </Box>
+        <CheckDuplicate/>
       <BlueRectangleButton>인증하기</BlueRectangleButton>
-      <AuthBottomWrapper />
+      <AuthBottomWrapper linkText="이미 계정이 있으신가요?" linkText2="로그인" linkTo="/login"  />
     </Wrapper>
   );
 }

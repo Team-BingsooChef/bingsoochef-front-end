@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Link as RouterLink } from "react-router-dom";
-import { Box, Link as ChakraLink, Flex, Text } from "@chakra-ui/react";
+import { Box, Link as ChakraLink } from "@chakra-ui/react";
 import { ToppestText } from "../../components/auth/ToppestText";
 import { PasswordInput } from "../../components/auth/PasswordInput";
 import { BlueRectangleButton } from "../../components/common/BlueRectangleButton";
