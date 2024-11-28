@@ -46,7 +46,7 @@ export default function LoginPage() {
         비밀번호 찾기
       </ChakraLink>
       <BlueRectangleButton>로그인</BlueRectangleButton>
-      <AuthBottomWrapper linkText="아직 회원이 아니신가요?" linkTo="/signup" />
+      <AuthBottomWrapper linkText="아직 회원이 아니신가요?" linkText2="회원가입" linkTo="/signup" />
     </Wrapper>
   );
 }

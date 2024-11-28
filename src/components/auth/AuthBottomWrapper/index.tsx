@@ -5,11 +5,12 @@ import naver_icon from "../../../assets/icon/naver_icon.svg";
 import google_icon from "../../../assets/icon/google_icon.png";
 export interface AuthBottomWrapperProps {
     linkText: "string",
+    linkText2: "string",
     linkTo: "string"
 }
 
 // export const AuthBottomWrapper = ({ children }: AuthBottomWrapperProps) => {
-export const AuthBottomWrapper = ({linkText, linkTo}) => {
+export const AuthBottomWrapper = ({linkText, linkText2, linkTo}) => {
   return (
     <Flex flexDir="column" mb="60px" position="fixed" bottom="0">
     <Flex w="100%" justifyContent="center" gap="12px" mb="120px">
@@ -63,7 +64,7 @@ export const AuthBottomWrapper = ({linkText, linkTo}) => {
           color="#0075FF"
           fontSize="14px"
         >
-          회원가입
+          {linkText2}
         </ChakraLink>
       </Flex>
     </Flex>
