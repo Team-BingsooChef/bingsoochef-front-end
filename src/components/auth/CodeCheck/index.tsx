@@ -98,7 +98,6 @@ export const CodeCheck = () => {
 
   return(
     <>
-    <Box width="calc(100% - 60px)">
     <InputsContainer>
     {code.map((_, index) => (
       <CodeInput
@@ -112,7 +111,6 @@ export const CodeCheck = () => {
       />
     ))}
   </InputsContainer>
-  </Box>
   <Text color="white" mt="40px">
     코드 입력까지 {formatTime(timeLeft)} 남았습니다
   </Text>

@@ -31,6 +31,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: #f5f5f5;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const InsideWrapper = styled.div<{ backgroundImage: string }>`
