@@ -3,12 +3,13 @@ import { Button, Link as ChakraLink, Flex, Text } from "@chakra-ui/react";
 import kakao_icon from "../../../assets/icon/kakao_icon.svg";
 import naver_icon from "../../../assets/icon/naver_icon.svg";
 import google_icon from "../../../assets/icon/google_icon.png";
-// export interface AuthBottomWrapperProps {
-//     children?: React.ReactNode;
-// }
+export interface AuthBottomWrapperProps {
+    linkText: "string",
+    linkTo: "string"
+}
 
 // export const AuthBottomWrapper = ({ children }: AuthBottomWrapperProps) => {
-export const AuthBottomWrapper = () => {
+export const AuthBottomWrapper = ({linkText, linkTo}) => {
   return (
     <Flex flexDir="column" mb="60px" position="fixed" bottom="0">
     <Flex w="100%" justifyContent="center" gap="12px" mb="120px">
@@ -54,11 +55,11 @@ export const AuthBottomWrapper = () => {
       </Flex>
       <Flex w="100%" justifyContent="center">
         <Text color="#413C3C" fontSize="14px" marginRight="8px">
-          아직 회원이 아니신가요?
+          {linkText}
         </Text>
         <ChakraLink
           as={RouterLink}
-          to="/signup"
+          to={linkTo}
           color="#0075FF"
           fontSize="14px"
         >
