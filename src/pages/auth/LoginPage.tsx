@@ -4,9 +4,9 @@ import { Link as RouterLink } from "react-router-dom";
 import { Box, Link as ChakraLink } from "@chakra-ui/react";
 import { ToppestText } from "../../components/auth/ToppestText";
 import { PasswordInput } from "../../components/auth/PasswordInput";
-import { BlueRectangleButton } from "../../components/common/BlueRectangleButton";
-import { IvoryInput } from "../../components/common/IvoryInput";
-import { AuthBottomWrapper } from "../../components/auth/AuthBottomWrapper";
+import { BlueRectangleButton } from "../../components/common/CustomedButton";
+import { IvoryInput } from "../../components/common/CustomedInput";
+import { AuthBottomWrapper } from "../../components/auth/AuthWrapper";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");

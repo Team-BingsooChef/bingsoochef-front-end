@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import { BlueRectangleButton } from "../../components/common/BlueRectangleButton";
-import { AuthBottomWrapper } from "../../components/auth/AuthBottomWrapper";
-import { AuthTopWrapper } from "../../components/auth/AuthTopWrapper";
+import { BlueRectangleButton } from "../../components/common/CustomedButton";
+import { AuthTopWrapper, AuthBottomWrapper } from "../../components/auth/AuthWrapper";
 import { CheckDuplicate } from "../../components/auth/CheckDuplicate";
 
 export default function SignUpPage() {
