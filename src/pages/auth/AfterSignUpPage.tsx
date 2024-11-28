@@ -3,13 +3,15 @@ import styled from "@emotion/styled";
 import { Box } from "@chakra-ui/react";
 import { IvoryInput } from "../../components/common/CustomedInput";
 import { BlueRectangleButton } from "../../components/common/CustomedButton";
+import { SelectBingsooFlavor } from "../../components/auth/SelectBingsooFlavor";
 
 export default function AfterSignUpPage() {
+
   const [username, setUsername] = useState("");
 
   return (
     <Wrapper>
-      <Box marginTop="120px" w="100%">
+      <Box marginTop="80px" w="100%">
         <IvoryInput
           value={username}
           text="당신을 뭐라고 부를까요?"
@@ -17,7 +19,10 @@ export default function AfterSignUpPage() {
           handleChange={(e) => setUsername(e.target.value)}
         />
       </Box>
+      <SelectBingsooFlavor />
+      <Box mt="40px" w="100%">
       <BlueRectangleButton>완료</BlueRectangleButton>
+      </Box>
     </Wrapper>
   );
 }
