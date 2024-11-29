@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { IconButton } from "@chakra-ui/react";
+import { Box, IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { Text } from "@chakra-ui/react";
+import { Text, Image } from "@chakra-ui/react";
 import { toppingData } from "../../../__mocks__/topping/data";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { ToppingType } from "../../../api/home/types";
 import { usePaginationStore } from "../../../store";
+import "./ToppingPosition.css";
 
 export const Toppings = () => {
     const currentPage = usePaginationStore((state) => state.currentPage); // Zustand에서 currentPage 가져오기
+// 현재 페이지 데이터
+
 
     return (
       <>
@@ -20,6 +23,7 @@ export const Toppings = () => {
   };
 
 const ToppingElement = ({ topping }: { topping: ToppingType }) => {
+
      // toppingTypeId와 isHidden을 기반으로 이미지 가져오기
   const matchingToppingType = toppingTypesData.find(
     (type) => type.toppingTypeId === topping.toppingTypeId
@@ -27,12 +31,23 @@ const ToppingElement = ({ topping }: { topping: ToppingType }) => {
   const imgSrc = topping.isHidden
   ? matchingToppingType?.frozenImg // isHidden이면 frozenImg 사용
   : matchingToppingType?.defrostedImg; // isHidden이 아니면 defrostedImg 사용
-  
+   
+  // `toppingId % 8` 값을 기반으로 스타일 구분
+    const groupClass = `group-${topping.toppingId % 8}`;
   return (
-    <div>
-      <img src={imgSrc} alt={matchingToppingType?.toppingTypeName} />
-      <span>{topping.chefName}</span>
-    </div>
+    <Box
+    className={`topping-box ${groupClass}`} // CSS 클래스 적용
+    data-group={topping.toppingId % 8} // 데이터 속성으로도 구분 가능
+    textAlign="center"
+  
+    >
+      <Image 
+      src={imgSrc} 
+      alt={matchingToppingType?.toppingTypeName}
+      boxSize="100px"
+      objectFit="contain" />
+      <Text>{topping.chefName}</Text>
+    </Box>
   );
 }
 

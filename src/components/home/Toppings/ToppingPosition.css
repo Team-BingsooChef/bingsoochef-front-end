@@ -1,0 +1,45 @@
+/* 토핑 위치 css */
+
+.group-0 {
+    left: 20%;
+    top: 15%;
+}
+
+.group-1{
+    top: 28%;
+    left: 8%;
+}
+
+.group-2{
+    top: 30%;
+    left: 34%; 
+}
+
+.group-3{
+    top: 28%;
+    left: 60%;
+}
+
+.group-4{
+    top: 40%;
+    left: 0%;
+}
+
+.group-5{
+    top: 43%;
+    left: 22%;
+}
+
+.group-6{
+    top: 43%;
+    left: 50%;
+}
+
+.group-7{
+    top: 40%;
+    left: 73%;
+}
+.topping-box {
+    position: absolute;
+    transform: translate(-50%, -50%); /* 가운데 정렬 */
+}
