@@ -20,10 +20,18 @@ export const Toppings = () => {
   };
 
 const ToppingElement = ({ topping }: { topping: ToppingType }) => {
+     // toppingTypeId와 isHidden을 기반으로 이미지 가져오기
+  const matchingToppingType = toppingTypesData.find(
+    (type) => type.toppingTypeId === topping.toppingTypeId
+  );
+  const imgSrc = topping.isHidden
+  ? matchingToppingType?.frozenImg // isHidden이면 frozenImg 사용
+  : matchingToppingType?.defrostedImg; // isHidden이 아니면 defrostedImg 사용
+  
   return (
     <div>
-      <img src={topping.frozenImg} alt={topping.toppingTitle} />
-      <span>{topping.toppingTitle}</span>
+      <img src={imgSrc} alt={matchingToppingType?.toppingTypeName} />
+      <span>{topping.chefName}</span>
     </div>
   );
 }
