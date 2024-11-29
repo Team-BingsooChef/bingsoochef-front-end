@@ -1,11 +1,17 @@
 import styled from '@emotion/styled';
-import { Flex } from '@chakra-ui/react';
+import { Flex, Image } from '@chakra-ui/react';
+import strawberry from '/src/assets/bingsoo/strawberry.png';
+import chocolate from '/src/assets/bingsoo/chocolate.png';    
+import mango from '/src/assets/bingsoo/mango.png';
+import mincho from '/src/assets/bingsoo/mincho.png';
+import malcha from '/src/assets/bingsoo/malcha.png';
+import milk from '/src/assets/bingsoo/milk.png';
 
 export const Bingsoo = () => {
     return ( 
         <Flex w="100%" flexDirection="column" alignItems="center">
             <BingsooContainer>
-        ㅎㅇㅇ
+        <Image src="/src/assets/bingsoo/strawberry.png" alt="strawberry" />
         </BingsooContainer>
         </Flex>
     )
@@ -13,9 +19,9 @@ export const Bingsoo = () => {
 
 
 const BingsooContainer = styled.div`
-    width: 100%;
+    width: 96%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 16px;
+    margin-top: 60px;
 `;
