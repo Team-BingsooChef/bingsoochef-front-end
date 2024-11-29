@@ -35,7 +35,7 @@ export default function AfterSignUpPage() {
         <IvoryInput
           value={username}
           text="당신을 뭐라고 부를까요?"
-          placeholder="8지 내로 닉네임을 설정해 주세요"
+          placeholder="8자 내로 닉네임을 설정해 주세요"
           handleChange={(e) => setUsername(e.target.value)}
         />
       </Box>
