@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, navigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { ToppestText } from "../ToppestText";
 import { PasswordInput } from "../PasswordInput";
 import { BlueRectangleButton } from "../../common/CustomedButton";

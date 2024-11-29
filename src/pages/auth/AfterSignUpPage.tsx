@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { Box, Toast, useToast } from "@chakra-ui/react";
+import { Box, useToast } from "@chakra-ui/react";
 import { IvoryInput } from "../../components/common/CustomedInput";
 import { BlueRectangleButton } from "../../components/common/CustomedButton";
 import { SelectBingsooFlavor } from "../../components/auth/SelectBingsooFlavor";
-import { useNavigate, navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function AfterSignUpPage() {
   const navigate = useNavigate();
