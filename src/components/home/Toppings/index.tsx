@@ -3,6 +3,7 @@ import { IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Text } from "@chakra-ui/react";
 import { toppingData } from "../../../__mocks__/topping/data";
+import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { ToppingType } from "../../../api/home/types";
 
 export const Toppings = () => {
@@ -10,7 +11,7 @@ export const Toppings = () => {
     <>
       {currentPage === 0 &&
         {toppingData[0].toppings.map((topping: ToppingType) => (
-          <Topping key={topping.toppingId} topping={topping} />
+          <ToppingElement key={topping.toppingId} topping={topping} />
         ))}}
     </>
   );
@@ -27,10 +28,10 @@ const ToppingElement = ({ topping }: { topping: ToppingType }) => {
 
 export const ToppingsPagination = () => {
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
-  const [totalPage] = useState(1); // 전체 페이지 수
+  const [totalPages] = useState(1); // 전체 페이지 수
 
   const handleNextPage = () => {
-    if (currentPage < totalPage - 1) {
+    if (currentPage < totalPages - 1) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -55,12 +56,12 @@ export const ToppingsPagination = () => {
         이전
       </IconButton>
       <Text>
-        {currentPage + 1} / {totalPage}
+        {currentPage + 1} / {totalPages}
       </Text>
       <IconButton
         onClick={handleNextPage}
         icon={<ChevronRightIcon />}
-        disabled={currentPage === totalPage - 1}
+        disabled={currentPage === totalPages - 1}
         variant="solid"
         borderRadius="full"
         aria-label="Next Page"
