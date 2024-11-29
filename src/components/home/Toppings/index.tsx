@@ -8,16 +8,16 @@ import { ToppingType } from "../../../api/home/types";
 import { usePaginationStore } from "../../../store";
 
 export const Toppings = () => {
-    const { currentPage } = usePaginationStore();
-  return (
-    <>
-      {currentPage === 0 &&
-        {toppingData[0].toppings.map((topping: ToppingType) => (
+    const currentPage = usePaginationStore((state) => state.currentPage); // Zustand에서 currentPage 가져오기
+
+    return (
+      <>
+        {toppingData[currentPage]?.toppings.map((topping: ToppingType) => (
           <ToppingElement key={topping.toppingId} topping={topping} />
-        ))}}
-    </>
-  );
-};
+        ))}
+      </>
+    );
+  };
 
 const ToppingElement = ({ topping }: { topping: ToppingType }) => {
   return (
