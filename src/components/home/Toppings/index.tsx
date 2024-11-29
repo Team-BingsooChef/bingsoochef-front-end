@@ -5,8 +5,10 @@ import { Text } from "@chakra-ui/react";
 import { toppingData } from "../../../__mocks__/topping/data";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { ToppingType } from "../../../api/home/types";
+import { usePaginationStore } from "../../../store";
 
 export const Toppings = () => {
+    const { currentPage } = usePaginationStore();
   return (
     <>
       {currentPage === 0 &&
@@ -27,8 +29,7 @@ const ToppingElement = ({ topping }: { topping: ToppingType }) => {
 }
 
 export const ToppingsPagination = () => {
-  const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호
-  const [totalPages] = useState(1); // 전체 페이지 수
+    const { currentPage, setCurrentPage, totalPages } = usePaginationStore();
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {
@@ -38,7 +39,7 @@ export const ToppingsPagination = () => {
 
   const handlePreviousPage = () => {
     if (currentPage > 0) {
-      setCurrentPage((prevPage) => prevPage - 1);
+      setCurrentPage(currentPage - 1);
     }
   };
 
