@@ -9,25 +9,30 @@ import malcha from "/src/assets/bingsoo/malcha.png";
 import milk from "/src/assets/bingsoo/milk.png";
 
 export const Bingsoo = () => {
-    const [bingsooTaste, setBingsooTaste] = useState("strawberry"); // 초기값 설정
-
+    const [bingsooTaste, setBingsooTaste] = useState("strawberry");
     const getBingsooTasteUrl = (taste: string) => {
         return `/src/assets/bingsoo/${taste}.png`;
       };
 
   return (
     <Flex w="100%" flexDirection="column" alignItems="center">
-      <BingsooContainer>
-        <Image src={getBingsooTasteUrl(bingsooTaste)} alt="strawberry" />
+      <BingsooContainer bgImage={getBingsooTasteUrl(bingsooTaste)}>
+        <div>
+            ㅎㅇ
+        </div>
       </BingsooContainer>
     </Flex>
   );
 };
 
-const BingsooContainer = styled.div`
+const BingsooContainer = styled.div<{ bgImage: string }>`
   width: 96%;
+  height: 67vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 60px;
+  background-image: url(${(props) => props.bgImage});
+  background-size: cover; /* 배경화면을 컨테이너에 맞게 조정 */
+  background-position: center; /* 배경화면을 중앙 정렬 */
 `;
