@@ -12,14 +12,7 @@ export toppingData =
           "toppingTitle": "yjoflmvw",
           "toppingPosition": 0,
           "isHidden": true
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 1,
           "toppingTypeId": 1,
@@ -27,14 +20,7 @@ export toppingData =
           "toppingTitle": "kuvgqzxm",
           "toppingPosition": 0,
           "isHidden": false
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 2,
           "toppingTypeId": 2,
@@ -42,14 +28,7 @@ export toppingData =
           "toppingTitle": "cqlhfkop",
           "toppingPosition": 0,
           "isHidden": false
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 3,
           "toppingTypeId": 3,
@@ -57,14 +36,7 @@ export toppingData =
           "toppingTitle": "miwodrkc",
           "toppingPosition": 0,
           "isHidden": false
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 4,
           "toppingTypeId": 4,
@@ -72,29 +44,15 @@ export toppingData =
           "toppingTitle": "qwmjklvc",
           "toppingPosition": 0,
           "isHidden": true
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 5,
           "toppingTypeId": 5,
-          "chefName": "yqkhnouj",
-          "toppingTitle": "vxqjdloh",
+          "chefName": "koefsq",
+          "toppingTitle": "krffwqa",
           "toppingPosition": 0,
-          "isHidden": true
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+          "isHidden": false
+        },
         {
           "toppingId": 6,
           "toppingTypeId": 6,
@@ -102,14 +60,7 @@ export toppingData =
           "toppingTitle": "lvkrfwqa",
           "toppingPosition": 0,
           "isHidden": false
-        }
-      ]
-    },
-    {
-      "currPage": 0,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 7,
           "toppingTypeId": 7,
@@ -119,7 +70,7 @@ export toppingData =
           "isHidden": true
         }
       ]
-    },
+    },  
     {
       "currPage": 1,
       "totalPages": 2,
@@ -132,14 +83,7 @@ export toppingData =
           "toppingTitle": "bzlqsmfw",
           "toppingPosition": 0,
           "isHidden": true
-        }
-      ]
-    },
-    {
-      "currPage": 1,
-      "totalPages": 2,
-      "totalElements": 10,
-      "toppings": [
+        },
         {
           "toppingId": 9,
           "toppingTypeId": 9,
@@ -149,6 +93,10 @@ export toppingData =
           "isHidden": true
         }
       ]
+      
     }
-  ]
-  
+  ];
+
+    
+      
+ 
