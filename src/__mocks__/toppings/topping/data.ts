@@ -1,4 +1,4 @@
-export toppingData = 
+export const toppingData = 
 [
     {
       "currPage": 0,
