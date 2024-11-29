@@ -1,13 +1,8 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { Flex, Image } from "@chakra-ui/react";
-import strawberry from "/src/assets/bingsoo/strawberry.png";
-import chocolate from "/src/assets/bingsoo/chocolate.png";
-import mango from "/src/assets/bingsoo/mango.png";
-import mincho from "/src/assets/bingsoo/mincho.png";
-import malcha from "/src/assets/bingsoo/malcha.png";
-import milk from "/src/assets/bingsoo/milk.png";
-import { Toppings} from "../Toppings";
+import { Flex} from "@chakra-ui/react";
+
+import { Toppings} from "../FloatToppings";
 export const Bingsoo = () => {
     const [bingsooTaste, setBingsooTaste] = useState("strawberry");
     const getBingsooTasteUrl = (taste: string) => {
@@ -31,7 +26,7 @@ const BingsooContainer = styled.div<{ bgImage: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 40px;
   background-image: url(${(props) => props.bgImage});
   background-repeat: no-repeat; /* 배경화면 반복 없음 */
   background-size: contain; /* 배경화면을 컨테이너에 맞게 조정 */

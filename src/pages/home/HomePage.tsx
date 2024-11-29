@@ -5,10 +5,10 @@ import { OwnerView, ChefView } from "../../components/home/View";
 export default function HomePage() {
     // const { bingsooId } = useParams(); // URL에서 bingsooId 가져오기
     type Role = "chef" | "owner";
-    const role: Role = "owner"; // 초기값 "owner"로 설정
+    const role: Role = "chef"; // 초기값 "owner"로 설정
     return(
         <Wrapper>
-            {role === "owner" ? <OwnerView /> : <ChefView />}
+            {role === "chef" ? <ChefView /> : <OwnerView />}
         </Wrapper>
     );
 }
