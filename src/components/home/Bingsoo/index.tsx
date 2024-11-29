@@ -7,7 +7,7 @@ import mango from "/src/assets/bingsoo/mango.png";
 import mincho from "/src/assets/bingsoo/mincho.png";
 import malcha from "/src/assets/bingsoo/malcha.png";
 import milk from "/src/assets/bingsoo/milk.png";
-
+import { Toppings} from "../Toppings";
 export const Bingsoo = () => {
     const [bingsooTaste, setBingsooTaste] = useState("strawberry");
     const getBingsooTasteUrl = (taste: string) => {
@@ -17,9 +17,7 @@ export const Bingsoo = () => {
   return (
     <Flex w="100%" flexDirection="column" alignItems="center">
       <BingsooContainer bgImage={getBingsooTasteUrl(bingsooTaste)}>
-        <div>
-            ㅎㅇ
-        </div>
+      <Toppings/>
       </BingsooContainer>
     </Flex>
   );
