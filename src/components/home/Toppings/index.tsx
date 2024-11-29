@@ -2,14 +2,28 @@ import { useState } from "react";
 import { IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Text } from "@chakra-ui/react";
+import { toppingData } from "../../../__mocks__/topping/data";
+import { ToppingType } from "../../../api/home/types";
 
 export const Toppings = () => {
   return (
     <>
-      <div>토핑 자리</div>
+      {currentPage === 0 &&
+        {toppingData[0].toppings.map((topping: ToppingType) => (
+          <Topping key={topping.toppingId} topping={topping} />
+        ))}}
     </>
   );
 };
+
+const ToppingElement = ({ topping }: { topping: ToppingType }) => {
+  return (
+    <div>
+      <img src={topping.frozenImg} alt={topping.toppingTitle} />
+      <span>{topping.toppingTitle}</span>
+    </div>
+  );
+}
 
 export const ToppingsPagination = () => {
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지 번호

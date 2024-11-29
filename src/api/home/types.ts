@@ -10,6 +10,7 @@ export interface ToppingTypesResponseBody {
   ];
 }
 
+// 토핑목록 조회
 export interface ToppingResponseBody {
     //totalElements: 빙수의 토핑 개수 page index (0..N)
   currPage: number;
@@ -22,7 +23,16 @@ export interface ToppingResponseBody {
       chefName: "string";
       toppingTitle: "string";
       toppingPosition: number;
-      isHidden: true;
+      isHidden: boolean;
     }
   ];
 }
+
+export type ToppingType = {
+    toppingId: number;
+    toppingTypeId: number;
+    chefName: string;
+    toppingTitle: string;
+    toppingPosition: number;
+    isHidden: boolean;
+    };
