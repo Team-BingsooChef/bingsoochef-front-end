@@ -25,6 +25,7 @@ export const Bingsoo = () => {
 
 const BingsooContainer = styled.div<{ bgImage: string }>`
   position: relative;
+  overflow: visible;
   width: 96%;
   height: 66vh;
   display: flex;

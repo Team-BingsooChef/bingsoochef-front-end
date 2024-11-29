@@ -1,43 +1,45 @@
 /* 토핑 위치 css */
 
 .group-0 {
-    left: 20%;
-    top: 15%;
+    top: 5%;
+    left: 50%;
 }
 
 .group-1{
-    top: 28%;
-    left: 8%;
+    top: 25%;
+    left: 20%;
 }
 
 .group-2{
     top: 30%;
-    left: 34%; 
+    left: 50%; 
 }
 
 .group-3{
-    top: 28%;
-    left: 60%;
+    top: 25%;
+    left: 80%;
+    width: 100px;
 }
 
 .group-4{
-    top: 40%;
-    left: 0%;
+    top: 50%;
+    left: 10%;
 }
 
 .group-5{
-    top: 43%;
-    left: 22%;
+    top: 55%;
+    left: 35%;
 }
 
 .group-6{
-    top: 43%;
-    left: 50%;
+    top: 55%;
+    left: 60%;
 }
 
 .group-7{
-    top: 40%;
-    left: 73%;
+    width: 100px;
+    top: 50%;
+    left: 90%;
 }
 .topping-box {
     position: absolute;
