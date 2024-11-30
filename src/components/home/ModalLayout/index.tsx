@@ -1,7 +1,9 @@
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
+import { Text } from "@chakra-ui/react";
 import { useModalOpenStore, useModalHeightStore } from "../../../store/index";
 import { ModalContent } from '../ModalContent';
+
 
 export const ModalLayout = () => {
   const { isOpen, onClose } = useModalOpenStore();
@@ -15,7 +17,6 @@ export const ModalLayout = () => {
     <Overlay onClick={onClose}>
       <ModalWrapper>
         <ModalContainer onClick={(e) => e.stopPropagation()} style={{height: height}}>
-    
          <ModalContent/>
         </ModalContainer>
       </ModalWrapper>
@@ -23,6 +24,18 @@ export const ModalLayout = () => {
     portalElement
   );
 };
+
+export const ModalInsideGreyContainer = styled.div`
+      background: #777C89;
+`;
+
+export const ModalTitleWithBackButton = (title: string) =>{
+    return (
+      <>
+        <Text>{title}</Text>
+        </>
+    );
+}
 
 // 오버레이 스타일
 const Overlay = styled.div`
@@ -50,7 +63,7 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  margin-top: 160px;
+  margin-top: 100px;
   background: #61bfbf;
   width: calc(100% - 40px);
   border-radius: 30px;

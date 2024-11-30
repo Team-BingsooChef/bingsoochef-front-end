@@ -6,7 +6,7 @@ import { Text, Flex, IconButton } from "@chakra-ui/react";
 import { House } from "lucide-react";
 export const OwnerView = () => {
     return ( 
-        <>
+              <>
            <Menu />
            <Text mt="10px">친구들에게 공유해 빙수를 완성시켜 보세요</Text>
            <Bingsoo />
@@ -15,7 +15,7 @@ export const OwnerView = () => {
            <CopyLink />
            </Flex>
            {/* <Bingsoo viewType="owner" /> viewType 넣어서 topping 클릭 여부*/}
-        </>
+         </>
     )
 };
 
