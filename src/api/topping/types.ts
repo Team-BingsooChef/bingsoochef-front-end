@@ -1,3 +1,4 @@
+//토핑 종류 조회
 export interface ToppingTypesResponseBody {
   toppingTypeId: number;
   toppingTypeCategory: string;
@@ -6,7 +7,7 @@ export interface ToppingTypesResponseBody {
   defrostedImg: string;
 }
 
-// 토핑 목록 : ToppingOutside, 토핑 디테일: ToppingInside
+// 토핑 목록(HomePage 빙수 안에 보이는 정보) : ToppingOutside, 토핑 디테일(토핑 클릭했을 시에): ToppingInside
 export interface ToppingOutsideResponseBody {
   //totalElements: 빙수의 토핑 개수 page index (0..N)
   currPage: number;
