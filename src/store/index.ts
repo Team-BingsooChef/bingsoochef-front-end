@@ -14,3 +14,15 @@ export const usePaginationStore = create<PaginationState>((set) => ({
   setCurrentPage: (page) => set({ currentPage: page }), // 페이지 설정 함수
   setTotalPages: (pages) => set({ totalPages: pages }), // 전체 페이지 수 설정 함수
 }));
+
+type ModalOpenState = {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+};
+
+export const useModalOpenStore = create<ModalOpenState>((set) => ({
+  isOpen: false, // 초기 모달 상태
+  onOpen: () => set({ isOpen: true }), // 모달 열기 함수
+  onClose: () => set({ isOpen: false }), // 모달 닫기 함수
+}));
