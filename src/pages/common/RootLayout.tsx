@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
-
+import { ModalLayout } from '../../components/home/ModalLayout/index';
 export default function RootLayout() {
   const location = useLocation();
 
@@ -19,6 +19,8 @@ export default function RootLayout() {
   return (
     <Wrapper>
       <InsideWrapper backgroundImage={backgroundImage}>
+        {/* ModalLayout을 전역적으로 추가 */}
+        <ModalLayout />
         <Outlet />
       </InsideWrapper>
     </Wrapper>

@@ -11,6 +11,8 @@ export interface ModalLayoutProps {
 // export const ModalLayout = ({height, children}: ModalLayoutProps) => {
 export const ModalLayout = () => {
     const {isOpen, onClose} = useModalOpenStore();
+    console.log("Modal 상태:", isOpen); // 상태 확인 로그
+
     if (!isOpen) return null;
     //포탈 박스
     const portalElement = document.getElementById("portal");

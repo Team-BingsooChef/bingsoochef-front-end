@@ -4,8 +4,8 @@ import theme from "./styles/theme.ts";
 
 function App() {
   return (
-    <ChakraProvider theme = {theme}>
-    <Router />
+    <ChakraProvider theme={theme}>
+      <Router />
     </ChakraProvider>
   );
 }
