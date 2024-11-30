@@ -32,6 +32,9 @@ export type ToppingOutsideType = {
   isHidden: boolean;
 };
 
+export interface ToppingOutsideParams  {
+b: number;
+}
 export interface CreateToppingRequestBody {
   userId: string;
   bingsooId: number;
@@ -50,3 +53,23 @@ export interface CreateToppingRequestBody {
     }[];    
   };
 }
+
+export interface ToppingInsideResponseBody {
+  topping: {
+    toppingId: number;
+    chefId: number;
+    bingsooId: number;
+    toppingTypeId: number;
+    chefName: string;
+    toppingTitle: string;
+    toppingContent: string;
+    toppingPosition: number;
+    toppingCreatedTime: string; // ISO8601 날짜 문자열
+  };
+  comment: {
+    commentId: number;
+    commentContent: string;
+    commentCreatedTime: string; // ISO8601 날짜 문자열
+  };
+}
+
