@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom";
+import { useModalOpenStore, useModalHeightStore } from "../../../store/modal";
+import { ModalContent } from "../ModalContent";
 import styled from "@emotion/styled";
 import { Text } from "@chakra-ui/react";
-import { useModalOpenStore, useModalHeightStore } from "../../../store/modal";
-import { ModalContent } from '../ModalContent';
-
+import { ArrowLeft } from "lucide-react";
 
 export const ModalLayout = () => {
   const { isOpen, onClose } = useModalOpenStore();
@@ -16,8 +16,11 @@ export const ModalLayout = () => {
   return ReactDOM.createPortal(
     <Overlay onClick={onClose}>
       <ModalWrapper>
-        <ModalContainer onClick={(e) => e.stopPropagation()} style={{height: height}}>
-         <ModalContent/>
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          style={{ height: height }}
+        >
+          <ModalContent />
         </ModalContainer>
       </ModalWrapper>
     </Overlay>,
@@ -25,17 +28,37 @@ export const ModalLayout = () => {
   );
 };
 
-export const ModalInsideGreyContainer = styled.div`
-      background: #777C89;
+interface ModalInsideContainerProps {
+  height?: string; // height를 선택적으로 받음
+}
+
+export const ModalInsideGreyContainer = styled.div<ModalInsideContainerProps>`
+  background: #777c89;
+  border-radius: 30px;
+  width: calc(100% - 10px);
+  height: ${(props) =>
+    props.height || "auto"}; // props로 받은 height 또는 기본값
 `;
 
-export const ModalTitleWithBackButton = (title: string) =>{
-    return (
-      <>
-        <Text>{title}</Text>
-        </>
-    );
+export const ModalInsideWhiteContainer = styled.div<ModalInsideContainerProps>`
+  background: white;
+  border-radius: 30px;
+  width: calc(100% - 10px);
+  height: ${(props) =>
+    props.height || "auto"}; // props로 받은 height 또는 기본값
+`;
+
+interface ModalTitleProps {
+  title: string; // 표시할 제목
 }
+
+export const ModalTitle = ({ title }: ModalTitleProps) => {
+  return (
+    <Text fontSize="32px" color="white">
+      {title}
+    </Text>
+  );
+};
 
 // 오버레이 스타일
 const Overlay = styled.div`
