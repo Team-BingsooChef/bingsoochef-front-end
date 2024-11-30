@@ -1,7 +1,7 @@
 import { Menu } from "../Menu";
 import { Bingsoo } from "../Bingsoo";
 import { ToppingsPagination } from "../FloatToppings";
-import { AddTopping, CopyLink } from "../HomeBottomButton";
+import { AddToppingButton, CopyLink } from "../HomeBottomButton";
 import { Text, Flex, IconButton } from "@chakra-ui/react";
 import { House } from "lucide-react";
 
@@ -32,7 +32,7 @@ export const ChefView = () => {
         <Flex mt="4px" justify="center" alignItems="center" >
         <ToppingsPagination />
         </Flex>
-        <AddTopping />
+        <AddToppingButton />
         {/* <Bingsoo viewType="owner" /> viewType 넣어서 topping 클릭 여부*/}
     </>
     )
