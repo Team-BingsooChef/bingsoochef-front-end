@@ -2,9 +2,9 @@ import { api } from "../../config/axios";
 import {
   CreateToppingRequestBody,
   ToppingOutsideResponseBody,
-  TopppingOutsideParams,
-  ToppingInsideResponseBody,
   ToppingOutsideParams,
+  ToppingInsideResponseBody,
+  ToppingInsideParams
 } from "./types";
 
 export function CreateTopping(req: CreateToppingRequestBody): Promise<void> {
@@ -13,7 +13,8 @@ export function CreateTopping(req: CreateToppingRequestBody): Promise<void> {
 
 
 export async function QueryToppingOutside(params: ToppingOutsideParams): Promise<ToppingOutsideResponseBody>{
-    const res = await api.get('/users/bingsoo/toppings',{
+
+  const res = await api.get('/users/bingsoos/toppings',{
         params:{
             ...params
         }
@@ -21,4 +22,17 @@ export async function QueryToppingOutside(params: ToppingOutsideParams): Promise
     return res.data;
 }
 
-export async function QueryToppingInside
+export async function QueryToppingInside(params: ToppingInsideParams): Promise<ToppingInsideResponseBody>{
+  const hyphenParams = {
+    "topping-id": params.toppingId, // 하이픈 포함된 키로 변환
+    "user-id": params.userId,
+  }; 
+
+  const res = await api.get('/users/bingsoos/toppings',{
+    params: {
+      "topping-id": hyphenParams["topping-id"],
+      "user-id": hyphenParams["user-id"],
+    }
+  });
+  return res.data;
+}

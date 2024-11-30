@@ -73,3 +73,8 @@ export interface ToppingInsideResponseBody {
   };
 }
 
+
+export interface ToppingInsideParams {
+  toppingId: number;  // `topping-id`를 camelCase로 변경
+  userId: string; // `user-id`를 camelCase로 변경
+}
