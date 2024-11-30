@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Box, IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Text, Image } from "@chakra-ui/react";
 import { toppingData } from "../../../__mocks__/topping/data";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
-import { ToppingType } from "../../../api/home/types";
+import { ToppingOutsideType } from "../../../api/topping/types";
 import { usePaginationStore } from "../../../store";
 import "./ToppingPosition.css";
 
@@ -15,14 +14,14 @@ export const Toppings = () => {
 
     return (
       <>
-        {toppingData[currentPage]?.toppings.map((topping: ToppingType) => (
+        {toppingData[currentPage]?.toppings.map((topping: ToppingOutsideType) => (
           <ToppingElement key={topping.toppingId} topping={topping} />
         ))}
       </>
     );
   };
 
-const ToppingElement = ({ topping }: { topping: ToppingType }) => {
+const ToppingElement = ({ topping }: { topping: ToppingOutsideType }) => {
 
      // toppingTypeId와 isHidden을 기반으로 이미지 가져오기
   const matchingToppingType = toppingTypesData.find(

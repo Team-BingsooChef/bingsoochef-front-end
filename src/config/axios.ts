@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
@@ -30,15 +29,14 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if (
-      (error.response.status === 401 || error.response.status === 500) &&
+      (error.response.status === 401 || error.response.status === 403) &&
       !originalRequest._retry
     ) {
       originalRequest._retry = true;
       const refreshToken = localStorage.getItem("refreshToken");
       if (!refreshToken) {
+        window.location.href = "/login";
         return Promise.reject(error);
-        const navigate = useNavigate();
-        navigate("/login");
       }
       const resp = await fetch(`${API_BASE_URL}/auth/refresh`, {
         method: "post",
@@ -57,8 +55,8 @@ api.interceptors.response.use(
         console.log("토큰 재발급 실패");
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
-        const navigate = useNavigate();
-        navigate("/login");
+        window.location.href = "/login";
+
       }
       return Promise.reject(error);
     }
