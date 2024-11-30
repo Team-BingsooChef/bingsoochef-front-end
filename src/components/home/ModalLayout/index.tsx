@@ -8,10 +8,10 @@ export interface ModalLayoutProps {
     children?: React.ReactNode;
 }
 
-// export const ModalLayout = ({height, children}: ModalLayoutProps) => {
-export const ModalLayout = () => {
+export const ModalLayout = ({height, children}: ModalLayoutProps) => {
+// export const ModalLayout = () => {
     const {isOpen, onClose} = useModalOpenStore();
-    console.log("Modal 상태:", isOpen); // 상태 확인 로그
+   
 
     if (!isOpen) return null;
     //포탈 박스
@@ -24,11 +24,7 @@ export const ModalLayout = () => {
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <Image src="https://bit.ly/sage-adebayo" alt="Segun Adebayo" />
-                    </ModalBody>
+                {children}
                 </ModalContent>
             </Modal>
         </>,
