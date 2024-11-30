@@ -1,3 +1,0 @@
-// api request, response body 여기 들어갈 것 
-// type.ts : ResponseBody, RequestBody 등의 타입이 저장되는 파일
-//  service.ts : API 호출시 응답 전처리, 예외처리 등을 처리하는 레이어 

@@ -7,7 +7,7 @@ import strawberry from "/src/assets/bingsoo/strawberry.png";
 import chocolate from "/src/assets/bingsoo/chocolate.png";
 import mango from "/src/assets/bingsoo/mango.png";
 import mincho from "/src/assets/bingsoo/mincho.png";
-import malcha from "/src/assets/bingsoo/malcha.png";
+import matcha from "/src/assets/bingsoo/matcha.png";
 import milk from "/src/assets/bingsoo/milk.png";
 
 export const SelectBingsooFlavor = () => {
@@ -25,7 +25,7 @@ export const SelectBingsooFlavor = () => {
     { name: "초코 빙수", image: chocolate },
     { name: "망고 빙수", image: mango },
     { name: "민트초코 빙수", image: mincho },
-    { name: "말차 빙수", image: malcha },
+    { name: "말차 빙수", image: matcha },
     { name: "연유 빙수", image: milk },
   ];
   return (
