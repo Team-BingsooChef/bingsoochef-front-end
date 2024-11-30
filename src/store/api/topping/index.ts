@@ -1,5 +1,5 @@
 
-import { CreateToppingRequestBody } from "../../api/bingsoo/types";
+import { CreateToppingRequestBody } from "../../../api/topping/types";
 import { create } from "zustand";
 
 interface CreateToppingStore {

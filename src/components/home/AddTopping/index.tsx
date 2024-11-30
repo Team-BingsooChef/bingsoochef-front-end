@@ -1,5 +1,6 @@
-
+import { useModalHeight } from "../../../hook";
 export const SelectTopping = () => {
+    useModalHeight("70%"); // SelectTopping에 맞는 높이 설정
     return <div>Select your toppings!</div>;
 };
 
