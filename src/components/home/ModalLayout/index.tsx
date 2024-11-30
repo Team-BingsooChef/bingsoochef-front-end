@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 import ReactDOM from "react-dom";
 import { useModalOpenStore } from "../../../store/index";
-import { Modal, ModalOverlay, ModalContent } from "@chakra-ui/react";
+import { Modal, ModalOverlay, ChakraModalContent as ChakraModalContent} from "@chakra-ui/react";
 import { Flex } from "@chakra-ui/react";
+import { ModalContent } from "../ModalContent";
 export interface ModalLayoutProps {
   height: string;
-  children?: React.ReactNode;
 }
 
-export const ModalLayout = ({ height, children }: ModalLayoutProps) => {
+export const ModalLayout = () => {
   // export const ModalLayout = () => {
   const { isOpen, onClose } = useModalOpenStore();
 
@@ -23,15 +23,15 @@ export const ModalLayout = ({ height, children }: ModalLayoutProps) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
 
-        <ModalContent
+        <ChakraModalContent
           bg="#61BFBF"
           w="calc(100% - 40px)"
           borderRadius="30px"
           h="60%"
           boxShadow="lg"
         >
-          {children}
-        </ModalContent>
+          <ModalContent/>
+        </ChakraModalContent>
       </Modal>
     </Wrapper>,
     portalElement
