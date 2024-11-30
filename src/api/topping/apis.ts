@@ -28,11 +28,11 @@ export async function QueryToppingInside(params: ToppingInsideParams): Promise<T
     "user-id": params.userId,
   }; 
 
-  const res = await api.get('/users/bingsoos/toppings',{
+  const res = await api.get(`/users/bingsoos/toppings/${params.toppingId}`,{
     params: {
-      "topping-id": hyphenParams["topping-id"],
-      "user-id": hyphenParams["user-id"],
+    "user-id": hyphenParams["user-id"],
     }
   });
   return res.data;
 }
+
