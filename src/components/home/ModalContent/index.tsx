@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import { Text } from "@chakra-ui/react";
 import { useModalHeightStore, useModalStateStore } from "../../../store/modal";
+import { SelectTopping, WriteMessage, QuizOrNot, SelectQuizType, MakeQuizChoice, SetChefName } from "../AddTopping";
+import { OpenQuiz, ReplyOrNot, ReplyLetter, ReadMessage } from "../ClickTopping";
+
+
 //Chef의 Modal component들은 AddTopping에, Owner의 Modal component들은 ClickTopping에 들어가져있음
+
 export const ModalContent = () => {
   const { setHeight, height } = useModalHeightStore();
   const { modalState } = useModalStateStore();
@@ -13,28 +18,26 @@ export const ModalContent = () => {
   switch (modalState) {
     //chef 입장
     case "selectTopping":
-      return <div>Select your toppings!</div>;
+      return <SelectTopping/>
     case "writeMessage":
-      return <div>Confirm your order!</div>;
+      return <WriteMessage/>
     case "quizOrNot":
-      return <div>Confirm your order!</div>;
+      return <QuizOrNot/>
     case "selectQuizType":
-      return <div>Confirm your order!</div>;
-    case "makeQuizOfMultiple":
-      return <div>Confirm your order!</div>;
-    case "makeQuizOfOx":
-      return <div>Confirm your order!</div>;
+      return <SelectQuizType/>
+    case "makeQuizChoice":
+      return <MakeQuizChoice/>
     case "setChefName":
-      return <div>Confirm your order!</div>;
+      return <SetChefName/>
       //여기서부턴 owner 입장
       case "openQuiz":
-        return <div>Select your toppings!</div>;
+        return <OpenQuiz/>
       case "replyOrNot":
-        return <div>Confirm your order!</div>;
+        return <ReplyOrNot/>
       case "replyLetter":
-        return <div>Confirm your order!</div>;
+        return <ReplyLetter/>
       case "readMessage":
-        return <div>Confirm your order!</div>;
+        return <ReadMessage/>
     default:
       return <div>Default Modal Content</div>;
   }
