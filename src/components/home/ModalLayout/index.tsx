@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
 import { Text } from "@chakra-ui/react";
-import { useModalOpenStore, useModalHeightStore } from "../../../store/index";
+import { useModalOpenStore, useModalHeightStore } from "../../../store/modal";
 import { ModalContent } from '../ModalContent';
 
 

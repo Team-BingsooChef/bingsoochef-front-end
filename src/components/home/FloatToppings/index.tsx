@@ -4,7 +4,7 @@ import { Text, Image } from "@chakra-ui/react";
 import { toppingData } from "../../../__mocks__/topping/data";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { ToppingOutsideType } from "../../../api/topping/types";
-import { usePaginationStore } from "../../../store";
+import { usePaginationStore } from "../../../store/home";
 import "./ToppingPosition.css";
 
 export const Toppings = () => {

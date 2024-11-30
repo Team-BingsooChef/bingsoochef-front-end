@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { Text } from "@chakra-ui/react";
-import { useModalHeightStore } from "../../../store";
-import { useModalState } from "../../../hook";
+import { useModalHeightStore, useModalStateStore } from "../../../store/modal";
+
 
 
 
 export const ModalContent = () => {
-  const { modalState, setModalState } = useModalState();
+
   const { setHeight, height } = useModalHeightStore();
+  const { modalState } = useModalStateStore();
   useEffect(() => {
     // 현재 컴포넌트의 높이를 설정
     setHeight("70%");
@@ -24,4 +25,6 @@ export const ModalContent = () => {
     }
 
 };
+
+
 

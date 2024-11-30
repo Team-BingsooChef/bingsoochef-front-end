@@ -1,6 +1,6 @@
 import { BlueRectangleButton } from "../../common/CustomedButton";
 import { Box } from "@chakra-ui/react";
-import { useModalOpenStore } from "../../../store";
+import { useModalOpenStore } from "../../../store/modal";
 
 export const AddToppingButton = () => {
   const { onOpen } = useModalOpenStore();
