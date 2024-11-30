@@ -26,3 +26,13 @@ export const useModalOpenStore = create<ModalOpenState>((set) => ({
   onOpen: () => set({ isOpen: true }), // 모달 열기 함수
   onClose: () => set({ isOpen: false }), // 모달 닫기 함수
 }));
+
+type ModalHeightState = {
+  height: string;
+  setHeight: (height: string) => void;
+};
+
+export const useModalHeightStore = create<ModalHeightState>((set) => ({
+  height: "70%", // 초기 모달 높이
+  setHeight: (height) => set({ height }), // 모달 높이 설정 함수
+}));
