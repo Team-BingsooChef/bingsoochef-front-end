@@ -4,7 +4,6 @@ import { ToppingsPagination } from "../FloatToppings";
 import { AddToppingButton, CopyLink } from "../HomeBottomButton";
 import { Text, Flex, IconButton } from "@chakra-ui/react";
 import { House } from "lucide-react";
-
 export const OwnerView = () => {
     return ( 
         <>
