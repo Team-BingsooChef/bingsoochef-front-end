@@ -9,7 +9,8 @@ export interface CreateBingsooRequestBody {
     userId: string;
   }
 
-  export interface QueryBingsooRequest{
+  export interface QueryBingsooResponseBody{
     bingsooId: number;
+    taste: string;
   }
 
