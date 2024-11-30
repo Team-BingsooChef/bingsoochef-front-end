@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Text } from "@chakra-ui/react";
-import { useModalHeightStore, useModalStateStore } from "../../../store/modal";
+import { useModalStateStore } from "../../../store/modal";
 import { SelectTopping, WriteMessage, QuizOrNot, SelectQuizType, MakeQuizChoice, SetChefName } from "../AddTopping";
 import { OpenQuiz, ReplyOrNot, ReplyLetter, ReadMessage } from "../ClickTopping";
 
@@ -8,12 +8,8 @@ import { OpenQuiz, ReplyOrNot, ReplyLetter, ReadMessage } from "../ClickTopping"
 //Chef의 Modal component들은 AddTopping에, Owner의 Modal component들은 ClickTopping에 들어가져있음
 
 export const ModalContent = () => {
-  const { setHeight, height } = useModalHeightStore();
+
   const { modalState } = useModalStateStore();
-  useEffect(() => {
-    // 현재 컴포넌트의 높이를 설정
-    setHeight("70%");
-  }, [setHeight]); // 컴포넌트가 렌더링될 때만 실행
 
   switch (modalState) {
     //chef 입장

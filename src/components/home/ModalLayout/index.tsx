@@ -2,8 +2,7 @@ import ReactDOM from "react-dom";
 import { useModalOpenStore, useModalHeightStore } from "../../../store/modal";
 import { ModalContent } from "../ModalContent";
 import styled from "@emotion/styled";
-import { Text } from "@chakra-ui/react";
-import { ArrowLeft } from "lucide-react";
+
 
 export const ModalLayout = () => {
   const { isOpen, onClose } = useModalOpenStore();
@@ -25,38 +24,6 @@ export const ModalLayout = () => {
       </ModalWrapper>
     </Overlay>,
     portalElement
-  );
-};
-
-interface ModalInsideContainerProps {
-  height?: string; // height를 선택적으로 받음
-}
-
-export const ModalInsideGreyContainer = styled.div<ModalInsideContainerProps>`
-  background: #777c89;
-  border-radius: 30px;
-  width: calc(100% - 10px);
-  height: ${(props) =>
-    props.height || "auto"}; // props로 받은 height 또는 기본값
-`;
-
-export const ModalInsideWhiteContainer = styled.div<ModalInsideContainerProps>`
-  background: white;
-  border-radius: 30px;
-  width: calc(100% - 10px);
-  height: ${(props) =>
-    props.height || "auto"}; // props로 받은 height 또는 기본값
-`;
-
-interface ModalTitleProps {
-  title: string; // 표시할 제목
-}
-
-export const ModalTitle = ({ title }: ModalTitleProps) => {
-  return (
-    <Text fontSize="32px" color="white">
-      {title}
-    </Text>
   );
 };
 
@@ -94,4 +61,5 @@ const ModalContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;

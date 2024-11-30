@@ -6,17 +6,17 @@ interface ModalInsideContainerProps {
 }
 
 export const ModalInsideGreyContainer = styled.div<ModalInsideContainerProps>`
-  background: #777c89;
+  background: #D9D9D9;
   border-radius: 30px;
-  width: calc(100% - 10px);
+  width: calc(100% - 20px);
   height: ${(props) =>
     props.height || "auto"}; // props로 받은 height 또는 기본값
 `;
 
 export const ModalInsideGreyInput = styled(Input)<ModalInsideContainerProps>`
-  background: #777c89;
+  background: #D9D9D9;
   border-radius: 30px;
-  width: calc(100% - 10px);
+  width: calc(100% - 20px);
   height: ${(props) =>
     props.height || "auto"}; // props로 받은 height 또는 기본값
 `;
@@ -35,7 +35,7 @@ interface ModalTitleProps {
 
 export const ModalTitle = ({ title }: ModalTitleProps) => {
   return (
-    <Text fontSize="32px" color="white">
+    <Text fontSize="32px" color="white" top="0px" mt="24px" position="absolute">
       {title}
     </Text>
   );
