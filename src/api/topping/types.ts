@@ -34,9 +34,9 @@ export type ToppingOutsideType = {
 
 export interface ToppingOutsideParams  {
 b: number;
-}
+};
 export interface CreateToppingRequestBody {
-  userId: string;
+  userId: number;
   bingsooId: number;
   topping: {
     chefName: string;

@@ -8,13 +8,13 @@ export enum BingsooTaste {
   }
 export interface CreateBingsooRequestBody {
     taste: BingsooTaste;
-    userId: string;
+    userId: number;
   }
 
 
   export interface ChangeFlavorRequestBody {
     taste: BingsooTaste;
-    userId: string;
+    userId: number;
   }
 
   export interface QueryBingsooResponseBody{
