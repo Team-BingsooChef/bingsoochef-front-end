@@ -6,7 +6,6 @@ import { MakeQuizChoice } from "../../chef/MakeQuizChoice";
 import { SetChefName } from "../../chef/SetChefName";
 
 import { OpenQuiz } from "../../owner/OpenQuiz";
-import { ReplyOrNot } from "../../owner/ReplyOrNot";
 import { ReplyLetter, ViewReply } from "../../owner/ReplyLetter";
 import { ReadMessage } from "../../owner/ReadMessage";
 
@@ -32,8 +31,6 @@ export const ModalContent = () => {
     //여기서부턴 owner 입장
     case "openQuiz":
       return <OpenQuiz />;
-    case "replyOrNot":
-      return <ReplyOrNot />;
     case "replyLetter":
       return <ReplyLetter />;
       case "viewReply":
