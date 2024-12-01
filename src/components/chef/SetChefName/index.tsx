@@ -4,13 +4,14 @@ import { useModalHeight } from "../../../hook/useModalHeight";
 import { useModalOpenStore } from "../../../store/modal";
 
 
-import { Text, Box, Input, Image } from "@chakra-ui/react";
+import { Text, Box, Input, Image, useToast } from "@chakra-ui/react";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import { toppingTypesData } from '../../../__mocks__/toppingtypes/data';
 
 
 export const SetChefName = () => {
     const {onClose} = useModalOpenStore();
+    const toast = useToast();
     const {requestBody, setChefName} = useCreateToppingStore();
     useModalHeight("28%");
 
@@ -18,6 +19,18 @@ export const SetChefName = () => {
   const selectedTopping = toppingTypesData.find(
     (topping) => topping.toppingTypeId === requestBody.toppingTypeId
   );
+
+  const handleToppingAdd = () => {
+    // 토핑 추가 완료 메시지
+    toast({
+        title: "토핑이 추가되었습니다.",
+        status: "success",
+        duration: 3000, // 3초 동안 표시
+        isClosable: true, // 닫기 버튼 표시
+        position: "top", // 화면 상단에 표시
+    });
+    onClose(); // 모달 닫기
+};
   
     return (
         <>
@@ -44,7 +57,7 @@ export const SetChefName = () => {
           <Text mr="50px">셰프님</Text>
         </ChefNameInputContainer>
         <Box w="calc(100% - 200px)" mt="20px" mb="10px">
-          <BlueEllipseButton onClick={onClose}>토핑 추가 완료</BlueEllipseButton>
+          <BlueEllipseButton onClick={handleToppingAdd}>토핑 추가 완료</BlueEllipseButton>
         </Box>
       </>
     );
