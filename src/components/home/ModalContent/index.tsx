@@ -1,39 +1,47 @@
-import { useEffect } from "react";
-import { Text } from "@chakra-ui/react";
 import { useModalStateStore } from "../../../store/modal";
-import { SelectTopping, WriteMessage, QuizOrNot, SelectQuizType, MakeQuizChoice, SetChefName } from "../AddTopping";
-import { OpenQuiz, ReplyOrNot, ReplyLetter, ReadMessage } from "../ClickTopping";
-
+import { SelectTopping } from "../../chef/SelectTopping";
+import {
+  WriteMessage,
+  QuizOrNot,
+  SelectQuizType,
+  MakeQuizChoice,
+  SetChefName,
+} from "../AddTopping";
+import {
+  OpenQuiz,
+  ReplyOrNot,
+  ReplyLetter,
+  ReadMessage,
+} from "../ClickTopping";
 
 //Chef의 Modal component들은 AddTopping에, Owner의 Modal component들은 ClickTopping에 들어가져있음
 
 export const ModalContent = () => {
-
   const { modalState } = useModalStateStore();
 
   switch (modalState) {
     //chef 입장
     case "selectTopping":
-      return <SelectTopping/>
+      return <SelectTopping />;
     case "writeMessage":
-      return <WriteMessage/>
+      return <WriteMessage />;
     case "quizOrNot":
-      return <QuizOrNot/>
+      return <QuizOrNot />;
     case "selectQuizType":
-      return <SelectQuizType/>
+      return <SelectQuizType />;
     case "makeQuizChoice":
-      return <MakeQuizChoice/>
+      return <MakeQuizChoice />;
     case "setChefName":
-      return <SetChefName/>
-      //여기서부턴 owner 입장
-      case "openQuiz":
-        return <OpenQuiz/>
-      case "replyOrNot":
-        return <ReplyOrNot/>
-      case "replyLetter":
-        return <ReplyLetter/>
-      case "readMessage":
-        return <ReadMessage/>
+      return <SetChefName />;
+    //여기서부턴 owner 입장
+    case "openQuiz":
+      return <OpenQuiz />;
+    case "replyOrNot":
+      return <ReplyOrNot />;
+    case "replyLetter":
+      return <ReplyLetter />;
+    case "readMessage":
+      return <ReadMessage />;
     default:
       return <div>Default Modal Content</div>;
   }
