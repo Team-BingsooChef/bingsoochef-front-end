@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useCreateToppingStore } from "../../../store/api/topping";
 import { useModalHeight } from "../../../hook/useModalHeight";
 import { useModalOpenStore } from "../../../store/modal";
-
+import { useModalStateStore } from "../../../store/modal";
 
 import { Text, Box, Input, Image, useToast } from "@chakra-ui/react";
 import { BlueEllipseButton } from "../../common/CustomedButton";
@@ -12,6 +12,7 @@ import { toppingTypesData } from '../../../__mocks__/toppingtypes/data';
 
 export const SetChefName = () => {
     const {onClose} = useModalOpenStore();
+    const {setModalState} = useModalStateStore();
     const toast = useToast();
     const {requestBody, setChefName} = useCreateToppingStore();
     useModalHeight("28%");
@@ -31,6 +32,7 @@ export const SetChefName = () => {
         position: "top", // 화면 상단에 표시
     });
     onClose(); // 모달 닫기
+    setModalState(""); // 모달 상태 초기화
 };
   
     return (
