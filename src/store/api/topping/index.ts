@@ -1,6 +1,12 @@
 import { CreateToppingRequestBody } from "../../../api/topping/types";
 import { create } from "zustand";
 
+// 질문 데이터 형식 정의
+interface Question {
+  first: string; // 선택된 답변 ("O" 또는 "X")
+  second: boolean; // 부가 정보 (true)
+}
+
 interface CreateToppingStore {
   requestBody: CreateToppingRequestBody;
   setUserId: (userId: number) => void;
@@ -9,7 +15,8 @@ interface CreateToppingStore {
   setToppingTypeId: (toppingTypeId: number) => void;
   setQuiz: (quiz: CreateToppingRequestBody["quiz"]) => void;
   setQuizType: (quizType: string) => void; // quizType 업데이트 메서드
-  setQuestions: (questions: string[]) => void; // questions 업데이트 메서드
+  setQuizTitle: (quizTitle: string) => void; // quizTitle 업데이트 메서드
+  setQuestions: (questions: Question[]) => void; // 질문 업데이트 메서드
   setToppingContent: (toppingContent: string) => void; // toppingContent 업데이트 메서드
   setChefName: (chefName: string) => void; // chefName 업데이트 메서드
 }
@@ -27,7 +34,7 @@ export const useCreateToppingStore = create<CreateToppingStore>((set) => ({
     quiz: {
       quizTitle: "",
       quizType: "OX",
-      questions: [],
+      questions: [], // 초기값
     },
   },
   setUserId: (userId) =>
@@ -47,13 +54,20 @@ export const useCreateToppingStore = create<CreateToppingStore>((set) => ({
         quiz: { ...state.requestBody.quiz, quizType },
       },
     })), // quizType만 업데이트
+  setQuizTitle: (quizTitle) =>
+    set((state) => ({
+      requestBody: {
+        ...state.requestBody,
+        quiz: { ...state.requestBody.quiz, quizTitle },
+      },
+    })), // quizTitle만 업데이트
   setQuestions: (questions) =>
     set((state) => ({
       requestBody: {
         ...state.requestBody,
         quiz: { ...state.requestBody.quiz, questions },
       },
-    })), // questions만 업데이트
+    })), // questions 배열 업데이트
   setToppingContent: (toppingContent) =>
     set((state) => ({
       requestBody: {

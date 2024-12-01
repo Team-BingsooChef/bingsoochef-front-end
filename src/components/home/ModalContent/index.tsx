@@ -2,8 +2,8 @@ import { useModalStateStore } from "../../../store/modal";
 import { SelectTopping } from "../../chef/SelectTopping";
 import { WriteMessage } from "../../chef/WriteMessage";
 import { QuizOrNot, SelectQuizType } from "../../chef/AskAboutQuiz";
+import { MakeQuizChoice } from "../../chef/MakeQuizChoice";
 import {
-  MakeQuizChoice,
   SetChefName,
 } from "../AddTopping";
 import {
