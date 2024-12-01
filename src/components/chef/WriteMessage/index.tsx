@@ -1,7 +1,7 @@
 import { useModalHeight } from "../../../hook/useModalHeight";
 import { useModalStateStore } from "../../../store/modal";
 import { useCreateToppingStore } from "../../../store/api/topping";
-import { BlueRectangleButton } from "../../common/CustomedButton";
+import { BlueEllipseButton } from "../../common/CustomedButton";
 import {
   ModalInsideGreyInput,
   ModalTitle,
@@ -38,7 +38,7 @@ const clickNext = () => {
     />
     </Flex>
     <Box w="calc(100% - 200px)" mt="10px" mb="30px" >
-    <BlueRectangleButton onClick={clickNext}>다음</BlueRectangleButton>
+    <BlueEllipseButton onClick={clickNext}>다음</BlueEllipseButton>
     </Box>
   </>);
 };
