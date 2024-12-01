@@ -64,6 +64,9 @@ export const ModalInsideGreyInput: React.FC<ModalInsideContainerProps> = ({
 
 export const ModalInsideWhiteContainer = styled.div<ModalInsideContainerProps>`
   background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 30px;
   width: calc(100% - 20px);
   height: ${(props) =>
