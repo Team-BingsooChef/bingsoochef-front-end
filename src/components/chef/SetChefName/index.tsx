@@ -8,6 +8,7 @@ import { Text, Box, Input, Image, useToast } from "@chakra-ui/react";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import { toppingTypesData } from '../../../__mocks__/toppingtypes/data';
 
+//백으로 createTopping을 보내는 기능 구현하기
 
 export const SetChefName = () => {
     const {onClose} = useModalOpenStore();
