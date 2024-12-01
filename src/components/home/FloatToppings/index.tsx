@@ -5,6 +5,8 @@ import { toppingData } from "../../../__mocks__/topping/data";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { ToppingOutsideType } from "../../../api/topping/types";
 import { usePaginationStore } from "../../../store/home";
+import { useModalStateStore, useModalOpenStore } from "../../../store/modal";
+import { useSelectedToppingStore } from "../../../store/api/topping";
 import "./ToppingPosition.css";
 
 export const Toppings = () => {
@@ -22,7 +24,9 @@ export const Toppings = () => {
   };
 
 const ToppingElement = ({ topping }: { topping: ToppingOutsideType }) => {
-
+  const { setModalState } = useModalStateStore();
+  const { onOpen } = useModalOpenStore();
+  const {setSelectedToppingId } = useSelectedToppingStore();
      // toppingTypeId와 isHidden을 기반으로 이미지 가져오기
   const matchingToppingType = toppingTypesData.find(
     (type) => type.toppingTypeId === topping.toppingTypeId
@@ -33,18 +37,33 @@ const ToppingElement = ({ topping }: { topping: ToppingOutsideType }) => {
    
   // `toppingId % 8` 값을 기반으로 스타일 구분
     const groupClass = `group-${topping.toppingId % 8}`;
+
+
+    const handleClick = () => {
+      setSelectedToppingId(topping.toppingId);
+      if (topping.isHidden) {
+        setModalState("openQuiz");
+        onOpen();
+      } else {
+        setModalState("readMessage");
+        onOpen();
+      }
+    };
   return (
     <Box
     className={`topping-box ${groupClass}`} // CSS 클래스 적용
     data-group={topping.toppingId % 8} // 데이터 속성으로도 구분 가능
     textAlign="center"
+          onClick={handleClick} // 클릭 이벤트 추가
+      cursor="pointer"
   
     >
       <Image 
       src={imgSrc} 
       alt={matchingToppingType?.toppingTypeName}
       boxSize="100px"
-      objectFit="contain" />
+      objectFit="contain"
+      />
       <Text>{topping.chefName}</Text>
     </Box>
   );

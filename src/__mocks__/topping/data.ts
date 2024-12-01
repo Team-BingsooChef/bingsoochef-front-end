@@ -8,7 +8,7 @@ export const toppingData =
         {
           "toppingId": 0,
           "toppingTypeId": 0,
-          "chefName": "rnvqhmsg",
+          "chefName": "디비공부하고시퍼요",
           "toppingTitle": "yjoflmvw",
           "toppingPosition": 0,
           "isHidden": true

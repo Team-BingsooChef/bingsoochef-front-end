@@ -1,19 +1,26 @@
 import ReactDOM from "react-dom";
 import { useModalOpenStore, useModalHeightStore } from "../../../store/modal";
 import { ModalContent } from "../ModalContent";
+import { useModalStateStore } from "../../../store/modal";
 import styled from "@emotion/styled";
 
 
 export const ModalLayout = () => {
   const { isOpen, onClose } = useModalOpenStore();
   const { height } = useModalHeightStore();
+  const { setModalState } = useModalStateStore();
   if (!isOpen) return null;
-
+   
+  const clickOutside =() => {
+    onClose();
+    setModalState("");
+    
+  }
   // 포탈 박스
   const portalElement = document.getElementById("portal");
   if (!portalElement) return null;
   return ReactDOM.createPortal(
-    <Overlay onClick={onClose}>
+    <Overlay onClick={clickOutside}>
       <ModalWrapper>
         <ModalContainer
           onClick={(e) => e.stopPropagation()}

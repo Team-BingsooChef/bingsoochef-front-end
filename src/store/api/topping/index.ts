@@ -86,3 +86,14 @@ export const useCreateToppingStore = create<CreateToppingStore>((set) => ({
       },
     })), // chefName만 업데이트
 }));
+
+
+interface SelectedToppingState {
+  selectedToppingId: number | null; // 선택된 토핑 ID
+  setSelectedToppingId: (id: number) => void; // 토핑 ID를 설정하는 함수
+}
+
+export const useSelectedToppingStore = create<SelectedToppingState>((set) => ({
+  selectedToppingId: null, // 초기값은 null
+  setSelectedToppingId: (id: number) => set({ selectedToppingId: id }), // ID 설정
+}));
