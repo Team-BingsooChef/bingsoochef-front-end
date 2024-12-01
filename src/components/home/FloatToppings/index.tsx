@@ -5,8 +5,8 @@ import { toppingData } from "../../../__mocks__/topping/data";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { ToppingOutsideType } from "../../../api/topping/types";
 import { usePaginationStore } from "../../../store/home";
-import { useModalStateStore } from "../../../store/modal";
-import { useModalOpenStore } from "../../../store/modal";
+import { useModalStateStore, useModalOpenStore } from "../../../store/modal";
+import { useSelectedToppingStore } from "../../../store/api/topping";
 import "./ToppingPosition.css";
 
 export const Toppings = () => {
@@ -26,6 +26,7 @@ export const Toppings = () => {
 const ToppingElement = ({ topping }: { topping: ToppingOutsideType }) => {
   const { setModalState } = useModalStateStore();
   const { onOpen } = useModalOpenStore();
+  const {setSelectedToppingId } = useSelectedToppingStore();
      // toppingTypeId와 isHidden을 기반으로 이미지 가져오기
   const matchingToppingType = toppingTypesData.find(
     (type) => type.toppingTypeId === topping.toppingTypeId
@@ -39,6 +40,7 @@ const ToppingElement = ({ topping }: { topping: ToppingOutsideType }) => {
 
 
     const handleClick = () => {
+      setSelectedToppingId(topping.toppingId);
       if (topping.isHidden) {
         setModalState("openQuiz");
         onOpen();
