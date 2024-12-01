@@ -12,10 +12,11 @@ import SeeToppnigListPage from "../pages/user/SeeToppingListPage";
 import SearchPage from "../pages/user/SerachPage";
 import SetPasswordPage from "../pages/auth/SetPasswordPage";
 
+
 const router = createBrowserRouter([
-  { 
+  {
     path: "/",
-    element: <RootLayout />, 
+    element: <RootLayout />,
     children: [
       {
         path: "",
@@ -64,9 +65,9 @@ const router = createBrowserRouter([
       {
         path: "changeflavor",
         element: <ChangeFlavorPage />,
-      }
-    ]
-  }
+      },
+    ],
+  },
 ]);
 
 // 라우터를 렌더링하는 컴포넌트

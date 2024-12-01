@@ -1,6 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
-
 export default function RootLayout() {
   const location = useLocation();
 
