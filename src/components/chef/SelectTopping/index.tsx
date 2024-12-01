@@ -1,8 +1,12 @@
-import { useModalHeight } from "../../../hook/useModalHeight";
-import { ModalInsideGreyContainer, ModalTitle } from "../../home/ModalCustomedElement";
-
+import {
+  ModalInsideGreyContainer,
+  ModalTitle,
+} from "../../home/ModalCustomedElement";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { Flex, Image, Grid, GridItem, Text } from "@chakra-ui/react";
+import { useModalHeight } from "../../../hook/useModalHeight";
+import { useCreateToppingStore } from "../../../store/api/topping";
+import { useModalStateStore } from "../../../store/modal";
 
 export const SelectTopping = () => {
   useModalHeight("70%"); // SelectTopping에 맞는 높이 설정
@@ -15,6 +19,14 @@ export const SelectTopping = () => {
   const ricecakes = toppingTypesData.filter(
     (item) => item.toppingTypeCategory === "ricecakes"
   );
+
+  const { setModalState } = useModalStateStore();
+  const { setToppingTypeId } = useCreateToppingStore();
+
+  const clickTopping = (toppingTypeId: number) => {
+    setToppingTypeId(toppingTypeId);
+    setModalState("writeMessage");
+  };
 
   return (
     <>
@@ -38,6 +50,8 @@ export const SelectTopping = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                cursor="pointer"
+                onClick={() => clickTopping(item.toppingTypeId)}
               >
                 <Image
                   key={item.toppingTypeId}
@@ -66,6 +80,8 @@ export const SelectTopping = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                cursor="pointer"
+                onClick={() => clickTopping(item.toppingTypeId)}
               >
                 <Image
                   key={item.toppingTypeId}
@@ -94,6 +110,8 @@ export const SelectTopping = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                cursor="pointer"
+                onClick={() => clickTopping(item.toppingTypeId)}
               >
                 <Image
                   key={item.toppingTypeId}

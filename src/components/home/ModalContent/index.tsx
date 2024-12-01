@@ -1,7 +1,7 @@
 import { useModalStateStore } from "../../../store/modal";
 import { SelectTopping } from "../../chef/SelectTopping";
+import { WriteMessage } from "../../chef/WriteMessage";
 import {
-  WriteMessage,
   QuizOrNot,
   SelectQuizType,
   MakeQuizChoice,
@@ -14,7 +14,7 @@ import {
   ReadMessage,
 } from "../ClickTopping";
 
-//Chef의 Modal component들은 AddTopping에, Owner의 Modal component들은 ClickTopping에 들어가져있음
+//Chef의 Modal component들은 chef에, Owner의 Modal component들은 owner에 들어가져있음
 
 export const ModalContent = () => {
   const { modalState } = useModalStateStore();

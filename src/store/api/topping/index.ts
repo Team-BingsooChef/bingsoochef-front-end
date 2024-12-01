@@ -9,6 +9,8 @@ interface CreateToppingStore {
     setTopping: (topping: CreateToppingRequestBody["topping"]) => void;
     setToppingTypeId: (toppingTypeId: number) => void;
     setQuiz: (quiz: CreateToppingRequestBody["quiz"]) => void;
+    setToppingContent: (toppingContent: string) => void; // toppingContent 업데이트 메서드
+  setChefName: (chefName: string) => void; // chefName 업데이트 메서드
   }
 
   export const useCreateToppingStore = create<CreateToppingStore>((set) => ({
@@ -36,4 +38,19 @@ interface CreateToppingStore {
       set((state) => ({ requestBody: { ...state.requestBody, toppingTypeId } })),
     setQuiz: (quiz) =>
       set((state) => ({ requestBody: { ...state.requestBody, quiz } })),
+    setToppingContent: (toppingContent) =>
+      set((state) => ({
+        requestBody: {
+          ...state.requestBody,
+          topping: { ...state.requestBody.topping, toppingContent },
+        },
+      })), // toppingContent만 업데이트
+    setChefName: (chefName) =>
+      set((state) => ({
+        requestBody: {
+          ...state.requestBody,
+          topping: { ...state.requestBody.topping, chefName },
+        },
+      })), // chefName만 업데이트
+ 
   }));
