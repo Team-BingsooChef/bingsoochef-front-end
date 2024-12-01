@@ -32,7 +32,7 @@ export const MakeQuizChoice = () => {
     return (
       <>
         <ModalTitle title="OX 퀴즈 내기" />
-        <Flex w="100%" h="30%">
+        <Flex w="100%" h="30%" mt="20px">
           <ModalInsideGreyInput
             value={requestBody.quiz.quizTitle}
             height="100%"
@@ -45,9 +45,9 @@ export const MakeQuizChoice = () => {
           {/* O 버튼 */}
           <IconButton
             borderRadius="30px"
-            boxSize="120px"
+            boxSize="140px"
             aria-label="Circle"
-            icon={<Circle size={80} color="blue" />}
+            icon={<Circle size={100} color="blue" />}
             variant="solid"
             border={selectedAnswer === "O" ? "5px solid green" : "none"} // 선택 효과
             onClick={() => handleAnswerClick("O")}
@@ -55,15 +55,15 @@ export const MakeQuizChoice = () => {
           {/* X 버튼 */}
           <IconButton
             borderRadius="30px"
-            boxSize="120px"
+            boxSize="140px"
             aria-label="X"
-            icon={<X size={100} color="red" />}
+            icon={<X size={120} color="red" />}
             variant="solid"
             border={selectedAnswer === "X" ? "5px solid green" : "none"} // 선택 효과
             onClick={() => handleAnswerClick("X")}
           />
         </Flex>
-        <Box w="calc(100% - 200px)" mt="20px">
+        <Box w="calc(100% - 200px)" mt="90px">
           <BlueEllipseButton onClick={goSetChefName}>작성 완료</BlueEllipseButton>
         </Box>
       </>
