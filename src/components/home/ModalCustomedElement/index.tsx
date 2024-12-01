@@ -65,7 +65,7 @@ export const ModalInsideGreyInput: React.FC<ModalInsideContainerProps> = ({
 export const ModalInsideWhiteContainer = styled.div<ModalInsideContainerProps>`
   background: white;
   border-radius: 30px;
-  width: calc(100% - 10px);
+  width: calc(100% - 20px);
   height: ${(props) =>
     props.height || "auto"}; // props로 받은 height 또는 기본값
 `;
