@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { Text, Input, Box, Flex } from "@chakra-ui/react";
 
-
 interface ModalInsideContainerProps {
   height?: string; // height를 선택적으로 받음
   value?: string;
@@ -11,7 +10,7 @@ interface ModalInsideContainerProps {
 }
 
 export const ModalInsideGreyContainer = styled.div<ModalInsideContainerProps>`
-  background: #D9D9D9;
+  background: #d9d9d9;
   border-radius: 30px;
   width: calc(100% - 20px);
   height: ${(props) =>
@@ -35,7 +34,7 @@ export const ModalInsideGreyInput: React.FC<ModalInsideContainerProps> = ({
   ...props
 }) => {
   return (
-    <Box position="relative" width="100%">
+    <Box display="flex" flexDir="column" width="100%" alignItems="center">
       {/* 입력 필드 */}
       <StyledInput
         height={height}
@@ -50,7 +49,6 @@ export const ModalInsideGreyInput: React.FC<ModalInsideContainerProps> = ({
 
       {/* 글자 수 표시 */}
       <Flex
-        position="absolute"
         bottom="-20px"
         right="10px"
         fontSize="12px"
@@ -78,7 +76,7 @@ interface ModalTitleProps {
 
 export const ModalTitle = ({ title }: ModalTitleProps) => {
   return (
-    <Text fontSize="32px" color="white" top="0px" mt="24px" position="absolute">
+    <Text fontSize="32px" color="white">
       {title}
     </Text>
   );
@@ -91,17 +89,17 @@ interface LetterTopInfoProps {
 
 export const LetterTopInfo = ({ text, nickname }: LetterTopInfoProps) => {
   return (
-    <Flex justify="center">
+    <Flex justify="center" w="100%" gap="20px">
       <Text color="white" fontSize="24px">
         {text}
       </Text>
       <Box
         backgroundColor="#D2ECF3"
-        color="007DA4"
         borderRadius="30px"
         width="60%"
+        alignContent="center"
       >
-        {nickname}
+        <Text fontSize="20px" justifySelf="center" color="#007DA4">{nickname}</Text>
       </Box>
     </Flex>
   );

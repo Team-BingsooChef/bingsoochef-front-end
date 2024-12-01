@@ -3,13 +3,13 @@ import {
   ModalTitle,
 } from "../../home/ModalCustomedElement";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
-import { Flex, Image, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Flex, Image, Grid, GridItem, Text, Box } from "@chakra-ui/react";
 import { useModalHeight } from "../../../hook/useModalHeight";
 import { useCreateToppingStore } from "../../../store/api/topping";
 import { useModalStateStore } from "../../../store/modal";
 
 export const SelectTopping = () => {
-  useModalHeight("70%"); // SelectTopping에 맞는 높이 설정
+  useModalHeight("64%"); // SelectTopping에 맞는 높이 설정
   const fruits = toppingTypesData.filter(
     (item) => item.toppingTypeCategory === "fruits"
   );
@@ -30,8 +30,10 @@ export const SelectTopping = () => {
 
   return (
     <>
+      <Box mb="24px">
       <ModalTitle title="토핑 선택" />
-      <ModalInsideGreyContainer height="70%">
+      </Box>
+      <ModalInsideGreyContainer height="80%">
         <Flex flexDir="column" m="0 10px 0 10px">
           {/* Fruits 카테고리 */}
           <Text mt="16px">- 과일 </Text>
