@@ -5,12 +5,10 @@ import { QuizOrNot, SelectQuizType } from "../../chef/AskAboutQuiz";
 import { MakeQuizChoice } from "../../chef/MakeQuizChoice";
 import { SetChefName } from "../../chef/SetChefName";
 
-import {
-  OpenQuiz,
-  ReplyOrNot,
-  ReplyLetter,
-  ReadMessage,
-} from "../ClickTopping";
+import { OpenQuiz } from "../../owner/OpenQuiz";
+import { ReplyOrNot } from "../../owner/ReplyOrNot";
+import { ReplyLetter } from "../../owner/ReplyLetter";
+import { ReadMessage } from "../../owner/ReadMessage";
 
 //Chef의 Modal component들은 chef에, Owner의 Modal component들은 owner에 들어가져있음
 
