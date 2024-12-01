@@ -12,6 +12,9 @@ interface ModalInsideContainerProps {
 export const ModalInsideGreyContainer = styled.div<ModalInsideContainerProps>`
   background: #d9d9d9;
   border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: calc(100% - 20px);
   height: ${(props) =>
     props.height || "auto"}; // props로 받은 height 또는 기본값

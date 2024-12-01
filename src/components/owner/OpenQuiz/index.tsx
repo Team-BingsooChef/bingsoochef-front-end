@@ -1,177 +1,164 @@
 import { useState } from "react";
 import { useModalStateStore } from "../../../store/modal";
 import { useModalHeight } from "../../../hook/useModalHeight";
-import { useCreateToppingStore } from "../../../store/api/topping";
+// import { useSelectedToppingStore } from "../../../store/api/topping";
 import { Circle, X } from "lucide-react";
-import { Flex, IconButton, Box, Input, Button } from "@chakra-ui/react";
+import { Flex, IconButton, Button, useToast } from "@chakra-ui/react";
+import { quizSampleOXData, quizSampleMultipleData } from '../../../__mocks__/quiz/data';
 import {
   ModalTitle,
-  ModalInsideGreyInput,
+  ModalInsideGreyContainer,
 } from "../../home/ModalCustomedElement";
-import { BlueEllipseButton } from "../../common/CustomedButton";
+
 
 export const OpenQuiz = () => {
   const { setModalState } = useModalStateStore();
-  const { requestBody, setQuizTitle, setQuestions } = useCreateToppingStore();
-  useModalHeight(requestBody.quiz.quizType === "Multiple" ? "80%" : "70%");
-  // 클릭 상태 관리
+  const toast = useToast();
+  const exampleOXAnswer = "O";
+  const exampleMultipleAnswer = 1;
+  // const { selectedToppingId } = useSelectedToppingStore();
+  
+  // 나중엔 toppingId, userId로 퀴즈 조회해서 받아옴"
+
+  useModalHeight(quizSampleOXData.quiz.quizType === "Multiple" ? "80%" : "50%");
+  // OX 퀴즈 상태
   const [selectedAnswer, setSelectedAnswer] = useState<"O" | "X" | null>(null);
+  const [correctAnswer, setCorrectAnswer] = useState<"O" | "X" | null>(null);
+ 
+  // 객관식 퀴즈 상태
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [correctOption, setCorrectOption] = useState<number | null>(null);
 
-  // 버튼 클릭 핸들러
-  const handleAnswerClick = (answer: "O" | "X") => {
+  // OX 버튼 클릭 핸들러
+  const handleOXAnswerClick = (answer: "O" | "X") => {
     setSelectedAnswer(answer); // 선택한 답변 저장
-    setQuestions([{ first: answer, second: true }]); // 질문 데이터 설정
-  };
 
-  const goSetChefName = () => {
-    setModalState("setChefName");
-  };
-  // 선지 관리 상태
-  const [options, setOptions] = useState([
-    { text: "", isSelected: false }, // 기본 선지 1
-    { text: "", isSelected: false }, // 기본 선지 2
-  ]);
-
-  // 추가 버튼으로 선지 추가
-  const addOption = () => {
-    if (options.length < 4) {
-      setOptions([...options, { text: "", isSelected: false }]);
+    const isCorrect = exampleOXAnswer === answer; // 정답 확인
+    setCorrectAnswer(exampleOXAnswer); // 정답 저장
+    if (isCorrect) {
+      toast({
+        title: "정답입니다!",
+        description: "토핑이 오픈됩니다.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      setModalState("readMessage");
+    } else {
+      toast({
+        title: "틀렸습니다.",
+        description: "다시 시도해 주세요.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
     }
   };
 
-  // 입력값 변경 핸들러
-  const handleInputChange = (index: number, value: string) => {
-    const updatedOptions = options.map((option, i) =>
-      i === index ? { ...option, text: value } : option
-    );
-    setOptions(updatedOptions);
-  };
 
-  // 선지 선택 핸들러
-  const handleSelectOption = (index: number) => {
-    const updatedOptions = options.map((option, i) => ({
-      ...option,
-      isSelected: i === index, // 선택된 선지만 true로 설정
-    }));
-    setOptions(updatedOptions);
+    // 객관식 버튼 클릭 핸들러
+    const handleMultipleAnswerClick = (index: number) => {
+      setSelectedOption(index);
+      const isCorrect = exampleMultipleAnswer === index; // 정답 확인
+      setCorrectOption(exampleMultipleAnswer); // 정답 저장
+      if (isCorrect) {
+        toast({
+          title: "정답입니다!",
+          description: "토핑이 오픈됩니다.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        setModalState("readMessage");
+      } else {
+        toast({
+          title: "틀렸습니다.",
+          description: "다시 시도해 주세요.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    };
 
-    // questions 업데이트
-    setQuestions(
-      updatedOptions.map((option) => ({
-        first: option.text,
-        second: option.isSelected,
-      }))
-    );
-  };
 
-  if (requestBody.quiz.quizType === "OX") {
+
+   // OX 퀴즈 렌더링
+   if (quizSampleMultipleData.quiz.quizType === "OX") {
     return (
       <>
-        <ModalTitle title="OX 퀴즈 내기" />
-        <Flex w="100%" h="30%" mt="20px">
-          <ModalInsideGreyInput
-            value={requestBody.quiz.quizTitle}
-            height="100%"
-            placeholder="퀴즈 작성"
-            maxLength={30}
-            onChange={(e) => setQuizTitle(e.target.value)}
-          />
+        <ModalTitle title="OX 퀴즈" />
+        <Flex w="100%" h="30%" mt="20px" justify="center">
+          <ModalInsideGreyContainer height="100%">
+            Q. {quizSampleOXData.quiz.quizTitle}
+          </ModalInsideGreyContainer>
         </Flex>
-        <Flex gap="40px" mt="20px">
-          {/* O 버튼 */}
+        <Flex gap="40px" mt="20px" justify="center">
           <IconButton
             borderRadius="30px"
             boxSize="140px"
-            aria-label="Circle"
+            aria-label="O"
             icon={<Circle size={100} color="blue" />}
-            variant="solid"
-            border={selectedAnswer === "O" ? "5px solid green" : "none"} // 선택 효과
-            onClick={() => handleAnswerClick("O")}
+            border={
+              selectedAnswer === "O"
+                ? correctAnswer === "O"
+                  ? "5px solid green"
+                  : "5px solid red"
+                : "none"
+            }
+            onClick={() => handleOXAnswerClick("O")}
           />
-          {/* X 버튼 */}
           <IconButton
             borderRadius="30px"
             boxSize="140px"
             aria-label="X"
             icon={<X size={120} color="red" />}
-            variant="solid"
-            border={selectedAnswer === "X" ? "5px solid green" : "none"} // 선택 효과
-            onClick={() => handleAnswerClick("X")}
+            border={
+              selectedAnswer === "X"
+                ? correctAnswer === "X"
+                  ? "5px solid green"
+                  : "5px solid red"
+                : "none"
+            }
+            onClick={() => handleOXAnswerClick("X")}
           />
         </Flex>
-        <Box w="calc(100% - 200px)" mt="90px">
-          <BlueEllipseButton onClick={goSetChefName}>
-            작성 완료
-          </BlueEllipseButton>
-        </Box>
       </>
     );
-  } else if (requestBody.quiz.quizType === "Multiple") {
+  }
+   // 객관식 퀴즈 렌더링
+   if (quizSampleMultipleData.quiz.quizType === "Multiple") {
     return (
       <>
-        <ModalTitle title="객관식 퀴즈 내기" />
-        <Flex w="100%" h="30%" mt="20px">
-          <ModalInsideGreyInput
-            value={requestBody.quiz.quizTitle}
-            height="100%"
-            placeholder="퀴즈 제목을 작성하세요"
-            maxLength={30}
-            onChange={(e) => setQuizTitle(e.target.value)}
-          />
+        <ModalTitle title="객관식 퀴즈" />
+        <Flex w="100%" h="30%" mt="20px" justify="center">
+          <ModalInsideGreyContainer>Q. {quizSampleMultipleData.quiz.quizTitle}</ModalInsideGreyContainer>
         </Flex>
-
-        {/* 선지 입력 필드 */}
-        <Flex direction="column" gap="10px" mt="20px">
-          {options.map((option, index) => (
-            <Flex
-              key={index}
-              align="center"
-              bg="white"
-              p="10px"
-              borderRadius="10px"
-              border={option.isSelected ? "2px solid green" : "1px solid #ccc"}
-              boxShadow={option.isSelected ? "0 0 5px green" : "none"}
-            >
-              <Input
-                placeholder="선지를 작성해주세요"
-                value={option.text}
-                onChange={(e) => handleInputChange(index, e.target.value)}
-                bg="white"
-                flex="1"
-              />
-              <Button
-                ml="10px"
-                bg={option.isSelected ? "green.200" : "gray.100"}
-                onClick={() => handleSelectOption(index)}
-              >
-                {option.isSelected ? "정답" : "선택"}
-              </Button>
-            </Flex>
-          ))}
-          {/* 선지 추가 버튼: 선지 개수가 4개 미만일 때만 표시 */}
-          {options.length < 4 && (
+        <Flex direction="column" gap="10px" mt="20px" width="100%" align="center">
+          {quizSampleMultipleData.questions.map((option, index) => (
             <Button
-              onClick={addOption}
-              variant="outline"
-              bg="transparent"
-              border="1px dashed #ccc"
-              color="#888"
-              _hover={{ bg: "white", color: "black" }}
-              isDisabled={options.length >= 4} // 최대 2개 제한
+            width="calc(100% - 40px)"
+              key={index}
+              borderRadius="12px"
+              onClick={() => handleMultipleAnswerClick(index)}
+              border={
+                selectedOption === index
+                  ? correctOption === index
+                    ? "5px solid green"
+                    : "5px solid red"
+                  : "none"
+              }
+              bg="#03526B"
+              color="white"
+              _hover={{ bg: "blue.600" }}
             >
-              + 클릭해서 선지를 추가하세요
+              {option.questionContent}
             </Button>
-          )}
+          ))}
         </Flex>
-
-        <Box w="calc(100% - 200px)" mt="10px">
-          <BlueEllipseButton onClick={goSetChefName}>
-            작성 완료
-          </BlueEllipseButton>
-        </Box>
       </>
     );
-  } else {
-    return <div>OX 퀴즈 내기</div>;
   }
+
+  return null;
 };
