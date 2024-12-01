@@ -1,6 +1,9 @@
 import { useModalHeight } from "../../../hook/useModalHeight";
 import { useModalOpenStore, useModalStateStore } from "../../../store/modal";
-import { useSelectedToppingStore , useCreateToppingStore } from "../../../store/api/topping";
+import {
+  useSelectedToppingStore,
+  useCreateToppingStore,
+} from "../../../store/api/topping";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import {
   ModalInsideWhiteContainer,
@@ -18,14 +21,17 @@ export const ReadMessage = () => {
 
   //toppingId랑 userId 가지고 api한테 요청
 
-
-   // comment 여부 확인 
-   // 일단은 답장 안 적었을 때 기준으로
+  // comment 여부 확인
+  // 일단은 답장 안 적었을 때 기준으로
   //  const hasComment = data.comment !== null && data.comment.commentContent;
 
   const clickClose = () => {
     setModalState("");
     onClose();
+  };
+
+  const clickReply = () => {
+    setModalState("replyLetter");
   };
   return (
     <>
@@ -37,8 +43,17 @@ export const ReadMessage = () => {
           <Text> 정신 차려보니까 개발한 지 7시간이 훌쩍 지났어 ;</Text>
         </ModalInsideWhiteContainer>
       </Flex>
-       {/* 답장 여부 메시지 */}
-       {/* <Box w="100%" textAlign="center" mb="10px">
+
+      <Flex color="gray.500" fontSize="16px" mt="24px" gap="7px">
+        <Text>답장을 남기지 않았어요.</Text>
+        <Text 
+        textDecoration="underline"
+        cursor="pointer"
+        onClick={clickReply}
+        >답장 남기기</Text>
+      </Flex>
+      {/* 답장 여부 메시지 */}
+      {/* <Box w="100%" textAlign="center" mb="10px">
         {hasComment ? (
           <Text color="blue.500" fontSize="16px">
             답장을 남겼습니다. 내가 남긴 답장 보기
@@ -49,7 +64,7 @@ export const ReadMessage = () => {
           </Text>
         )}
       </Box> */}
-      <Box w="calc(100% - 200px)" mt="10px" mb="30px">
+      <Box w="calc(100% - 200px)" mt="20px" mb="20px">
         <BlueEllipseButton onClick={clickClose}>닫기</BlueEllipseButton>
       </Box>
     </>
