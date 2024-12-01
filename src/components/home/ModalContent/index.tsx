@@ -7,7 +7,7 @@ import { SetChefName } from "../../chef/SetChefName";
 
 import { OpenQuiz } from "../../owner/OpenQuiz";
 import { ReplyOrNot } from "../../owner/ReplyOrNot";
-import { ReplyLetter } from "../../owner/ReplyLetter";
+import { ReplyLetter, ViewReply } from "../../owner/ReplyLetter";
 import { ReadMessage } from "../../owner/ReadMessage";
 
 //Chef의 Modal component들은 chef에, Owner의 Modal component들은 owner에 들어가져있음
@@ -36,6 +36,8 @@ export const ModalContent = () => {
       return <ReplyOrNot />;
     case "replyLetter":
       return <ReplyLetter />;
+      case "viewReply":
+        return <ViewReply />;
     case "readMessage":
       return <ReadMessage />;
     default:

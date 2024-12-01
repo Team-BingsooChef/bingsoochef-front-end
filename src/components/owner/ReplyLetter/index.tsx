@@ -5,6 +5,7 @@ import { useCreateToppingStore } from "../../../store/api/topping";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import {
   ModalInsideGreyInput,
+  ModalInsideWhiteContainer,
   ModalTitle,
   LetterTopInfo
 } from "../../home/ModalCustomedElement";
@@ -58,6 +59,36 @@ const clickNext = () => {
     </Flex>
     <Box w="calc(100% - 200px)" mt="10px" mb="30px" >
     <BlueEllipseButton onClick={clickNext}>완료</BlueEllipseButton>
+    </Box>
+  </>);
+};
+
+export const ViewReply = () => {
+
+  useModalHeight("48%"); // SelectTopping에 맞는 높이 설정
+  const { setModalState } = useModalStateStore();
+  const { onClose } = useModalOpenStore();
+
+const clickNext = () => {
+    onClose();
+    setModalState("");
+    
+  };
+
+  return(
+  <>
+    <Box mt="20px">
+    <ModalTitle title="내가 적은 답장 보기" />
+    </Box>
+    <Box w="100%" m="10px 0 20px 0">
+    <LetterTopInfo text="To" nickname="희연"/>
+    </Box>
+    <Flex w="100%" h="70%" >
+    <ModalInsideWhiteContainer>
+      </ModalInsideWhiteContainer>
+    </Flex>
+    <Box w="calc(100% - 200px)" mt="10px" mb="30px" >
+    <BlueEllipseButton onClick={clickNext}>닫기</BlueEllipseButton>
     </Box>
   </>);
 };

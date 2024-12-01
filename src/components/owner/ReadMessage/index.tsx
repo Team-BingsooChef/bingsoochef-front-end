@@ -33,6 +33,10 @@ export const ReadMessage = () => {
   const clickReply = () => {
     setModalState("replyLetter");
   };
+
+  // const viewReply = () => {
+  //   setModalState("viewReply");
+  // };
   return (
     <>
       <Box w="100%" m="0 0 20px 0">
@@ -55,13 +59,23 @@ export const ReadMessage = () => {
       {/* 답장 여부 메시지 */}
       {/* <Box w="100%" textAlign="center" mb="10px">
         {hasComment ? (
-          <Text color="blue.500" fontSize="16px">
-            답장을 남겼습니다. 내가 남긴 답장 보기
-          </Text>
+       <Flex color="gray.500" fontSize="16px" mt="24px" gap="7px">
+        <Text>답장을 남겼어요.</Text>
+        <Text 
+        textDecoration="underline"
+        cursor="pointer"
+        onClick={viewReply}
+        >남긴 답장 보기</Text>
+      </Flex>
         ) : (
-          <Text color="gray.500" fontSize="16px">
-            답장을 남기지 않았어요. 답장 남기기
-          </Text>
+          <Flex color="gray.500" fontSize="16px" mt="24px" gap="7px">
+        <Text>답장을 남기지 않았어요.</Text>
+        <Text 
+        textDecoration="underline"
+        cursor="pointer"
+        onClick={clickReply}
+        >답장 남기기</Text>
+      </Flex>
         )}
       </Box> */}
       <Box w="calc(100% - 200px)" mt="20px" mb="20px">
