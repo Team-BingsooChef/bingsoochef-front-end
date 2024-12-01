@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Text, Input, Box, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+
 
 interface ModalInsideContainerProps {
   height?: string; // height를 선택적으로 받음
@@ -26,33 +26,25 @@ const StyledInput = styled(Input)<ModalInsideContainerProps>`
   height: ${(props) => props.height || "auto"};
 `;
 
-// 함수형 컴포넌트 정의
 export const ModalInsideGreyInput: React.FC<ModalInsideContainerProps> = ({
   height,
-  value = "",
+  value,
   placeholder,
   maxLength,
   onChange,
   ...props
 }) => {
-  // 입력값 상태 관리
-  const [inputValue, setInputValue] = useState(value);
-
-  // 입력값 변경 핸들러
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (maxLength && e.target.value.length > maxLength) return; // 최대 글자 수 제한
-    setInputValue(e.target.value);
-    if (onChange) onChange(e); // 외부 핸들러 호출
-  };
-
   return (
     <Box position="relative" width="100%">
       {/* 입력 필드 */}
       <StyledInput
         height={height}
-        value={inputValue}
+        value={value} // 외부에서 전달된 value
         placeholder={placeholder}
-        onChange={handleChange}
+        onChange={(e) => {
+          if (maxLength && e.target.value.length > maxLength) return; // 최대 글자 수 제한
+          if (onChange) onChange(e); // 외부 핸들러 호출
+        }}
         {...props}
       />
 
@@ -65,12 +57,13 @@ export const ModalInsideGreyInput: React.FC<ModalInsideContainerProps> = ({
         color="#666"
         justifyContent="flex-end"
       >
-        {inputValue.length}
+        {value?.length || 0}
         {maxLength ? ` / ${maxLength}` : ""} {/* 최대 글자 수 표시 */}
       </Flex>
     </Box>
   );
 };
+
 export const ModalInsideWhiteContainer = styled.div<ModalInsideContainerProps>`
   background: white;
   border-radius: 30px;
