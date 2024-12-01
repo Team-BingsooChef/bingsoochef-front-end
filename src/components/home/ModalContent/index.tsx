@@ -3,9 +3,8 @@ import { SelectTopping } from "../../chef/SelectTopping";
 import { WriteMessage } from "../../chef/WriteMessage";
 import { QuizOrNot, SelectQuizType } from "../../chef/AskAboutQuiz";
 import { MakeQuizChoice } from "../../chef/MakeQuizChoice";
-import {
-  SetChefName,
-} from "../AddTopping";
+import { SetChefName } from "../../chef/SetChefName";
+
 import {
   OpenQuiz,
   ReplyOrNot,

@@ -7,6 +7,9 @@ interface Question {
   second: boolean; // 부가 정보 (true)
 }
 
+// quizType을 리터럴 타입으로 제한
+type QuizType = "OX" | "Multiple";
+
 interface CreateToppingStore {
   requestBody: CreateToppingRequestBody;
   setUserId: (userId: number) => void;
@@ -14,7 +17,7 @@ interface CreateToppingStore {
   setTopping: (topping: CreateToppingRequestBody["topping"]) => void;
   setToppingTypeId: (toppingTypeId: number) => void;
   setQuiz: (quiz: CreateToppingRequestBody["quiz"]) => void;
-  setQuizType: (quizType: string) => void; // quizType 업데이트 메서드
+  setQuizType: (quizType: QuizType) => void; // quizType을 제한된 타입으로 업데이트
   setQuizTitle: (quizTitle: string) => void; // quizTitle 업데이트 메서드
   setQuestions: (questions: Question[]) => void; // 질문 업데이트 메서드
   setToppingContent: (toppingContent: string) => void; // toppingContent 업데이트 메서드
