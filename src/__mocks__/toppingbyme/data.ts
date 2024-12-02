@@ -6,6 +6,7 @@ export const toppingExamples = [
       isHidden: true,
       wrongCount: 3,
       isReplied: false,
+      toppingTypeId: 1,
     },
     {
       id: 2,
@@ -14,6 +15,7 @@ export const toppingExamples = [
       isHidden: false,
       wrongCount: 1,
       isReplied: true,
+      toppingTypeId: 2,
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ export const toppingExamples = [
       isHidden: false,
       wrongCount: 5,
       isReplied: false,
+      toppingTypeId: 3,
     },
   ];
   

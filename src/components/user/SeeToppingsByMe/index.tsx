@@ -1,23 +1,24 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, Image } from "@chakra-ui/react";
 import { ModalInsideWhiteContainer } from "../../home/ModalCustomedElement";
 import { toppingExamples } from "../../../__mocks__/toppingbyme/data";
+import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 
+// SeeToppingsByMe 컴포넌트
 export const SeeToppingsByMe = () => {
   return (
     <Flex
       mt="20px"
       flexDir="column"
       w="full"
-      h="80vh" // 부모 높이 설정 (뷰포트 기준)
-      maxH="800px" // 최대 높이 제한
+      h="80vh"
       align="center"
       justify="center"
-      overflow="hidden" // 부모에서 초과된 내용 숨기기
+      overflow="hidden"
     >
       <Box
         w="full"
         h="100%"
-        overflowY="auto" // 스크롤 활성화
+        overflowY="auto"
         borderRadius="16px"
         p="16px"
         bg="none"
@@ -36,6 +37,7 @@ interface ToppingByMeElementProps {
   isHidden: boolean;
   wrongCount: number;
   isReplied: boolean;
+  toppingTypeId: number;
 }
 
 const ToppingByMeElement = ({
@@ -44,7 +46,14 @@ const ToppingByMeElement = ({
   isHidden,
   wrongCount,
   isReplied,
+  toppingTypeId,
 }: ToppingByMeElementProps) => {
+  // toppingTypeId를 기반으로 defrostedImg 가져오기
+  const toppingType = toppingTypesData.find(
+    (type: { toppingTypeId: number; defrostedImg: string }) => type.toppingTypeId === toppingTypeId
+  );
+  const defrostedImg = toppingType?.defrostedImg;
+
   return (
     <Flex
       flexDir="column"
@@ -54,7 +63,7 @@ const ToppingByMeElement = ({
       backgroundColor="#B8F7FE"
       h="300px"
       borderRadius="50px"
-      mb="16px" // 각 요소 간격
+      mb="16px"
     >
       <Text color="#1581A3" fontSize="24px">
         To. {nickname}
@@ -66,8 +75,23 @@ const ToppingByMeElement = ({
           backgroundColor="white"
           borderRadius="16px"
           p="20px"
+          position="relative"
         >
-          {toppingContent}
+          {/* 모서리에 defrostedImg 아이콘 표시 */}
+          {defrostedImg && (
+            <Image
+              src={defrostedImg}
+              alt="topping icon"
+              position="absolute"
+              top="-20px"
+              right="0px"
+              boxSize="50px"
+              cursor="pointer"
+            />
+          )}
+          <Text fontSize="16px" color="#03526B">
+            {toppingContent}
+          </Text>
         </Box>
       </ModalInsideWhiteContainer>
       <Box mt="16px">
