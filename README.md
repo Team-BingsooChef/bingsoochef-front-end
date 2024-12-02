@@ -2,4 +2,4 @@
 
 리팩토링 & API 연결 중이에요
 
-components 폴더 안에 auth, user, home을 제외하곤 다 없어질 예정
+남은 건 github Flow 방식으로, 기능 개발 브랜치 파서 작업하다가 바로 main으로 merge
