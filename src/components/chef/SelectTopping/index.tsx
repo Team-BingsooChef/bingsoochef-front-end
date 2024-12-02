@@ -1,6 +1,6 @@
 import {
-  ModalInsideGreyContainer,
   ModalTitle,
+  SelectToppingInsideGreyContainer,
 } from "../../home/ModalCustomedElement";
 import { toppingTypesData } from "../../../__mocks__/toppingtypes/data";
 import { Flex, Image, Grid, GridItem, Text, Box } from "@chakra-ui/react";
@@ -33,7 +33,7 @@ export const SelectTopping = () => {
       <Box mb="24px">
       <ModalTitle title="토핑 선택" />
       </Box>
-      <ModalInsideGreyContainer height="80%">
+      <SelectToppingInsideGreyContainer height="80%">
         <Flex flexDir="column" m="0 10px 0 10px">
           {/* Fruits 카테고리 */}
           <Text mt="16px">- 과일 </Text>
@@ -125,7 +125,7 @@ export const SelectTopping = () => {
             ))}
           </Grid>
         </Flex>
-      </ModalInsideGreyContainer>
+      </SelectToppingInsideGreyContainer>
     </>
   );
 };
