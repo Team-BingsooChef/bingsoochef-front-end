@@ -110,3 +110,12 @@ export const LetterTopInfo = ({ text, nickname }: LetterTopInfoProps) => {
     </Flex>
   );
 };
+
+
+export const SelectToppingInsideGreyContainer = styled.div<ModalInsideContainerProps>`
+  background: #d9d9d9;
+  border-radius: 30px;
+  width: calc(100% - 20px);
+  height: ${(props) =>
+    props.height || "auto"}; // props로 받은 height 또는 기본값
+`;
