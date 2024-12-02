@@ -1,18 +1,22 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
+import background_blue from "../../assets/background/background_blue.png";
+import background from "../../assets/background/background.png";
+import background_ivory from "../../assets/background/background_ivory.png";
+
 export default function RootLayout() {
   const location = useLocation();
 
   // 경로에 따라 배경 이미지 선택
   let backgroundImage;
   if (location.pathname === "/emailcheck") {
-    backgroundImage = 'url("/src/assets/background/background_blue.png")';
+    backgroundImage = `url(${background_blue})`;
   } else if (
     ["/setting", "/seetoppinglist", "/search"].includes(location.pathname)
   ) {
-    backgroundImage = 'url("/src/assets/background/background_ivory.png")';
+    backgroundImage = `url(${background_ivory})`;
   } else {
-    backgroundImage = 'url("/src/assets/background/background.png")';
+    backgroundImage = `url(${background})`;
   }
 
   return (

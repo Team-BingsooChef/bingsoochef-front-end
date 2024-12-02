@@ -4,7 +4,7 @@ import { SettingHeader } from "../../components/user/SettingHeader";
 import { GreyInput, PasswordInput } from "../../components/user/CustomedInput";
 import { Text, Flex, Box, Image, Divider } from "@chakra-ui/react";
 import { BlueEllipseButton } from "../../components/common/CustomedButton";
-
+import profile_example from "../../assets/profile_example.jpg";
 
 export default function SettingPage() {
   const [currentNickname, setCurrentNickname] = useState<string>("호랭이");
@@ -41,7 +41,7 @@ const toggleAccess = () => {
         <Flex align="center" gap="8px">
         <Box>
           <Image
-            src="/src/assets/profile_example.jpg"
+            src={profile_example}
             alt="profile"
             width="50px"
             height="50px"
