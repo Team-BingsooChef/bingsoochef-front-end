@@ -7,16 +7,12 @@ import {
 } from "./types"
 
 export async function QueryQuiz(params: QueryQuizParams): Promise<QueryQuizResponseBody>{
-    const hyphenParams = {
-      "topping-id": params.toppingId, // 하이픈 포함된 키로 변환
-      "user-id": params.userId,
-    }; 
-
-    api.get("/users/bingsoos/toppings/${params.toppingId}/quiz", {
-	params: {
-        "user-id": hyphenParams["user-id"],
-	} 
-})
+    const response = await api.get<QueryQuizResponseBody>("/users/bingsoos/toppings/${params.toppingId}/quiz", {
+    params: {
+        "user-id": params.userId,
+    } 
+});
+    return response.data;
 };
 
 export function SendAnswer(req: SendAnswerRequestBody): Promise<SendAnswerResponseBody> {

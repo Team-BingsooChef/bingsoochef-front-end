@@ -15,7 +15,7 @@ export interface AuthBottomWrapperProps {
 }
 
 // export const AuthBottomWrapper = ({ children }: AuthBottomWrapperProps) => {
-export const AuthBottomWrapper = ({linkText, linkText2, linkTo}) => {
+export const AuthBottomWrapper = ({linkText, linkText2, linkTo}: AuthBottomWrapperProps) => {
   return (
     <Flex flexDir="column" mb="60px" position="fixed" bottom="0">
     <Flex w="100%" justifyContent="center" gap="12px" mb="120px">

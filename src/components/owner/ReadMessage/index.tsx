@@ -1,13 +1,11 @@
 import { useModalHeight } from "../../../hook/useModalHeight";
 import { useModalOpenStore, useModalStateStore } from "../../../store/modal";
-import {
-  useSelectedToppingStore,
-  useCreateToppingStore,
-} from "../../../store/api/topping";
+// import {
+//   useSelectedToppingStore,
+// } from "../../../store/api/topping";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import {
   ModalInsideWhiteContainer,
-  ModalTitle,
   LetterTopInfo,
 } from "../../home/ModalCustomedElement";
 import { Flex, Box, Text } from "@chakra-ui/react";
@@ -17,7 +15,7 @@ export const ReadMessage = () => {
 
   const { setModalState } = useModalStateStore();
   const { onClose } = useModalOpenStore();
-  const { selectedToppingId } = useSelectedToppingStore();
+  // const { selectedToppingId } = useSelectedToppingStore();
 
   //toppingId랑 userId 가지고 api한테 요청
 

@@ -4,7 +4,7 @@ import { Flex} from "@chakra-ui/react";
 
 import { Toppings} from "../FloatToppings";
 export const Bingsoo = () => {
-    const [bingsooTaste, setBingsooTaste] = useState("strawberry");
+    const [bingsooTaste] = useState("strawberry");
     const getBingsooTasteUrl = (taste: string) => {
         return `/src/assets/bingsoo/${taste}.png`;
       };

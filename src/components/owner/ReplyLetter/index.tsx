@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useModalHeight } from "../../../hook/useModalHeight";
 import { useModalStateStore, useModalOpenStore } from "../../../store/modal";
-import { useCreateToppingStore } from "../../../store/api/topping";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import {
   ModalInsideGreyInput,

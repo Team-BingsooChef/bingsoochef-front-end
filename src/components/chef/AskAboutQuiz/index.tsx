@@ -4,6 +4,8 @@ import {Text, Flex} from "@chakra-ui/react";
 import { BlueEllipseButton } from "../../common/CustomedButton";
 import { useCreateToppingStore } from '../../../store/api/topping/index';
 
+type QuizType = "Multiple" | "OX";
+
 export const QuizOrNot = () => {
     const { setModalState } = useModalStateStore();
     useModalHeight("24%"); 
@@ -30,7 +32,7 @@ export const QuizOrNot = () => {
     const { setQuizType } = useCreateToppingStore();
   
     // 퀴즈 타입 설정 후 모달 상태 변경
-    const handleSetQuizType = (type: string) => {
+    const handleSetQuizType = (type: QuizType) => {
       setQuizType(type); // 전달받은 타입으로 quizType 업데이트
       setModalState("makeQuizChoice"); // 모달 상태 변경
     };
