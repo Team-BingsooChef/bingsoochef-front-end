@@ -5,12 +5,12 @@ import { ModalLayout } from "../../components/home/ModalLayout";
 export default function HomePage() {
     // const { bingsooId } = useParams(); // URL에서 bingsooId 가져오기
     type Role = "chef" | "owner";
-    const role: Role = "owner"; // 초기값 "owner"로 설정
+    const role: Role = "chef"; // 초기값 "owner"로 설정
     
     return(
         <Wrapper>
-            {/* {role === "chef" ? <ChefView /> : <OwnerView />} */}
-            {role === "owner" ? <OwnerView /> : <ChefView />}
+            {role === "chef" ? <ChefView /> : <OwnerView />}
+            {/* {role === "owner" ? <OwnerView /> : <ChefView />} */}
                {/* ModalLayout을 전역적으로 추가 */}
             <ModalLayout/>
         </Wrapper>
