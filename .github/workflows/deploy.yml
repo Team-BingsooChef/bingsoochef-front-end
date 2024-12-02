@@ -5,7 +5,7 @@ on:
     branches: ['main'] # main으로 push되었을 때 실행
 env:
   AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: zzansuni-test
+  S3_BUCKET_NAME: bingsoochef
 permissions:
   contents: read
 
