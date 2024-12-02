@@ -51,7 +51,6 @@ export const GreyInput: React.FC<SettingInputProps> = ({
         height="60px"
         borderRadius="16px"
         backgroundColor="#A4ABBC"
-        mb="24px"
         _hover={{ backgroundColor: "#A4ABBC" }} // Keeps the background white on hover
         _focus={{ backgroundColor: "#A4ABBC", boxShadow: "none" }} // Keeps the background white on focus
       />

@@ -86,18 +86,19 @@ const toggleAccess = () => {
   );
 };
 
-const GreyTextButton = styled(Text)`
-  font-size: 14px;
-  text-decoration: underline;
-  color: #777c89;
-  cursor: pointer;
-`;
 
 const Wrapper = styled.div`
   width: calc(100% - 60px);
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const GreyTextButton = styled(Text)`
+  font-size: 14px;
+  text-decoration: underline;
+  color: #777c89;
+  cursor: pointer;
 `;
 
 
